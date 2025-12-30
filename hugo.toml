@@ -1,0 +1,12 @@
+baseURL = "https://leon-acco.github.io/"
+languageCode = "en-us"
+title = "My New Acho Site"
+theme = "hugo-PaperMod"
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  author = "Acho"
+  description = "个人博客"
+  showReadingTime = true
