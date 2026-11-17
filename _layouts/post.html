@@ -30,6 +30,40 @@ layout: default
   </header>
 
   <div class="post-body{% if has_toc %} layout-toc{% endif %}">
+    <div class="post-main">
+      <div class="post-content">
+        {{ content }}
+      </div>
+
+      {% if page.series %}
+      {% assign family = site.posts | where: "series", page.series | sort: "series_order" %}
+      {% if family.size > 1 %}
+      <aside class="series-nav">
+        <div class="series-nav-title">{{ sicon }} {{ stitle }}（{{ family.size }} 篇）</div>
+        <ul>
+          {% for p in family %}
+          <li class="{% if p.url == page.url %}current{% endif %}">
+            <span class="no">{{ p.series_order }}</span>
+            {% if p.url == page.url %}{{ p.title }}{% else %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </aside>
+      {% endif %}
+      {% endif %}
+
+      {% if page.original %}
+      <footer class="post-footer">
+        <p>本文整理自个人知识库，<a href="{{ page.original }}" target="_blank" rel="noopener">查看原文 ↗</a></p>
+      </footer>
+      {% endif %}
+
+      <nav class="post-nav" aria-label="上下篇">
+        {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><span class="dir">← 上一篇</span>{{ page.previous.title | truncate: 34 }}</a>{% endif %}
+        {% if page.next %}<a class="right" href="{{ page.next.url | relative_url }}"><span class="dir">下一篇 →</span>{{ page.next.title | truncate: 34 }}</a>{% endif %}
+      </nav>
+    </div>
+
     {% if has_toc %}
     <aside class="toc" aria-label="目录">
       <div class="toc-title">目录</div>
@@ -51,37 +85,5 @@ layout: default
       </ul>
     </aside>
     {% endif %}
-
-    <div class="post-content">
-      {{ content }}
-    </div>
   </div>
-
-  {% if page.series %}
-  {% assign family = site.posts | where: "series", page.series | sort: "series_order" %}
-  {% if family.size > 1 %}
-  <aside class="series-nav">
-    <div class="series-nav-title">{{ sicon }} {{ stitle }}（{{ family.size }} 篇）</div>
-    <ul>
-      {% for p in family %}
-      <li class="{% if p.url == page.url %}current{% endif %}">
-        <span class="no">{{ p.series_order }}</span>
-        {% if p.url == page.url %}{{ p.title }}{% else %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-  </aside>
-  {% endif %}
-  {% endif %}
-
-  {% if page.original %}
-  <footer class="post-footer">
-    <p>本文整理自个人知识库，<a href="{{ page.original }}" target="_blank" rel="noopener">查看原文 ↗</a></p>
-  </footer>
-  {% endif %}
 </article>
-
-<nav class="post-nav" aria-label="上下篇">
-  {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title | truncate: 30 }}</a>{% endif %}
-  {% if page.next %}<a class="right" href="{{ page.next.url | relative_url }}">{{ page.next.title | truncate: 30 }} →</a>{% endif %}
-</nav>
