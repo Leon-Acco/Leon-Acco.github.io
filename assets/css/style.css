@@ -101,7 +101,7 @@ a:hover { text-decoration: underline; }
 /* TOC */
 .post-body { position: relative; }
 .post-body.layout-toc { display: flex; gap: 32px; align-items: flex-start; }
-.post-body.layout-toc .toc { flex: 0 0 230px; position: sticky; top: 84px; max-height: calc(100vh - 110px); overflow: auto; font-size: 13px; }
+.post-body.layout-toc .toc { display: block; flex: 0 0 230px; position: sticky; top: 84px; max-height: calc(100vh - 110px); overflow: auto; font-size: 13px; }
 .post-body.layout-toc .post-content { flex: 1; min-width: 0; }
 .toc { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
 .toc-title { font-weight: 600; margin-bottom: 8px; color: var(--text); }
