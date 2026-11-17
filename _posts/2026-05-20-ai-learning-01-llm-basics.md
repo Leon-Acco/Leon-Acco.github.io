@@ -10,8 +10,6 @@ math: false
 toc: true
 ---
 <div class="callout callout-note" markdown="1">
-**📝 🧱**
-
 本页目标：把 **AI 应用开发工程师** 必备的“底层概念 + 工程视角”一次讲清楚。后续每一节都会在 RAG / Agent / 工程化模块里反复用到。
 </div>
 
@@ -53,8 +51,6 @@ flowchart TB
 - **seed（如支持）**：一定程度可复现
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **工程经验**：生产环境优先追求可控与一致性。默认把 temperature 控制在较低区间，并通过“检索、结构化约束、评测回归”提升质量，而不是靠更“随机”的生成。
 </div>
 
@@ -113,8 +109,6 @@ Embedding 把文本（或图像、代码）映射成向量，语义相近的内�
 - 按标题层级 / 段落 / 语义边界切分
 
 <div class="callout callout-note" markdown="1">
-**📝 🔎**
-
 **关键点**：Chunking 的好坏直接决定 RAG 上限。切得太大，召回噪声高；切得太小，语义不完整。
 </div>
 
@@ -315,7 +309,5 @@ flowchart TB
 - 能搭一套最小评测与 trace 记录方式
 
 <div class="callout callout-note" markdown="1">
-**📝 📌**
-
 下一步建议：在本页内容基础上，去 **02 · RAG 与知识库** 把检索工程做成“可跑的最小系统”；再去 **03 · Agent 与工具调用** 把工具链串起来。
 </div>

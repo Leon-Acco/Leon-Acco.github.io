@@ -177,8 +177,6 @@ review_model = "gpt-5.3-codex"
 Codex 原生支持 MCP，可以在 `~/.codex/config.toml` 中配置或通过 `codex mcp` 命令管理。
 
 <div class="callout callout-note" markdown="1">
-**📝 🔌**
-
 **MCP 是 Codex 最强大的扩展机制** — 通过它你可以把任何第三方工具接入 Codex，让它像内置工具一样调用。
 </div>
 
@@ -216,8 +214,6 @@ codex mcp login <name>  # OAuth 登录（支持 OAuth 的 Server）
 ### 4.2 Skills（技能包）
 
 <div class="callout callout-note" markdown="1">
-**📝 🧩**
-
 Skills 是 Codex 的**可复用任务配方**，用 `SKILL.md` + 脚本封装特定工作流。支持 CLI、IDE、App 三端。
 </div>
 
@@ -275,8 +271,6 @@ claude mcp add codex-cli -- npx -y codex-mcp-server
 | 会话恢复 | ✅ `codex resume` | ✅ `claude --continue` |
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **实战建议**：Codex CLI 和 Claude Code 并不冲突，可以通过 MCP 互相调用。根据任务选择最擅长的引擎，或者用 SuperAgent 等工具做多 Agent 编排。
 </div>
 

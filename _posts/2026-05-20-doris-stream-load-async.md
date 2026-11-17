@@ -201,8 +201,6 @@ Flink Job 是整个方案的核心引擎，职责是：**消费 Kafka → 按表
 ## 脏数据处理策略
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 不需要手写二分法！Stream Load 的 max_filter_ratio 已自动过滤脏数据。
 </div>
 
@@ -276,8 +274,6 @@ Flink Job 是整个方案的核心引擎，职责是：**消费 Kafka → 按表
 ## 注意事项
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **异步写入 = 最终一致性**
 </div>
 
@@ -307,7 +303,5 @@ Flink Job 是整个方案的核心引擎，职责是：**消费 Kafka → 按表
 | 日期格式不标准 | 尝试兼容多种格式，都失败则拒绝 |
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **字段名映射**：如果 Entity 字段名是驼峰命名（如 reportTime），而 Doris 列名是下划线命名（如 report_time），插件默认支持自动转换。也可以通过 @DorisColumn("report_time") 注解显式指定映射。
 </div>

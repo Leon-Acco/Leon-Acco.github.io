@@ -46,8 +46,6 @@ sequenceDiagram
 | **执行函数** (handler) | 实际业务逻辑 | 真正干活的代码 |
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **关键启发**：工具描述的质量比代码实现更重要！LLM 靠描述决定「何时调用」和「如何传参」。一个描述模糊的工具，再好的代码也白搭。
 </div>
 
@@ -477,8 +475,6 @@ class HumanInTheLoop:
 ## 五、设计启发总结
 
 <div class="callout callout-note" markdown="1">
-**📝 ✨**
-
 ### 工具系统的 6 条设计原则
 
 1. **描述即接口**——工具的 description 是 LLM 调用决策的唯一依据，务必清晰、准确

@@ -2,67 +2,86 @@
 layout: default
 ---
 <section class="hero">
-  <h1>Hi, I'm <span class="grad">Acho</span> 👋</h1>
-  <p class="tagline">一个修过飞机的程序猿 ✈️ → 🧑‍💻 ｜ Java 后端 · 车联网 · AI 智能体 · 大数据</p>
-  <p class="hero-social">
-    <a href="https://www.yuque.com/u22429903" target="_blank" rel="noopener">📒 语雀</a>
-    <a href="https://github.com/Leon-Acco" target="_blank" rel="noopener">🐙 GitHub</a>
-    <a href="https://juejin.cn/user/4191761160999496" target="_blank" rel="noopener">⛏️ 掘金</a>
-    <a href="https://segmentfault.com/u/acho" target="_blank" rel="noopener">🔍 思否</a>
-    <a href="https://blog.csdn.net/Acho_0" target="_blank" rel="noopener">📘 CSDN</a>
-    <a href="https://gitee.com/ForturnAcao" target="_blank" rel="noopener">🦅 Gitee</a>
-  </p>
-</section>
-
-<section class="cats-home">
-  {% for cat in site.categories %}
-  <a class="cat-chip cat-{{ cat[0] }}" href="{{ '/' | append: cat[0] | append: '/' | relative_url }}">
-    {% if cat[0] == 'ai' %}🤖{% elsif cat[0] == 'iot' %}🚗{% elsif cat[0] == 'bigdata' %}🌊{% else %}🛠️{% endif %}
-    {{ cat[0] }} <b>{{ cat[1].size }}</b>
-  </a>
-  {% endfor %}
-</section>
-
-<section>
-  <h2 class="section-title">📚 知识系列</h2>
-  <div class="series-grid">
-    {% for s in site.data.series %}
-    {% assign sposts = site.posts | where: "series", s.id %}
-    {% if sposts.size > 0 %}
-    <div class="series-card">
-      <div class="series-head">
-        <span class="series-icon">{{ s.icon }}</span>
-        <div class="series-title">
-          <h3>{{ s.name }}</h3>
-          <p>{{ s.desc }}</p>
-        </div>
-        <span class="series-count">{{ sposts.size }}</span>
-      </div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-kicker">技术笔记 · 自 2024</p>
+      <h1 class="hero-name">Acho<em>.</em></h1>
+      <p class="hero-role">Java 后端工程师 · 车联网数据平台 · AI 工程化</p>
+      <p class="hero-lede">
+        在车联网一线做设备接入、实时计算与数据链路，也把 AI 智能体落到工程里。
+        这里记录我在 Java / 中间件、IoV、大数据与 Agent 方向上读过的、写过的、踩过的。
+      </p>
+      <p class="hero-links">
+        <a href="https://github.com/Leon-Acco" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.yuque.com/u22429903" target="_blank" rel="noopener">语雀</a>
+        <a href="https://juejin.cn/user/4191761160999496" target="_blank" rel="noopener">掘金</a>
+        <a href="https://segmentfault.com/u/acho" target="_blank" rel="noopener">思否</a>
+        <a href="{{ '/about/' | relative_url }}">关于我</a>
+      </p>
+    </div>
+    <div class="hero-index">
+      <p class="hero-index-title">栏目</p>
       <ul>
-        {% for post in sposts %}
+        {% assign cats = "ai,java,iot,bigdata,tools" | split: "," %}
+        {% assign catnames = "AI 与智能体,Java 进阶,车联网,大数据,工程效率" | split: "," %}
+        {% for c in cats %}
+        {% assign n = site.categories[c].size | default: 0 %}
         <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          <time>{{ post.date | date: "%m-%d" }}</time>
+          <a href="{{ '/' | append: c | append: '/' | relative_url }}">
+            <span class="n">0{{ forloop.index }}</span>
+            <span class="label">{{ catnames[forloop.index0] }}</span>
+            <span class="count">{{ n }} 篇</span>
+          </a>
         </li>
         {% endfor %}
       </ul>
     </div>
-    {% endif %}
-    {% endfor %}
   </div>
 </section>
 
-<section>
-  <h2 class="section-title">📝 最新文章</h2>
-  {% for post in site.posts limit: 12 %}
-  <article class="post-card">
-    <div class="post-meta">
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-      {% for cat in post.categories %}<a class="badge badge-{{ cat }}" href="{{ '/' | append: cat | append: '/' | relative_url }}">{{ cat }}</a>{% endfor %}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>专题系列</h2>
+      <span class="count">{{ site.data.series.size }} 个</span>
     </div>
-    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-    <p class="excerpt">{{ post.excerpt | strip_html | truncate: 130 }}</p>
-  </article>
-  {% endfor %}
-  <p class="more-link"><a href="{{ '/archive/' | relative_url }}">查看全部 {{ site.posts.size }} 篇 →</a></p>
+    <div class="series-rows">
+      {% assign si = 0 %}
+      {% for s in site.data.series %}
+      {% assign sposts = site.posts | where: "series", s.id %}
+      {% if sposts.size > 0 %}
+      {% assign si = si | plus: 1 %}
+      {% assign first = sposts | sort: "series_order" | first %}
+      {% assign latest = sposts | first %}
+      <div class="series-row">
+        <span class="code">S{{ si | prepend: '0' | slice: -2, 2 }}</span>
+        <a class="row-link" href="{{ first.url | relative_url }}">
+          <h3>{{ s.name }}</h3>
+          <p>{{ s.desc }}</p>
+        </a>
+        <span class="meta">{{ sposts.size }} 篇 · 更新 {{ latest.date | date: "%Y.%m" }}</span>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>最近更新</h2>
+      <span class="count">最新 12 篇</span>
+      <a class="link" href="{{ '/archive/' | relative_url }}">全部 {{ site.posts.size }} 篇 →</a>
+    </div>
+    <div class="post-rows">
+      {% for post in site.posts limit: 12 %}
+      <a class="post-row" href="{{ post.url | relative_url }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+        <span class="t">{{ post.title }}</span>
+        <span class="cat">{% for cat in post.categories %}{{ cat }}{% unless forloop.last %} / {% endunless %}{% endfor %}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 </section>

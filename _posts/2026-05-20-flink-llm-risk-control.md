@@ -98,8 +98,6 @@ public class AlertFeatureExtractor
 ### 第二层：混合决策路由（核心）
 
 <div class="callout callout-note" markdown="1">
-**📝 🎯**
-
 **关键设计**：通过置信度评分决定走规则引擎还是 LLM，避免每条消息都调 LLM（成本和延迟不可接受）。
 </div>
 
@@ -296,8 +294,6 @@ WHERE a.rule_confidence < 0.85;  -- 只对低置信度告警调用 LLM
 ## 注意事项
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **成本控制是关键**：LLM 调用费用不可忽视。建议：
 1. **严格过滤**：只有规则置信度 < 0.85 的告警才进入 LLM 路径（预估仅 10-20% 流量）
 2. **结果缓存**：相同车辆 + 相同告警模式，5 分钟内命中缓存直接复用

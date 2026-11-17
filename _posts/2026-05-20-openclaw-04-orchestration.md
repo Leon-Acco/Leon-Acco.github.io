@@ -145,8 +145,6 @@ print(answer)
 ```
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **启发**：ReAct 的精髓在于 **LLM 自主决定何时调用工具、调用哪个工具**。你不需要硬编码流程，只需定义好工具和 System Prompt。
 </div>
 
@@ -381,8 +379,6 @@ workflow.add_node("generate_report", generate_report)
 ## 六、设计启发总结
 
 <div class="callout callout-note" markdown="1">
-**📝 ✨**
-
 ### 流程编排的 5 条黄金法则
 
 1. **简单任务用 ReAct**——不要过度设计，让 LLM 自主决策

@@ -1,7 +1,14 @@
-title: Acho 的博客
-description: 一个修过飞机的程序猿 · Java后端 / 车联网 / AI 智能体
+title: Acho — 技术笔记
+description: Java 后端工程师的技术笔记：车联网数据平台、实时计算、中间件与 AI 工程化。
 url: https://leon-acco.github.io
 lang: zh-CN
 author: Acho
 permalink: /:year/:month/:day/:title/
 markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  auto_ids: true

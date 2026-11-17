@@ -12,8 +12,6 @@ toc: true
 基于 OpenClaw（小龙虾）项目的深度拆解，提炼出 AI Agent 开发的核心启发与可复用模式，为后续自研 Agent 提供系统化的参考框架。
 
 <div class="callout callout-note" markdown="1">
-**📝 🎯**
-
 **目标**：不止于理解 OpenClaw，更要将其架构思想转化为可落地的开发能力，构建属于自己的 AI Agent 工具箱。
 </div>
 

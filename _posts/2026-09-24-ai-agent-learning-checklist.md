@@ -10,8 +10,6 @@ math: false
 toc: true
 ---
 <div class="callout callout-note" markdown="1">
-**📝 🧭**
-
 这不是按周排的计划，而是一张**知识地图 / 清单**。每一项都写清楚：**它是什么 → 为什么需要它 → 目前市面上成熟的方案或框架**。建议当作 checklist 用，学完一项勾一项。
 </div>
 
@@ -264,8 +262,6 @@ toc: true
 6. **做安全和部署**：加 human-in-the-loop、沙箱、日志，部署成一个真实可用的服务。
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **三个最常见的坑**：① 一上来就上多 Agent（90% 的场景单 Agent 更好）；② 只调 prompt 不建评测集，改到后面全靠感觉；③ 工具描述写得太随意，然后怪模型笨。
 </div>
 

@@ -378,8 +378,6 @@ class VehicleProtocolAgent:
 ## 六、设计启发总结
 
 <div class="callout callout-note" markdown="1">
-**📝 ✨**
-
 ### 记忆系统的 5 条设计原则
 
 1. **分层设计**——短期（对话）、工作（任务）、长期（知识）各司其职

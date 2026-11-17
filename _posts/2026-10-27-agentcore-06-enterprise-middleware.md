@@ -14,7 +14,7 @@ toc: true
 <div class="callout callout-tip" markdown="1">
 **💡 返回 [AgentCore 学习指南（总览）](/2026/10/27/agentcore-00-overview/) · 网络基础见 [AgentCore 实战：创建 Agent 与 AG-UI 调用](/2026/10/27/agentcore-05-practice/)，本文把「Agent 怎么连数据库/中间件」一次说清**
 
-[!warning] 先澄清三个容易误解的点
+**先澄清三个容易误解的点**
 1. **AgentCore 的「连接器」不是数据库连接器**——它是集成其它 Agent 平台的（当前仅 Qoder CLI）
 2. **Nacos 与 AgentCore 没有配置中心/注册中心级集成**——Nacos 全部戏份是「Skill 导入通道」四个字
 3. **平台没有内置 MySQL/Redis 直连配置页**——数据库对接走「网络打通 + 代码直连」或「MCP 化」两条路

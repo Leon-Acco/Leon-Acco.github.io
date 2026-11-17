@@ -432,8 +432,6 @@ flowchart LR
 ## 七、设计启发总结
 
 <div class="callout callout-note" markdown="1">
-**📝 ✨**
-
 ### 通信网关的 5 条设计原则
 
 1. **消息抽象是核心**——定义 UnifiedMessage / UnifiedResponse，屏蔽渠道差异

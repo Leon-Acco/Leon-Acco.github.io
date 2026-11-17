@@ -8,8 +8,6 @@ math: false
 toc: true
 ---
 <div class="callout callout-note" markdown="1">
-**📝 🐈**
-
 **nanobot**（HKUDS / 港大数据智能实验室）是一个超轻量级个人 AI Agent 框架：核心约 **4,000 行 Python**，对标 OpenClaw 却缩减约 99% 代码，MIT 许可、约 46k stars。本页面聚焦 **LLM / Plan / Memory / Tool** 四个模块的源码级解读，源码基于 `main` 分支。
 </div>
 
@@ -265,7 +263,5 @@ class ToolRegistry:
 ---
 
 <div class="callout callout-note" markdown="1">
-**📝 📌**
-
 **一句话总结**：nanobot 的四个模块都贯彻同一条原则——*框架只提供最小、稳定、可组合的脚手架，把"智能"尽量交还给 LLM 本身*。LLM 层做统一抽象与容错，Plan 层用迭代+目标+子代理代替显式规划，Memory 层用"实时保底 + 周期 Agent 整理"分层沉淀，Tool 层用严格 Schema 契约 + 并发标记保证安全与可扩展。
 </div>

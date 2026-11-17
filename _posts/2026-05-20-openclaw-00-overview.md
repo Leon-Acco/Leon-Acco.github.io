@@ -28,8 +28,6 @@ toc: true
 ### 1.2 一句话定义
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **AI Agent = LLM（大脑）+ Tools（手脚）+ Memory（记忆）+ Planning（规划）+ Communication（通道）**
 </div>
 
@@ -60,8 +58,6 @@ OpenClaw 的本质不是聊天机器人，而是一个**可编排流程的 AI �
 ### 3.1 🧠 LLM 推理核心（大脑）
 
 <div class="callout callout-note" markdown="1">
-**📝 🧠**
-
 **对应概念：Model Provider / LLM Backbone**
 </div>
 
@@ -88,8 +84,6 @@ class LLMProvider:
 ### 3.2 🔧 工具调用系统（手脚）
 
 <div class="callout callout-note" markdown="1">
-**📝 🔧**
-
 **对应概念：Tool Use / Function Calling / MCP**
 </div>
 
@@ -126,8 +120,6 @@ flowchart TD
 ### 3.3 📝 持久记忆系统（记忆）
 
 <div class="callout callout-note" markdown="1">
-**📝 📝**
-
 **对应概念：Memory / Context Management / RAG**
 </div>
 
@@ -154,8 +146,6 @@ OpenClaw 拥有跨会话的长期记忆机制：
 ### 3.4 🗺️ 任务规划与推理（规划）
 
 <div class="callout callout-note" markdown="1">
-**📝 🗺️**
-
 **对应概念：Planning / ReAct / Chain-of-Thought**
 </div>
 
@@ -194,8 +184,6 @@ Action: slides.create(title="Q1 竞品分析", content=...)
 ### 3.5 💬 多渠道通信（通道）
 
 <div class="callout callout-note" markdown="1">
-**📝 💬**
-
 **对应概念：Communication Channel / Gateway**
 </div>
 
@@ -216,8 +204,6 @@ OpenClaw 深度集成多种通信渠道：
 ### 3.6 💓 心跳机制（自主性）
 
 <div class="callout callout-note" markdown="1">
-**📝 💓**
-
 **对应概念：Heartbeat / Scheduled Task / Proactive Agent**
 </div>
 
@@ -366,8 +352,6 @@ openclaw skills search <keyword>
 ## 八、动手实践路线图
 
 <div class="callout callout-note" markdown="1">
-**📝 🚀**
-
 **边干边学：从简单到复杂的 Agent 开发路径**
 </div>
 

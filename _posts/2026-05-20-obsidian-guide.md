@@ -8,8 +8,6 @@ math: false
 toc: true
 ---
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **一句话总结**：Obsidian = 纯本地 Markdown 文件夹 + 强大的双向链接 + 插件化生态。它不是一个笔记软件，而是一个「为你大脑而生的可编程知识操作系统」。
 本指南面向**有工程背景 + 重度 AI 用户**，目标是让你在 1~2 小时内完成从安装到生产力工作流的搭建，并配置一套 AI 友好的插件栈。
 </div>
@@ -40,8 +38,6 @@ toc: true
 | 价格 | 个人免费 | 免费 + 订阅 | 免费 | 免费 + 订阅 |
 
 <div class="callout callout-note" markdown="1">
-**📝 🎯**
-
 **给你的建议（基于你的画像）**：Obsidian 用来做**个人知识库 + 工作日志 + AI 提示词与 Skill 沉淀**；Notion 继续做**结构化文档与团队协作**。两者互补，不必二选一。
 </div>
 
@@ -82,8 +78,6 @@ ObsidianVault/
 ```
 
 <div class="callout callout-note" markdown="1">
-**📝 📌**
-
 **为什么用数字前缀？**
 侧栏会按字母排序，数字前缀能保证你「最常用的目录」永远在最上面，迁移到其他工具时也清晰可读。
 </div>
@@ -353,8 +347,6 @@ MOC 是「目录页」+「兴趣地图」，避免知识库变成黑盒。
 | **BMO Chatbot / GPT-Assistant** | 轻量聊天面板 | 替代品，按口味挑一个 |
 
 <div class="callout callout-note" markdown="1">
-**📝 🤖**
-
 **AI 推荐组合（结合你 Java + 车联网 + AI Coding 的工作）**
 - **Copilot for Obsidian**（主对话 + RAG）
 - **Smart Connections**（语义近邻）
@@ -509,8 +501,6 @@ temperature: 0.3
 ## 九、避坑清单
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 7. **不要把 Vault 放在多个云盘的交集里**（例如同时被 iCloud 和 OneDrive 同步），冲突会让你怀疑人生。
 8. **不要一开始就装 30 个插件**。每装一个先问「它替代了我哪个流程？」。
 9. **链接优先于文件夹**。一篇笔记可以只有 1 个文件夹，但应当有多个 `[[]]` 与 `#tag`。
@@ -550,8 +540,6 @@ temperature: 0.3
 ---
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 **给你的下一步行动建议**
 15. 今晚装好 Obsidian + 目录结构。
 16. 把现有的 Notion 知识中**纯个人、纯本地、纯 markdown 友好**的部分（比如冒烟测试 Skill、SQL 速查、MacBook 环境笔记）逐步迁过去。

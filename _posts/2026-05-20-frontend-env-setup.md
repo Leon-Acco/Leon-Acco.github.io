@@ -64,14 +64,11 @@ nvm -v
 ```
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 **安装成功的标志：**
 - `node -v` 输出版本号，如 `v20.11.0`
 - `npm -v` 输出版本号，如 `10.2.4`
 - 执行 `node -e "console.log('Hello')"` 能正常输出 `Hello`
 
-[!warning] ⚠️
 **常见问题：**
 - `**node: command not found**` → 终端没有加载 nvm 配置，重新打开终端或检查 `~/.bashrc` / `~/.zshrc` 中是否有 nvm 初始化脚本
 - **权限错误** → 不要用 `sudo` 安装 nvm，nvm 安装在用户目录下
@@ -97,8 +94,6 @@ pnpm -v
 ```
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **pnpm vs npm vs yarn 怎么选？**
 - **pnpm**：速度最快，硬链接节省磁盘，严格依赖管理，推荐新项目使用
 - **npm**：Node.js 自带，生态兼容性最好，不需要额外安装
@@ -143,8 +138,6 @@ pnpm -v
 ### ✅ 验证 VS Code 配置成功
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 - 打开一个 `.vue` 或 `.tsx` 文件，语法高亮正常
 - 保存文件时自动格式化（缩进、引号等自动调整）
 - 写一行明显的语法错误（如 `const a =`），ESLint 在编辑器中标红
@@ -168,8 +161,6 @@ git config --global user.email
 ### ✅ 验证 Git 配置成功
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 - `git -v` 输出版本号
 - `git config --global user.name` 输出你的名字
 - `git config --global user.email` 输出你的邮箱
@@ -231,14 +222,11 @@ Get-Command pnpm
 ```
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 **验证通过的标志：**
 - `which node`（或 `Get-Command node`）能输出 node 的完整路径
 - `which pnpm`（或 `Get-Command pnpm`）能输出 pnpm 的完整路径
 - 在**任意目录**下都能执行 `node -v` 和 `pnpm -v`
 
-[!warning] ⚠️
 **常见问题：**
 - **新装的工具终端找不到** → 关闭并重新打开终端，环境变量才会生效
 - **Mac 用了 zsh 但改的是 bashrc** → macOS 默认用 zsh，应该改 `~/.zshrc` 而不是 `~/.bashrc`
@@ -308,14 +296,11 @@ pnpm dev
 ```
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 **验证通过的标志：**
 - 在组件中 `console.log(import.meta.env.VITE_API_BASE_URL)`，浏览器控制台能输出正确的值
 - `pnpm dev` 和 `pnpm build` 分别读取到不同的 `.env` 配置
 - 没有以 `VITE_` 开头的变量**不会**暴露到前端代码中（这是安全特性）
 
-[!warning] ⚠️
 **常见问题：**
 - **变量读取为 **`**undefined**` → 变量名必须以 `VITE_` 开头，否则 Vite 不会注入
 - **修改 **`**.env**`** 后不生效** → 需要重启 `pnpm dev`，`.env` 的修改不支持热更新
@@ -357,15 +342,12 @@ pnpm dev
 ### ✅ 验证项目创建成功
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 **全链路验证通过的标志：**
 4. `pnpm install` 没有报错，`node_modules` 目录已生成
 5. `pnpm dev` 启动后，终端显示类似 `Local: http://localhost:5173/`
 6. 浏览器打开该地址，能看到 Vite + Vue（或 React）的欢迎页
 7. 修改 `src/App.vue`（或 `App.tsx`）中的文字，保存后**浏览器自动刷新**显示新内容
 
-[!warning] ⚠️
 **常见问题：**
 - `**pnpm: command not found**` → 重新执行 `npm install -g pnpm`，然后重新打开终端
 - **端口被占用** → 终端会提示换端口，或手动指定 `pnpm dev --port 3000`
@@ -430,8 +412,6 @@ pnpm prettier --check src/
 ```
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 - 命令能正常执行，不报「找不到配置」之类的错误
 - 在 VS Code 中保存文件时自动格式化
 - 写一段有问题的代码，ESLint 能在编辑器中标红提示
@@ -470,8 +450,6 @@ Vite 脚手架已自动生成 `tsconfig.json`，确认以下关键项：
 ```
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 **TypeScript 验证：** 在 `.ts` 或 `.vue` 文件中写 `const a: number = 'hello'`，VS Code 应立即标红类型错误。
 </div>
 
@@ -496,7 +474,5 @@ Vite 脚手架已自动生成 `tsconfig.json`，确认以下关键项：
 - [ ] npm 镜像已设置为国内源（可选但推荐）
 
 <div class="callout callout-note" markdown="1">
-**📝 🎉**
-
 **全部打勾 = 环境就绪，可以开始正式开发了！** 🚀
 </div>

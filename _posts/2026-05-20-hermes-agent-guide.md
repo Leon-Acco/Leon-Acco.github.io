@@ -8,8 +8,6 @@ math: false
 toc: true
 ---
 <div class="callout callout-note" markdown="1">
-**📝 👜**
-
 **Hermes Agent** —— Nous Research 开源的自进化 AI Agent 框架。MIT 协议,GitHub 5 万+ Star。一句话:*它不是工具,是会和你一起成长的搭档。*
 </div>
 
@@ -163,8 +161,6 @@ Hermes Agent 是 Nous Research 于 2026 年 2 月开源的**自主型 AI Agent �
 | 适合人群 | IDE 重度用户 / 团队协作 / 已有成熟 Skill 体系 | 全栈 / 运维 / 长期 AI 伙伴 / RL 数据生成 |
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **一句话**:OpenClaw 是**瑞士军刀**(开箱即用、功能齐全),Hermes 是**会长大的搭档**(今天比昨天更懂你)。两者**不是替代而是互补**——可让 Hermes 做 MCP Server,OpenClaw 做前端编排。
 </div>
 
@@ -270,8 +266,6 @@ hermes setup
 ```
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **WSL2 vs 原生 Windows**：如果你需要 Cron 定时任务、Daemon 常驻、消息网关等 Linux 特性，WSL2 体验最佳。纯 CLI 对话 + MCP 集成用原生 PowerShell 即可。
 </div>
 
@@ -410,14 +404,10 @@ export HERMES_WORKSPACES_ROOT=~/hermes_workspaces
 ## 七、落地建议(结合车联网 + AI 转型路线)
 
 <div class="callout callout-note" markdown="1">
-**📝 🎯**
-
 **短期(本周)**:用 `hermes claw migrate` 从 OpenClaw 迁过来,保留 OpenClaw 做 IDE 侧重度编码,Hermes 做长期跑腿 + 飞书触达。
 
-[!note] 🚀
 **中期(1 个月)**:把「异常锁车监控」值班 SOP、「Doris Stream Load 写入」排障手册交给 Hermes,让它自动生成 `SKILL.md`,沉淀到 `dst-ai-coding` 仓库。
 
-[!note] 🏆
 **高阶(2–3 个月)**:配合「智能股票助手」项目,用 `hermes batch run` 导出多 Agent 辩论轨迹,喂给 DeepSeek / Qwen 做 LoRA 微调——对应你 AI 应用开发工程师路线图里的「微调与工程化」里程碑,面试时能讲出「自建 Agent 框架 + RL 轨迹 + 自进化 Skill」完整故事。
 </div>
 

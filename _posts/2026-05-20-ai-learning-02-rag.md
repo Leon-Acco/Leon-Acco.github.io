@@ -14,8 +14,6 @@ toc: true
 **RAG（Retrieval-Augmented Generation，检索增强生成）** 是一种将 **信息检索** 与 **大语言模型（LLM）生成** 相结合的技术架构。其核心思想是：在 LLM 生成回答之前，先从外部知识库中检索相关文档片段，将其作为上下文注入 Prompt，从而让模型基于真实、最新的数据生成更准确的回答。
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **一句话理解 RAG：** 先搜再答——让大模型"开卷考试"，而非纯靠记忆。
 </div>
 
@@ -70,8 +68,6 @@ flowchart LR
 | **Agentic Chunking** | 用 LLM 智能判断最佳切分点 | 高质量要求场景 |
 
 <div class="callout callout-note" markdown="1">
-**📝 ⚙️**
-
 **Chunk 大小经验值：**
 - 通用场景：256–512 tokens
 - 精确问答：128–256 tokens
@@ -125,7 +121,8 @@ flowchart LR
 **检索策略：**
 
 <div class="callout callout-note" markdown="1">
-**📝 + **1. 基础向量检索（Dense Retrieval）****
+
+**📝 1. 基础向量检索（Dense Retrieval）**
 
 通过 Embedding 向量的相似度（余弦相似度 / 内积）检索最相关的文档片段。
 
@@ -138,13 +135,13 @@ results = vector_store.similarity_search(query_vector, top_k=5)
 - **优点：** 语义理解能力强，能匹配同义词和近义表达
 - **缺点：** 对精确关键词匹配较弱
 
-[!note]+ **2. 关键词检索（Sparse Retrieval）**
+**2. 关键词检索（Sparse Retrieval）**
 基于 BM25 / TF-IDF 等传统信息检索算法：
 
 - **优点：** 精确匹配能力强，对专有名词、编号等效果好
 - **缺点：** 无法理解语义，同义词匹配差
 
-[!note]+ **3. 混合检索（Hybrid Search）⭐ 推荐**
+**3. 混合检索（Hybrid Search）⭐ 推荐**
 结合向量检索 + 关键词检索，取长补短：
 
 ```javascript
@@ -154,7 +151,7 @@ results = vector_store.similarity_search(query_vector, top_k=5)
 - **RRF（Reciprocal Rank Fusion）** 是最常用的融合算法
 - 多数生产级系统（如 Weaviate、Qdrant）原生支持混合检索
 
-[!note]+ **4. 重排序（Reranking）⭐ 效果显著**
+**4. 重排序（Reranking）⭐ 效果显著**
 对初步检索的 Top-K 结果用更精细的模型重新打分排序：
 
 - **Cohere Rerank：** 商业 API，效果优秀
@@ -163,7 +160,7 @@ results = vector_store.similarity_search(query_vector, top_k=5)
 
 重排序虽然增加延迟，但通常能 **显著提升最终回答质量**。
 
-[!note]+ **5. 多路召回 + 融合（Ensemble Retrieval）**
+**5. 多路召回 + 融合（Ensemble Retrieval）**
 使用多种检索方式并行召回，再融合结果：
 
 - 向量检索（语义）
@@ -248,8 +245,6 @@ flowchart LR
 ## RAG 评估指标
 
 <div class="callout callout-note" markdown="1">
-**📝 📊**
-
 评估 RAG 系统需要从 **检索质量** 和 **生成质量** 两个维度来衡量。
 </div>
 
@@ -288,8 +283,6 @@ flowchart LR
 | 数据规模 | ✅ 支持海量文档 | ⚠️ 受训练数据量限制 | ❌ 受上下文窗口限制 |
 
 <div class="callout callout-note" markdown="1">
-**📝 🎯**
-
 **最佳实践：** RAG 和微调并不互斥。可以先用 RAG 快速上线，再根据需要微调模型以提升特定任务表现。两者结合效果最佳。
 </div>
 
@@ -369,8 +362,6 @@ LlamaIndex（原名 GPT Index）诞生于 2022 年底，正值 ChatGPT 引爆 LL
 - **开发者需要专业工具：** RAG 需要深入处理数据的语义理解、分块策略、检索优化等，需要更专业的框架
 
 <div class="callout callout-note" markdown="1">
-**📝 📌**
-
 **设计理念：** LlamaIndex 的核心是 "Data Framework for LLM Applications"——将各种数据转化为 LLM 可理解的形式，并提供强大的检索能力。它把复杂的数据处理封装成简单的 API，让开发者专注于业务逻辑。
 </div>
 
@@ -404,8 +395,6 @@ LlamaIndex（原名 GPT Index）诞生于 2022 年底，正值 ChatGPT 引爆 LL
 - **代码库理解：** 索引代码仓库，辅助代码理解和生成
 
 <div class="callout callout-note" markdown="1">
-**📝 📌**
-
 **总结：** LlamaIndex 是为 RAG 而生的专业框架。如果你的核心需求是"让 LLM 基于私有数据生成答案"，LlamaIndex 是比 LangChain 更聚焦、更高效的选择。而如果需要构建复杂的 Agent 或工作流，LangChain 可能更合适。实践中，两者也常结合使用。
 </div>
 
@@ -478,7 +467,8 @@ flowchart TB
 ## RAG 常见问题与排查
 
 <div class="callout callout-note" markdown="1">
-**📝 + **❓ 检索结果不相关****
+
+**📝 ❓ 检索结果不相关**
 
 - 检查 Chunk 大小是否合适（太大导致噪声，太小丢失上下文）
 - 尝试混合检索（向量 + BM25）
@@ -486,19 +476,19 @@ flowchart TB
 - 检查 Embedding 模型是否适合你的语言和领域
 - 增加元数据过滤
 
-[!note]+ **❓ 模型回答出现幻觉**
+**❓ 模型回答出现幻觉**
 - 强化 Prompt 中"仅基于上下文回答"的指令
 - 增加引用溯源要求
 - 降低 temperature 参数
 - 检查检索到的文档是否真的包含答案
 
-[!note]+ **❓ 回答不够完整**
+**❓ 回答不够完整**
 - 增加 Top-K 数量
 - 使用 Multi-Query 多角度检索
 - 尝试父子文档或句子窗口策略
 - 检查文档是否被正确解析和分块
 
-[!note]+ **❓ 延迟过高**
+**❓ 延迟过高**
 - 优化向量数据库索引（如 HNSW 参数调优）
 - 减少 Top-K 或上下文长度
 - 使用流式输出（Streaming）提升用户体验
@@ -518,8 +508,6 @@ flowchart TB
 **知识库（Knowledge Base, KB）** 是一个结构化或半结构化的信息存储系统，用于收集、组织、管理和检索知识。在 AI 应用场景下，知识库是 RAG 系统的核心数据层，为大语言模型提供外部事实依据。
 
 <div class="callout callout-note" markdown="1">
-**📝 📚**
-
 **知识库 = 数据 + 组织方式 + 检索能力**
 它不仅是文档的堆积，更是经过清洗、结构化、索引后可被高效检索的知识资产。
 </div>
@@ -593,8 +581,6 @@ flowchart TB
 - **外部来源：** 行业报告、法规文件、公开数据集
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **数据质量决定知识库上限。** 垃圾进，垃圾出（Garbage In, Garbage Out）。采集阶段就要做好质量把控。
 </div>
 
@@ -613,7 +599,8 @@ flowchart TB
 | **PPT / Slides** | python-pptx、Unstructured | 提取文字 + 备注（Speaker Notes） |
 
 <div class="callout callout-note" markdown="1">
-**📝 + **🔧 推荐工具：**[**Unstructured.io**](http://unstructured.io/)**
+
+**📝 🔧 推荐工具：**[**Unstructured.io**](http://unstructured.io/)**
 
 Unstructured 是一个统一的文档解析框架，支持 PDF、Word、HTML、图片等多种格式，能自动识别标题、段落、表格、列表等元素，是构建知识库的利器。
 
@@ -660,8 +647,6 @@ metadata = {
 ```
 
 <div class="callout callout-note" markdown="1">
-**📝 💎**
-
 **元数据的价值：**
 - 支持按来源、部门、时间等维度过滤
 - 帮助权限控制（不同角色看到不同知识）
@@ -698,7 +683,8 @@ flowchart LR
 ### 关键运维事项
 
 <div class="callout callout-note" markdown="1">
-**📝 + **📥 增量更新策略****
+
+**📝 📥 增量更新策略**
 
 知识库不是一次性构建的，需要持续更新：
 
@@ -716,7 +702,7 @@ for doc in get_updated_docs(since=last_sync_time):
     db.upsert(new_chunks)
 ```
 
-[!note]+ **🔐 权限与安全控制**
+**🔐 权限与安全控制**
 企业知识库通常需要细粒度的权限管理：
 
 - **文档级权限：** 不同部门只能访问本部门文档
@@ -734,7 +720,7 @@ results = vectorstore.similarity_search(
 )
 ```
 
-[!note]+ **📊 知识库质量监控**
+**📊 知识库质量监控**
 建立持续监控机制，确保知识库健康运转：
 
 - **覆盖率指标：** 用户提问中有多少比例能在知识库中找到答案
@@ -743,7 +729,7 @@ results = vectorstore.similarity_search(
 - **空回答率：** 系统回答"未找到相关信息"的频率
 - **过期检测：** 定期扫描超过保质期的文档并提醒更新
 
-[!note]+ **🔄 知识冲突处理**
+**🔄 知识冲突处理**
 当知识库中存在矛盾信息时：
 
 - **版本优先：** 新版本文档优先于旧版本
@@ -869,8 +855,6 @@ flowchart LR
 ## 知识库最佳实践
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 ### 构建阶段
 
 - 先从 **高频使用、高价值** 的文档开始，不要试图一次性导入所有资料
@@ -878,16 +862,12 @@ flowchart LR
 - 设计好 **元数据体系**，方便后续过滤和管理
 - 用 **真实用户问题** 测试分块效果，而非凭直觉
 
-[!success] ✅
-
 ### 运维阶段
 
 - 建立 **知识更新 SOP**：谁负责更新、多久更新一次、如何审核
 - 收集 **用户反馈** 闭环：差评的回答要追溯到知识缺失并补充
 - 定期 **质量评估**：用 RAGAS 等工具跑评估，持续优化
 - 监控 **空回答率和幻觉率**：发现知识库的盲区
-
-[!success] ✅
 
 ### 架构阶段
 
@@ -902,7 +882,8 @@ flowchart LR
 ## 知识库常见踩坑与解决方案
 
 <div class="callout callout-note" markdown="1">
-**📝 + **🕳️ 踩坑 1：PDF 解析质量差****
+
+**📝 🕳️ 踩坑 1：PDF 解析质量差**
 
 **现象：** 表格错位、公式乱码、图片中文字丢失
 
@@ -913,7 +894,7 @@ flowchart LR
 - 表格用专门的表格提取工具（Camelot、Tabula）
 - 复杂 PDF 可以先转 Markdown 再处理
 
-[!note]+ **🕳️ 踩坑 2：分块不当导致语义割裂**
+**🕳️ 踩坑 2：分块不当导致语义割裂**
 **现象：** 一段完整的知识被切到两个 chunk 中，检索只返回一半
 
 **解决方案：**
@@ -923,7 +904,7 @@ flowchart LR
 - 采用父子文档策略：检索小 chunk，返回大 chunk
 - 为 chunk 附加上下文信息（如所在章节标题）
 
-[!note]+ **🕳️ 踩坑 3：知识库越大效果越差**
+**🕳️ 踩坑 3：知识库越大效果越差**
 **现象：** 文档量增大后，检索噪声增多，回答质量下降
 
 **解决方案：**
@@ -933,7 +914,7 @@ flowchart LR
 - 对知识库进行 **分类/分域**，按问题类型路由到对应子库
 - 定期清理过时和低质量文档
 
-[!note]+ **🕳️ 踩坑 4：多语言支持不佳**
+**🕳️ 踩坑 4：多语言支持不佳**
 **现象：** 中英文混合文档检索效果差
 
 **解决方案：**
@@ -942,7 +923,7 @@ flowchart LR
 - 对不同语言的文档分别建立索引
 - Query 翻译：将用户问题翻译为文档的主要语言后再检索
 
-[!note]+ **🕳️ 踩坑 5：实时性要求无法满足**
+**🕳️ 踩坑 5：实时性要求无法满足**
 **现象：** 文档更新后知识库未同步，给出过时答案
 
 **解决方案：**

@@ -47,25 +47,25 @@ toc: true
 
 后台 REST API 管理聚合规则与车辆绑定，含严格业务校验
 
-[!info] 📡 实时告警消费
+**📡 实时告警消费**
 从 Kafka 消费 ADAS / DMS 原始告警数据
 
-[!info] 🔄 规则动态同步
+**🔄 规则动态同步**
 通过 MySQL CDC 实时同步规则变更，秒级生效
 
-[!info] 🚗 车辆级精细控制
+**🚗 车辆级精细控制**
 按 VIN 码绑定规则生效范围
 
-[!info] 🧩 三种聚合模式
+**🧩 三种聚合模式**
 会话型（国标）·  计数型（苏标）·  多告警组合
 
-[!info] ⚖️ 双风险等级
+**⚖️ 双风险等级**
 每种模式独立计算中风险 / 高风险
 
-[!info] ❄️ 冷却防抖
+**❄️ 冷却防抖**
 防止同一车辆短时间内重复触发
 
-[!info] 📤 双通道输出
+**📤 双通道输出**
 风险事件同时写入 Doris（分析）+ Kafka（下游消费）
 </div>
 
@@ -457,7 +457,7 @@ CREATE TABLE `adas_aggregation_rules` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ADAS 告警风险聚合规则';
 ```
 
-[!note]+ 📊 `adas_rule_vehicle_bind` — 规则车辆绑定表
+**📊 `adas_rule_vehicle_bind` — 规则车辆绑定表**
 ```sql
 CREATE TABLE `adas_rule_vehicle_bind` (
     `id`            bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID',
@@ -595,8 +595,6 @@ erDiagram
 | `mark` | Integer | 事件标记：0=开始事件，1=结束事件 |
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **mark 字段业务语义**
 - **苏标告警**：先发 `mark=0`（开始），再发 `mark=1`（结束）
 - **国标告警（超速 / 超时）**：状态报警发 `mark=0`，状态正常发 `mark=1`
@@ -767,8 +765,6 @@ flowchart LR
 | 可见性 | NeverReturnExpired |
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 同一 `alarmId` 的 `mark=0` 和 `mark=1` 因 key 不同，**各自独立去重**。
 </div>
 
@@ -819,8 +815,6 @@ flowchart TD
 
 <!-- Column 1 -->
 <div class="callout callout-note" markdown="1">
-**📝 📝**
-
 **RULE 事件**
 11. 从所有 alarmType 的规则列表中移除旧版本（按 `ruleId+ruleVersion` 匹配）
 12. 按规则的 `effectiveAlarmTypes` 插入新版本
@@ -829,8 +823,6 @@ flowchart TD
 
 <!-- Column 2 -->
 <div class="callout callout-note" markdown="1">
-**📝 🔗**
-
 **BIND 事件**
 14. 按 `ruleId#ruleVersion` 查找绑定映射
 15. 启用 → 更新 / 插入 VIN 映射
@@ -1073,8 +1065,6 @@ flowchart TD
 | 高风险 | 二级 | count ≥ `multiHighMinLevel2Count` | distinctTypes ≥ `multiHighMinLevel2Distinct` |
 
 <div class="callout callout-tip" markdown="1">
-**💡 ⚡**
-
 **优先级**：一级告警条件优先判断，一级未触发时才判断二级。
 **过期清理**：注册 event-time 定时器（`eventTime + windowMs`），触发时清理窗口外的过期事件。
 </div>

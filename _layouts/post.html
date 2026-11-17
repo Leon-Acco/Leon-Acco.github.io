@@ -1,43 +1,58 @@
 ---
 layout: default
 ---
+{% assign has_toc = false %}
+{% if page.toc %}{% if page.content contains '<h2' %}{% assign has_toc = true %}{% endif %}{% endif %}
+{% assign words = page.content | strip_html | size %}
+{% assign minutes = words | divided_by: 500 | plus: 1 %}
+
 <article class="post">
   <header class="post-header">
-    {% if page.series %}
-    {% assign stitle = "" %}{% assign sicon = "" %}
-    {% for s in site.data.series %}{% if s.id == page.series %}{% assign stitle = s.name %}{% assign sicon = s.icon %}{% endif %}{% endfor %}
-    <div class="series-banner">
-      <span>{{ sicon }} 系列：{{ stitle }} · 第 {{ page.series_order }} 篇</span>
-    </div>
-    {% endif %}
-    <h1>{{ page.title }}</h1>
-    <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
-      {% for cat in page.categories %}<a class="badge badge-{{ cat }}" href="{{ '/' | append: cat | append: '/' | relative_url }}">{{ cat }}</a>{% endfor %}
-      {% for tag in page.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
+    <div class="wrap">
+      <div class="post-kicker">
+        {% for cat in page.categories %}
+        <a href="{{ '/' | append: cat | append: '/' | relative_url }}">{{ cat }}</a>{% unless forloop.last %}<span class="sep">/</span>{% endunless %}
+        {% endfor %}
+        {% if page.series %}
+        {% assign stitle = "" %}{% assign sicon = "" %}
+        {% for s in site.data.series %}{% if s.id == page.series %}{% assign stitle = s.name %}{% assign sicon = s.icon %}{% endif %}{% endfor %}
+        <span class="sep">/</span>
+        <span>{{ sicon }} {{ stitle }} · 第 {{ page.series_order }} 篇</span>
+        {% endif %}
+      </div>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+        <span>约 {{ minutes }} 分钟</span>
+        {% for tag in page.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
+      </div>
     </div>
   </header>
 
-  <div class="post-body{% if page.toc and page.content contains '<h2' %} layout-toc{% endif %}">
-    {% if page.toc and page.content contains '<h2' %}
-    <aside class="toc">
-      <div class="toc-title">📑 目录</div>
+  <div class="post-body{% if has_toc %} layout-toc{% endif %}">
+    {% if has_toc %}
+    <aside class="toc" aria-label="目录">
+      <div class="toc-title">目录</div>
       <ul>
-      {% assign tokens = page.content | split: '<h2' %}
+      {% assign tokens = page.content | split: '<h' %}
       {% for t in tokens offset:1 %}
-        {% assign line = t | split: '</h2>' | first %}
-        {% assign id_match = line | split: 'id="' %}
-        {% if id_match.size > 1 %}
-          {% assign idpart = id_match[1] | split: '"' | first %}
-          {% assign text = id_match[1] | split: '">' | last | strip_html | truncate: 44 %}
-          <li><a href="#{{ idpart }}">{{ text }}</a></li>
+        {% assign lvl = t | slice: 0, 1 %}
+        {% if lvl == '2' or lvl == '3' %}
+          {% assign line = t | split: '</h' | first %}
+          {% assign parts = line | split: 'id="' %}
+          {% if parts.size > 1 %}
+            {% assign idpart = parts[1] | split: '"' | first %}
+            {% assign raw = parts[1] | split: '>' %}
+            {% assign text = raw | slice: 1, 200 | join: '>' | strip_html | strip | truncate: 52 %}
+            <li class="toc-l{{ lvl }}"><a href="#{{ idpart }}">{{ text }}</a></li>
+          {% endif %}
         {% endif %}
       {% endfor %}
       </ul>
     </aside>
     {% endif %}
 
-    <div class="post-content{% if page.toc %} with-toc{% endif %}">
+    <div class="post-content">
       {{ content }}
     </div>
   </div>
@@ -61,12 +76,12 @@ layout: default
 
   {% if page.original %}
   <footer class="post-footer">
-    <p>本文整理自个人知识库{% if page.original %}，<a href="{{ page.original }}" target="_blank" rel="noopener">查看语雀原文 ↗</a>{% endif %}</p>
+    <p>本文整理自个人知识库，<a href="{{ page.original }}" target="_blank" rel="noopener">查看原文 ↗</a></p>
   </footer>
   {% endif %}
 </article>
 
-<nav class="post-nav">
-  {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title | truncate: 26 }}</a>{% endif %}
-  {% if page.next %}<a class="right" href="{{ page.next.url | relative_url }}">{{ page.next.title | truncate: 26 }} →</a>{% endif %}
+<nav class="post-nav" aria-label="上下篇">
+  {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title | truncate: 30 }}</a>{% endif %}
+  {% if page.next %}<a class="right" href="{{ page.next.url | relative_url }}">{{ page.next.title | truncate: 30 }} →</a>{% endif %}
 </nav>

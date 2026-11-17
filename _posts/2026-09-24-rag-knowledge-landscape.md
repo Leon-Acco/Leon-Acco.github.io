@@ -8,8 +8,6 @@ math: false
 toc: true
 ---
 <div class="callout callout-note" markdown="1">
-**📝 🎯**
-
 RAG（Retrieval-Augmented Generation，检索增强生成）= 检索系统 + 生成模型。核心思想：**不要让模型凭记忆答题，让它开卷考试。**本页按「概念 → 链路 → 每个环节的技术点 → 进阶范式 → 评测 → 工程 → 学习路径」组织，可作为系统学习清单。
 </div>
 
@@ -189,8 +187,6 @@ RAG（Retrieval-Augmented Generation，检索增强生成）= 检索系统 + 生
 - **消融实验**：一次只改一个变量（分块大小 / 是否重排 / top-k），否则无法归因
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 经验法则：**RAG 效果差，80% 出在检索而不是生成。**排查顺序应为：能不能召回正确片段 → 排序对不对 → 上下文全不全 → 最后才怀疑 prompt 和模型。
 </div>
 
@@ -254,7 +250,5 @@ RAG（Retrieval-Augmented Generation，检索增强生成）= 检索系统 + 生
 6. **读经典材料**：RAG 综述（*Retrieval-Augmented Generation for LLMs: A Survey*）、原始 RAG 论文（Lewis et al., 2020）、DPR、ColBERT、Self-RAG、CRAG、RAPTOR、GraphRAG 论文，以及 Anthropic 的 Contextual Retrieval 博客。
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 一句话总结：RAG 的门槛在入门（一下午能跑通），天花板在检索质量与评测体系（几个月持续打磨）。把精力放在**分块、混合检索、重排、评测**这四件事上，就能覆盖大部分收益。
 </div>

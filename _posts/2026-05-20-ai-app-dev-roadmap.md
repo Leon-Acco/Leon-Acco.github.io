@@ -10,8 +10,6 @@ math: false
 toc: true
 ---
 <div class="callout callout-note" markdown="1">
-**📝 🐾**
-
 这是你的 **AI 应用开发工程师** 学习栏目入口页。后续所有笔记、练习、项目产出都建议从这里统一导航。
 </div>
 
@@ -40,8 +38,6 @@ toc: true
 - **N → 平台化**：沉淀组件与规范（Prompt 版本管理、评测基线、工具/技能市场、知识接入标准）。
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 **建议把“主线项目”当作作品集**：每学到一个模块，就回到主线项目里落一次地（新增一个能力 + 写一段文档 + 加一条评测用例）。
 </div>
 

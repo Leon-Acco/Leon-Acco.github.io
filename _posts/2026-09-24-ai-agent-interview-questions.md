@@ -10,8 +10,6 @@ math: false
 toc: true
 ---
 <div class="callout callout-note" markdown="1">
-**📝 🎯**
-
 这份题库和 [AI Agent 学习清单：知识点 × 作用 × 成熟方案](/2026/09/24/ai-agent-learning-checklist/) **章节一一对应**（第 1 章 ↔ 学习清单第 1 章）。学完清单里一章，就来这里自测对应章节的题。
 **用法**：先自己讲 3 分钟，再看「面试官想听到什么」。答不出来的，回清单里对应条目补。
 </div>
@@ -314,8 +312,6 @@ toc: true
     - 答「没什么要改的」= 没有反思，直接减分。
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **准备口诀**：每个项目都要有**一个数字、一个坑、一个取舍**。数字证明你上过线，坑证明你调过错，取舍证明你能做架构决策。
 </div>
 

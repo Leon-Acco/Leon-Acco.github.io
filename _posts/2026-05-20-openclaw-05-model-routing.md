@@ -26,8 +26,6 @@ toc: true
 | 隐私敏感数据 | 数据不出本地 | Ollama 本地模型 | 隐私风险 | $0（本地） |
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **核心思想**：用 10% 的成本覆盖 80% 的简单任务，把预算留给真正需要强模型的复杂任务。
 </div>
 
@@ -554,8 +552,6 @@ def vehicle_route(task_type: str) -> str:
 ## 七、设计启发总结
 
 <div class="callout callout-note" markdown="1">
-**📝 ✨**
-
 ### 模型路由的 6 条设计原则
 
 1. **Provider 抽象是基础**——统一接口层让切换模型只改配置，不改代码

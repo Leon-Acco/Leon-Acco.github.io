@@ -14,8 +14,6 @@ toc: true
 ## 一、核心原则：先想清楚，再让 Claude 动手
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **黄金法则**：花 15 分钟做规划，能省下几小时的返工。Claude Code 不是「边想边写」的工具，而是「想好了让它执行」的工具。
 </div>
 
@@ -62,8 +60,6 @@ toc: true
 ```
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **关键**：`CLAUDE.md` 放在项目根目录。Claude Code 每次启动都会自动读取，确保上下文连贯。
 </div>
 
@@ -116,8 +112,6 @@ tmux split-window -v
 每开发一个功能模块，按以下 **6 步循环** 执行：
 
 <div class="callout callout-note" markdown="1">
-**📝 🔄**
-
 **Step 1 → 定义接口** → Step 2 → 后端实现 → Step 3 → 后端测试 → Step 4 → 前端实现 → Step 5 → 联调验证 → Step 6 → 提交代码
 </div>
 
@@ -370,8 +364,6 @@ flowchart TD
 ---
 
 <div class="callout callout-note" markdown="1">
-**📝 🎯**
-
 **总结**：Claude Code 前后端同步开发的核心就是三个字——**约、分、验**。
 - **约**：API 契约先行，双方共守
 - **分**：多终端分工，各司其职

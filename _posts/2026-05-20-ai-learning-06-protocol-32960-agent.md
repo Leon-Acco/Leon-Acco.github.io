@@ -10,8 +10,6 @@ math: false
 toc: true
 ---
 <div class="callout callout-note" markdown="1">
-**📝 🚀**
-
 **你的第一个 Hello Agent 项目** — 从 Java GB/T 32960 报文解析出发，用 Python 重新实现协议解析，并构建一个完整的 AI Agent 应用。用户上传 Excel 原始报文 → Agent 智能解析 → 输出中文可读字段。边干边学，每一层都有文档。
 </div>
 
@@ -95,8 +93,6 @@ flowchart TB
 ### 2.3 ⚠️ 关键决策点
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **核心解析用"确定性工具"，不用 LLM**：报文解析是 **二进制协议按位取值**，100% 确定性逻辑，不应交给 LLM。LLM 的角色是"理解用户意图 + 组织输出格式 + 回答协议知识问题"。
 </div>
 
@@ -339,8 +335,6 @@ class ProtocolDocIndexer:
 ```
 
 <div class="callout callout-note" markdown="1">
-**📝 📌**
-
 **切分策略**：协议文档的 **表格**（字段定义表、枚举值表）是最重要的知识单元，切分时必须 **保留完整表格 + 表头 + 所属章节标题**，不能按固定长度粗暴切断。
 </div>
 
@@ -554,8 +548,6 @@ pydantic>=2.5.0
 ## 十、下一步 Action
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 **立即开始**：按阶段 1 执行，先搞定 Python 协议解析器 + 字段翻译器。这是整个项目的地基，跑通后再往上垒 Agent 层。
 </div>
 

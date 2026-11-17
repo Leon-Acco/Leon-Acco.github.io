@@ -154,15 +154,12 @@ cd /path/to/project-b && claude
 ## 实战建议
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **组合使用效果最佳：**
 4. 在 `CLAUDE.md` 中声明依赖关系（长期有效）
 5. 复杂需求先用 Plan Mode 规划
 6. 深度分析用 Subagent 隔离
 7. 确认方案后切换到自动接受模式高效执行
 
-[!warning] ⚠️
 **注意事项：**
 - 确保 Project-A 的代码是最新的（先 `git pull`），否则 Claude 会基于过期代码开发
 - 如果 Project-A 有接口文档（Swagger/OpenAPI），优先让 Claude 读文档而非源码，效率更高

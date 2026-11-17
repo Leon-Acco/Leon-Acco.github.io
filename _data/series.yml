@@ -1,3 +1,8 @@
+- id: java-advanced
+  name: Java 进阶
+  icon: ☕
+  desc: JVM、集合、Spring、消息中间件、网络与工具链的体系化笔记
+
 - id: ai-learning
   name: AI Agent 学习路线
   icon: 🧭

@@ -54,8 +54,6 @@ toc: true
 Claude Code 是 Anthropic 推出的一款**命令行 AI 编程助手**。它直接在终端中运行，能够**读取文件、执行命令、修改代码**，以高度自主的方式完成开发任务。
 
 <div class="callout callout-tip" markdown="1">
-**💡 ⚡**
-
 **核心架构：**
 - 基于 **Agentic Loop**（代理循环）自主决策和执行
 - 内置五大类 **Tools**（工具）：文件读写、命令执行、任务委托等
@@ -107,8 +105,6 @@ claude login
 ### Windows 安装详解与注意事项
 
 <div class="callout callout-note" markdown="1">
-**📝 🪟**
-
 **Windows 用户必读：** Claude Code 在 Windows 上有多种安装途径，每种都有不同的前置条件和适用场景。以下按**推荐优先级**排列。
 </div>
 
@@ -156,8 +152,6 @@ claude
 ```
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **注意：** 不要使用 `sudo npm install -g`，这会导致权限问题和安全风险。如遇权限错误，参考官方的[权限故障排除文档](https://code.claude.com/docs/en/setup)。
 </div>
 
@@ -195,8 +189,6 @@ claude --version
 4. 等待自动完成
 
 <div class="callout callout-note" markdown="1">
-**📝 🔧**
-
 **排障清单：**
 - **环境变量冲突**：如果之前安装过 Cursor、NVM 等工具，检查 `Path` 环境变量中是否有冲突路径，清理后重试
 - **Node.js 版本过低**：确保 `node -v` 显示 18+ 版本，建议使用 LTS 版本
@@ -260,8 +252,6 @@ claude --agents '{"reviewer": {"description": "Code reviewer", "prompt": "Review
 ## 四、权限系统与工作模式
 
 <div class="callout callout-note" markdown="1">
-**📝 🔐**
-
 **关键认知：** 权限模式不仅仅是安全功能，更是**工作流工具**——让你控制 Claude 拥有多大的自主权。
 </div>
 
@@ -303,8 +293,6 @@ Claude Code 有三种核心交互模式，对应不同的工作场景：
 - 适合复杂任务前的规划阶段，避免盲目修改
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **模式切换技巧：** 在交互式会话中，随时按 `Shift+Tab` 可以在三种模式之间循环切换，无需退出重启。
 </div>
 
@@ -318,8 +306,6 @@ claude --dangerously-skip-permissions
 这个标志会让 Claude **完全跳过所有权限确认**，包括文件写入、Bash 命令执行等。相当于上面权限表中的 `bypassPermissions` 模式。
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **安全警告：**
 - **仅在沙箱或容器环境中使用**，绝不要在本地开发机上使用
 - 适用场景：Docker 容器内、CI/CD 流水线中、一次性虚拟机中
@@ -337,8 +323,6 @@ claude --dangerously-skip-permissions
 ## 五、Tools 工具系统（Agentic Loop 核心）
 
 <div class="callout callout-note" markdown="1">
-**📝 🔧**
-
 **核心概念：** Tools 是让 Claude Code 从"纯文本回复"变成"能行动的代理"的关键。没有 Tools，Claude 只能说话；有了 Tools，Claude 可以**行动**。
 </div>
 
@@ -434,8 +418,6 @@ Claude Code 的核心是一个**代理循环（Agentic Loop）**：
 - 清除后 Claude 不会记得之前的任何对话内容（但 `CLAUDE.md` 仍会被加载）
 
 <div class="callout callout-note" markdown="1">
-**📝 📊**
-
 **何时使用？**
 - 上下文使用 > 60%：考虑 `/compact`
 - 完全换一个任务：使用 `/clear`
@@ -464,8 +446,6 @@ Claude Code 的核心是一个**代理循环（Agentic Loop）**：
 - 如果 Claude 走错了方向，直接告诉它"撤销刚才的修改"或"回到上一步"即可
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **最佳实践：** 在让 Claude 执行大批量修改前，先用 `git commit` 保存当前状态。这样即使 Rewind 不够用，你也可以通过 `git reset` 完全恢复。
 </div>
 
@@ -499,8 +479,6 @@ Claude Code 支持处理图片，可以理解截图、设计稿、错误日志�
 - `**claude --resume <session-id>**`：恢复指定的历史会话
 
 <div class="callout callout-note" markdown="1">
-**📝 📌**
-
 **提示：** 每次退出 Claude Code 时，会话会自动保存。下次可以随时恢复，上下文和对话历史都会保留。但请注意，恢复的会话不会自动感知文件在会话之间的变更，建议恢复后先让 Claude 检查一下当前代码状态。
 </div>
 
@@ -509,8 +487,6 @@ Claude Code 支持处理图片，可以理解截图、设计稿、错误日志�
 ## 七、Skills 技能系统
 
 <div class="callout callout-note" markdown="1">
-**📝 🧩**
-
 **Skills（技能）** 是 Claude Code 的能力扩展机制。创建一个 `SKILL.md` 文件，Claude 就能将其加入工具箱，在需要时自动使用，或者你通过 `/skill-name` 直接调用。
 ```markdown
 ---
@@ -634,8 +610,6 @@ agent: Explore
 ## 八、Subagents 子代理系统
 
 <div class="callout callout-note" markdown="1">
-**📝 🤖**
-
 **Subagents（子代理）** 是具有独立上下文窗口、自定义系统提示词、特定工具权限的专门化 AI 助手。Claude 遇到匹配任务时会自动委托给合适的子代理。
 </div>
 
@@ -754,8 +728,6 @@ memory: user
 很多人觉得 Skill 和 Subagent "感觉都差不多"，这很正常——因为它们都能扩展 Claude Code 的能力。但它们的**设计哲学**完全不同：
 
 <div class="callout callout-note" markdown="1">
-**📝 📖**
-
 **一句话区分：**
 - **Skill** = 给 Claude **一份操作手册**，Claude 按手册自己干活
 - **Subagent** = 给 Claude **一个专职助手**，Claude 把活派给助手干
@@ -815,8 +787,6 @@ agent: Explore         # 使用只读的 Explore 子代理
 - Subagent 的**上下文隔离**（不污染主会话）
 
 <div class="callout callout-note" markdown="1">
-**📝 🧭**
-
 **快速决策流程：**
 10. 任务会产生大量中间输出吗？→ **是** → Subagent
 11. 需要并行执行多个独立任务吗？→ **是** → Subagent
@@ -830,8 +800,6 @@ agent: Explore         # 使用只读的 Explore 子代理
 ## 九、Agent Teams 多代理团队
 
 <div class="callout callout-note" markdown="1">
-**📝 👥**
-
 **Agent Teams（多代理团队）** 让多个 Claude Code 实例协同工作。一个会话作为 Team Lead 协调工作，Teammate 各自独立工作，并可以**互相通信**。这是 Subagents 的升级版——Subagents 只能汇报回主代理，而 Agent Teams 的成员之间可以直接交流。
 </div>
 
@@ -891,8 +859,6 @@ Agent Teams 是实验性功能，默认关闭。在 `settings.json` 中启用：
 ## 十、Hooks 生命周期钩子
 
 <div class="callout callout-note" markdown="1">
-**📝 🪝**
-
 **Hooks（钩子）** 是在 Claude Code 生命周期特定时间点自动执行的 shell 命令或 LLM 提示。可以用来自动格式化代码、验证命令、发送通知等。
 </div>
 
@@ -1090,8 +1056,6 @@ MCP 工具名遵循 `mcp__<server>__<tool>` 格式，例如：
 | **类比** | 像一份**操作手册**，Claude 照着做 | 像一个**专职助手**，Claude 把任务交给它 |
 
 <div class="callout callout-note" markdown="1">
-**📝 🎯**
-
 **简单判断标准：**
 - 如果你想让 Claude **按特定方式做事** → 用 Skill
 - 如果你想让 Claude **把任务交给别人做** → 用 SubAgent
@@ -1328,8 +1292,6 @@ cd ../feature-api && claude
 ## 十七、接入其他模型：CC-Switch 与多模型管理
 
 <div class="callout callout-note" markdown="1">
-**📝 🔀**
-
 **Claude Code 默认只连接 Anthropic API**，但通过 **CC-Switch** 等工具，你可以让 Claude Code 接入几乎任何兼容 OpenAI 接口的模型服务（如 DeepSeek、GPT、Gemini 等），实现多模型自由切换。
 </div>
 
@@ -1377,8 +1339,6 @@ brew upgrade --cask cc-switch
 59. 返回主页，从供应商列表选择目标，点击 **"Start"** 即可使用
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **提示：** CC-Switch 还支持 `ccswitch://` 深度链接协议，可以通过 URL 快速切换配置。
 </div>
 
@@ -1424,8 +1384,6 @@ npx claude-provider
 ## 十八、Claude Code 插件市场与推荐
 
 <div class="callout callout-note" markdown="1">
-**📝 🛒**
-
 Claude Code 拥有活跃的插件生态，社区已有 **481+** 个扩展插件，涵盖开发工程、工作流管理、AI 集成等多个方向。
 </div>
 
@@ -1443,8 +1401,6 @@ Claude Code 拥有活跃的插件生态，社区已有 **481+** 个扩展插件�
 插件通过**市场（Marketplace）**分发。安装插件前，你需要先添加市场，再从市场中安装插件——类似"先添加应用商店，再下载 App"。
 
 <div class="callout callout-note" markdown="1">
-**📝 📌**
-
 **前置条件：**
 - Claude Code **v1.0.33+**（运行 `claude --version` 检查）
 - 如果 `/plugin` 命令无效，先升级：`brew upgrade claude-code` 或重新运行安装脚本
@@ -1561,8 +1517,6 @@ claude plugin install formatter@your-org --scope project
 ```
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **小技巧：**
 - `/plugin market` 可以简写代替 `/plugin marketplace`
 - `/plugin marketplace rm` 可以简写代替 `/plugin marketplace remove`
@@ -1593,8 +1547,6 @@ claude plugin install formatter@your-org --scope project
 ```
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **安全提醒：** Anthropic 不控制第三方插件中包含的 MCP Server、文件或其他软件，无法验证其安全性。安装前请先在插件主页确认其来源和可信度。
 </div>
 
@@ -1621,8 +1573,6 @@ claude plugin install formatter@your-org --scope project
 ### 插件 vs Skills vs MCP
 
 <div class="callout callout-note" markdown="1">
-**📝 🧭**
-
 **三者关系：**
 - **Skill**：单个可复用的指令/工作流（一个 `SKILL.md` 文件）
 - **MCP Server**：连接外部工具和数据源的标准协议接口

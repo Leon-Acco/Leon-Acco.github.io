@@ -21,8 +21,6 @@ Claude Code 的「分屏」是指在终端中**同时打开多个 Claude Code �
 2. **终端复用器手动分屏**（tmux / iTerm2）—— 手动开多个独立会话，各做各的
 
 <div class="callout callout-tip" markdown="1">
-**💡 💡**
-
 **核心价值：** 从「一次只做一件事」变成「同时推进多件事」，大幅提升开发效率。比如一个窗格写功能代码，一个窗格写测试，一个窗格做代码审查——全部并行。
 </div>
 
@@ -63,8 +61,6 @@ Claude Code 的「分屏」是指在终端中**同时打开多个 Claude Code �
 ### 3.2 安装 tmux
 
 <div class="callout callout-note" markdown="1">
-**📝 🍎**
-
 **macOS 安装 tmux：**
 ```javascript
 brew install tmux
@@ -76,7 +72,6 @@ brew install tmux
 tmux -V
 ```
 
-[!note] 🪟
 **Windows（WSL 2）安装 tmux：**
 ```javascript
 # 在 WSL 2 的 Ubuntu 中执行
@@ -84,7 +79,6 @@ sudo apt update && sudo apt install tmux -y
 tmux -V
 ```
 
-[!note] 🍎
 **macOS 替代方案 — iTerm2：**
 如果你使用 iTerm2，安装 `it2` CLI 并启用 Python API：
 
@@ -152,8 +146,6 @@ Claude 会自动：
 | 滚动窗格内容 | `Ctrl+B` 然后 `[`，用方向键滚动 | 按 `q` 退出滚动模式 |
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **注意：** iTerm2 用户使用 `tmux -CC` 时，tmux 窗格会自动转换为 iTerm2 的原生分割窗口，可以直接用鼠标点击切换，无需记忆 tmux 快捷键。
 </div>
 
@@ -230,8 +222,6 @@ cd ../feature-api && claude
 ```
 
 <div class="callout callout-success" markdown="1">
-**✅ ✅**
-
 **为什么用 Worktrees？**
 - 每个窗格在不同的目录工作，**零文件冲突**
 - 各自独立的 Git 分支，互不影响
@@ -289,8 +279,6 @@ claude
 ### 🪟 Windows 完整配置
 
 <div class="callout callout-warning" markdown="1">
-**⚠️ ⚠️**
-
 **重要提示：** Agent Teams 的 Split Pane 模式目前**不支持** Windows Terminal 和 PowerShell 原生终端。Windows 用户需要通过 **WSL 2** 使用 tmux 来实现分屏。
 </div>
 
@@ -359,8 +347,6 @@ claude
 13. `Alt+方向键`：在窗格间切换
 
 <div class="callout callout-note" markdown="1">
-**📝 📌**
-
 **注意：** Windows Terminal 的窗格分割只是视觉上的分屏，各个 Claude Code 会话之间**没有** Agent Teams 的自动协作能力（无共享任务列表、无互相通信）。如果需要完整的 Agent Teams 分屏体验，请使用 WSL 2 + tmux。
 </div>
 
