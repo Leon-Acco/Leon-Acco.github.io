@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<h1 class="page-title">{{ page.title }}</h1>
+<p class="page-sub">{{ page.desc }}</p>
+<section class="posts">
+  {% assign posts = site.categories[page.cat] %}
+  {% for post in posts %}
+  <article class="post-card">
+    <div class="post-meta">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+      {% for tag in post.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
+    </div>
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+  </article>
+  {% else %}
+  <p>暂无文章。</p>
+  {% endfor %}
+</section>

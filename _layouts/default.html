@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="{{ '/' | relative_url }}">✈️ Acho<span class="logo-dim">.dev</span></a>
+      <nav class="nav">
+        <a href="{{ '/' | relative_url }}">首页</a>
+        <a href="{{ '/ai/' | relative_url }}">AI</a>
+        <a href="{{ '/iot/' | relative_url }}">车联网</a>
+        <a href="{{ '/bigdata/' | relative_url }}">大数据</a>
+        <a href="{{ '/about/' | relative_url }}">关于</a>
+        <a href="https://www.yuque.com/u22429903" target="_blank" rel="noopener">语雀 ↗</a>
+        <a href="https://github.com/Leon-Acco" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© {{ site.time | date: '%Y' }} Acho · 修过飞机的程序猿 · <a href="https://www.yuque.com/u22429903" target="_blank" rel="noopener">语雀</a> · <a href="https://github.com/Leon-Acco" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="foot-quote">好久不见~ 我相信我们在哪里见过。 Have a nice day ☀️</p>
+    </div>
+  </footer>
+</body>
+</html>
