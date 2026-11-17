@@ -73,13 +73,13 @@ OpenClaw 不绑定单一模型，而是**模型无关（Model-Agnostic）** 的�
 2. 模型选择影响推理质量、速度和成本（Token 计费）
 3. 架构上要做好 **Provider 抽象层**，便于切换模型
 
-```python
-# 简化示例：模型抽象层
-class LLMProvider:
-    def chat(self, messages: list, tools: list = None) -> Response:
-        """统一接口，底层可切换 OpenAI / Claude / Ollama"""
-        pass
-```
+   ```python
+   # 简化示例：模型抽象层
+   class LLMProvider:
+       def chat(self, messages: list, tools: list = None) -> Response:
+           """统一接口，底层可切换 OpenAI / Claude / Ollama"""
+           pass
+   ```
 
 ### 3.2 🔧 工具调用系统（手脚）
 
@@ -156,9 +156,9 @@ Agent 接收到一个复杂任务后，不是一步到位，而是**自主拆解
 11. **接收指令** → 理解任务目标
 12. **规划执行步骤** → 拆解：搜集竞品信息 → 整理大纲 → 生成报告
 13. **调用工具逐步执行** →
-    - 调用浏览器工具，搜索竞品官网、新闻
-    - 整理并摘要关键信息
-    - 调用 Google Slides API 生成报告
+       - 调用浏览器工具，搜索竞品官网、新闻
+       - 整理并摘要关键信息
+       - 调用 Google Slides API 生成报告
 14. **遇到分歧主动确认** → 「XX 公司定价找不到，要跳过还是用估算值？」
 15. **完成后回报** → 返回链接 + 执行摘要
 

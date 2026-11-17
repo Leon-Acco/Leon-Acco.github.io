@@ -47,7 +47,7 @@ ETL工具选择：Canal
 + **场景**：Canal 适用于需要从 MySQL 捕获实时数据变更的场景. 例如实时同步、数据库迁移、数据流处理等。
 + **实时数据同步**：适用于 MySQL 数据库的表变更监控和实时同步到其他系统（如 Kafka、Elasticsearch、HBase 等）。
 + **数据流处理**：当你需要将 MySQL 中的变动数据流式地传输到消息队列、NoSQL 数据库或流式处理系统时. Canal 是很好的选择。
-+ **数据一致性****要求****高的场景**：因为 Canal 可以直接读取 Binlog. 它能够保证数据的强一致性. 非常适合用于主从复制、数据库迁移等需要高一致性和实时性的场景。
++ **数据一致性要求高的场景**：因为 Canal 可以直接读取 Binlog. 它能够保证数据的强一致性. 非常适合用于主从复制、数据库迁移等需要高一致性和实时性的场景。
 
   综上. Canal 很适合当下实时性要求较高的场景. 并且 Kafka . RocketMq 环境已有搭建. 同时配置简单. 维护成本低等。
 
@@ -193,126 +193,126 @@ rocketmq.tag = archives
     - **SQL 查询并发**： Apache Ignite 也支持分布式 SQL 查询，这使得它可以同时处理大量的 SQL 查询请求。在高并发的 SQL 查询场景下，性能的瓶颈通常不在于 Ignite，而是在于如何合理地设计索引、查询优化和事务控制
 
 ### (3). Tbox设备存储结构定义
-  采用 **Apache Ignite **做为存储中间件，利用他支持高频接入，及查询，同时还支持SQL语法查询的能力，将设备实时数据和静态数据联合，提供更丰富更灵活的查询能力
+  采用 **Apache Ignite**做为存储中间件，利用他支持高频接入，及查询，同时还支持SQL语法查询的能力，将设备实时数据和静态数据联合，提供更丰富更灵活的查询能力
 
-1. tbox设备绑定关系静态数据表
+**tbox设备绑定关系静态数据表**
 
-```plsql
-create table DST_TBOX_CAR_DEVICE_STATIC
-(
-    DEV_CODE VARCHAR(20) not null,
-    VIN_CODE varchar(20),
-    PRIMARY KEY (DEV_CODE)
-);
-```
+   ```plsql
+   create table DST_TBOX_CAR_DEVICE_STATIC
+   (
+       DEV_CODE VARCHAR(20) not null,
+       VIN_CODE varchar(20),
+       PRIMARY KEY (DEV_CODE)
+   );
+   ```
 
-1. tbox设备信息静态数据表
+**tbox设备信息静态数据表**
 
-```plsql
-create table DST_TBOX_DEVICE_INFO_STATIC
-(
-  DEV_CODE         VARCHAR(20) not null,
-  ORG_ID           BIGINT(0),
-  BRAND_ID         INTEGER,
-  TYPE_ID          INTEGER,
-  PRODUCT_DATE     DATE(0),
-  PROTOCOL_VERSION VARCHAR(20),
-  BIND_STATUS      INTEGER,
-  ICCID            VARCHAR(20),
-  CREATOR_ID       BIGINT(0),
-  CREATOR_NAME     VARCHAR(50),
-  CREATE_TIME      BIGINT(0),
-  MODIFIER_ID      BIGINT(0),
-  MODIFIER_NAME    VARCHAR(50),
-  MODIFY_TIME      BIGINT(0),
-  RECV_TIME        BIGINT(0),
-  PRIMARY KEY (DEV_CODE)
-);
-```
+   ```plsql
+   create table DST_TBOX_DEVICE_INFO_STATIC
+   (
+     DEV_CODE         VARCHAR(20) not null,
+     ORG_ID           BIGINT(0),
+     BRAND_ID         INTEGER,
+     TYPE_ID          INTEGER,
+     PRODUCT_DATE     DATE(0),
+     PROTOCOL_VERSION VARCHAR(20),
+     BIND_STATUS      INTEGER,
+     ICCID            VARCHAR(20),
+     CREATOR_ID       BIGINT(0),
+     CREATOR_NAME     VARCHAR(50),
+     CREATE_TIME      BIGINT(0),
+     MODIFIER_ID      BIGINT(0),
+     MODIFIER_NAME    VARCHAR(50),
+     MODIFY_TIME      BIGINT(0),
+     RECV_TIME        BIGINT(0),
+     PRIMARY KEY (DEV_CODE)
+   );
+   ```
 
-1. tbox设备信息动态数据表
+**tbox设备信息动态数据表**
 
-```plsql
-create table DST_TBOX_DEVICE_INFO_DYNAMIC
-(
-  PRIMARY_ID        BIGINT not null,
-  DEV_CODE          VARCHAR(20) not null,
-  DATA_VIN_CODE     VARCHAR(20),
-  PLATFORM_VIN_CODE  VARCHAR(20),
-  FIRMWARE_VERSION  VARCHAR(20),
-  SERVER_TIME       BIGINT(0),
-  DATA_TIME         BIGINT(0),
-  VEHICLE_STATUS    INTEGER,
-  CHARGE_STATUS     INTEGER,
-  TOTAL_MILEAGE     BIGINT(0),
-  SPEED             INTEGER,
-  ELECTRIC_QUANTITY INTEGER,
-  TOTAL_VOLTAGE     INTEGER,
-  TOTAL_CURRENT     INTEGER,
-  TBOX_STATUS       INTEGER,
-  NETWORK_SIGNAL    INTEGER,
-  LATITUDE          BIGINT(0),
-  LONGITUDE         BIGINT(0),
-  DATA_HEX          VARCHAR(5000),
-  PRIMARY KEY (DEV_CODE)
-);
-```
+   ```plsql
+   create table DST_TBOX_DEVICE_INFO_DYNAMIC
+   (
+     PRIMARY_ID        BIGINT not null,
+     DEV_CODE          VARCHAR(20) not null,
+     DATA_VIN_CODE     VARCHAR(20),
+     PLATFORM_VIN_CODE  VARCHAR(20),
+     FIRMWARE_VERSION  VARCHAR(20),
+     SERVER_TIME       BIGINT(0),
+     DATA_TIME         BIGINT(0),
+     VEHICLE_STATUS    INTEGER,
+     CHARGE_STATUS     INTEGER,
+     TOTAL_MILEAGE     BIGINT(0),
+     SPEED             INTEGER,
+     ELECTRIC_QUANTITY INTEGER,
+     TOTAL_VOLTAGE     INTEGER,
+     TOTAL_CURRENT     INTEGER,
+     TBOX_STATUS       INTEGER,
+     NETWORK_SIGNAL    INTEGER,
+     LATITUDE          BIGINT(0),
+     LONGITUDE         BIGINT(0),
+     DATA_HEX          VARCHAR(5000),
+     PRIMARY KEY (DEV_CODE)
+   );
+   ```
 
 ### (4). Adas设备存储结构定义
-1. adas设备绑定关系静态数据表
+**adas设备绑定关系静态数据表**
 
-```plsql
-create table DST_ADAS_CAR_DEVICE_STATIC
-(
-  DEV_CODE VARCHAR(20) not null,
-  VIN_CODE varchar(20),
-  PRIMARY KEY (DEV_CODE)
-);
-```
+   ```plsql
+   create table DST_ADAS_CAR_DEVICE_STATIC
+   (
+     DEV_CODE VARCHAR(20) not null,
+     VIN_CODE varchar(20),
+     PRIMARY KEY (DEV_CODE)
+   );
+   ```
 
-1. adas设备关系静态数据表
+**adas设备关系静态数据表**
 
-```plsql
--- adas设备关系静态数据表
-create table DST_ADAS_DEVICE_INFO_STATIC
-(
-  DEV_CODE         VARCHAR(20) not null,
-  ORG_ID           BIGINT(0),
-  BRAND_ID         INTEGER,
-  TYPE_ID          INTEGER,
-  ICCID            VARCHAR(20),
-  PRODUCT_DATE     DATE(0),
-  PROTOCOL_VERSION VARCHAR(20),
-  CREATOR_ID       BIGINT(0),
-  CREATOR_NAME     VARCHAR(50),
-  CREATE_TIME      BIGINT(0),
-  MODIFIER_ID      BIGINT(0),
-  MODIFIER_NAME    VARCHAR(50),
-  MODIFY_TIME      BIGINT(0),
-  RECV_TIME        BIGINT(0),
-  PRIMARY KEY (DEV_CODE)
-);
-```
+   ```plsql
+   -- adas设备关系静态数据表
+   create table DST_ADAS_DEVICE_INFO_STATIC
+   (
+     DEV_CODE         VARCHAR(20) not null,
+     ORG_ID           BIGINT(0),
+     BRAND_ID         INTEGER,
+     TYPE_ID          INTEGER,
+     ICCID            VARCHAR(20),
+     PRODUCT_DATE     DATE(0),
+     PROTOCOL_VERSION VARCHAR(20),
+     CREATOR_ID       BIGINT(0),
+     CREATOR_NAME     VARCHAR(50),
+     CREATE_TIME      BIGINT(0),
+     MODIFIER_ID      BIGINT(0),
+     MODIFIER_NAME    VARCHAR(50),
+     MODIFY_TIME      BIGINT(0),
+     RECV_TIME        BIGINT(0),
+     PRIMARY KEY (DEV_CODE)
+   );
+   ```
 
-1. adas设备动态数据
+**adas设备动态数据**
 
-```plsql
--- adas设备关系静态数据表
-create table DST_ADAS_DEVICE_INFO_DYNAMIC
-(
-  DEV_CODE               VARCHAR(20) not null,
-  DATA_VIN_CODE          varchar(20),
-  firmware_VERSION       VARCHAR(20),
-  SERVER_TIME            BIGINT(0),
-  DATA_TIME              BIGINT(0),
-  dms_Connection_Status  INTEGER,
-  adas_Connection_Status INTEGER,
-  s4g_Signal_Strength    INTEGER,
-  gps_Signal_Status      INTEGER,
-  DATA_HEX               VARCHAR(5000),
-  PRIMARY KEY (DEV_CODE)
-);
-```
+   ```plsql
+   -- adas设备关系静态数据表
+   create table DST_ADAS_DEVICE_INFO_DYNAMIC
+   (
+     DEV_CODE               VARCHAR(20) not null,
+     DATA_VIN_CODE          varchar(20),
+     firmware_VERSION       VARCHAR(20),
+     SERVER_TIME            BIGINT(0),
+     DATA_TIME              BIGINT(0),
+     dms_Connection_Status  INTEGER,
+     adas_Connection_Status INTEGER,
+     s4g_Signal_Strength    INTEGER,
+     gps_Signal_Status      INTEGER,
+     DATA_HEX               VARCHAR(5000),
+     PRIMARY KEY (DEV_CODE)
+   );
+   ```
 
 ### (5). gps设备存储结构定义
 gps每台设备上报数据很少，采用Mysql8做为存储

@@ -735,10 +735,10 @@ Command line:
 
 ## 四、参考
 
-1.[http://www.ityouknow.com/jvm/2017/09/03/jvm-command.html](https://link.zhihu.com/?target=http%3A//www.ityouknow.com/jvm/2017/09/03/jvm-command.html)
+1. [http://www.ityouknow.com/jvm/2017/09/03/jvm-command.html](https://link.zhihu.com/?target=http%3A//www.ityouknow.com/jvm/2017/09/03/jvm-command.html)
 
-2.[https://juejin.cn/post/6844904152850497543](https://link.zhihu.com/?target=https%3A//juejin.cn/post/6844904152850497543)
+2. [https://juejin.cn/post/6844904152850497543](https://link.zhihu.com/?target=https%3A//juejin.cn/post/6844904152850497543)
 
-3.[https://zhuanlan.zhihu.com/p/613572945](https://zhuanlan.zhihu.com/p/613572945)
+3. [https://zhuanlan.zhihu.com/p/613572945](https://zhuanlan.zhihu.com/p/613572945)
 
-4.[https://zhuanlan.zhihu.com/p/92955445](https://zhuanlan.zhihu.com/p/92955445)
+4. [https://zhuanlan.zhihu.com/p/92955445](https://zhuanlan.zhihu.com/p/92955445)

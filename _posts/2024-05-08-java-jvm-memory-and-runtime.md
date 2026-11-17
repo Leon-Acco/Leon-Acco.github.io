@@ -76,7 +76,7 @@ Exact Memory Management：准确式内存管理
 “已经结束了。”
 >
 
-#### ③三大商用VM之一：**Hotspot **VM
+#### ③三大商用VM之一：**Hotspot**VM
 
 ##### [1]Hotspot历史
 
@@ -236,7 +236,7 @@ JVM 中类加载器分为四种：前三种为虚拟机自带的加载器。
 
 本地接口的作用是融合不同的编程语言为 Java 所用，它的初衷是融合 C/C程序。因为 Java 诞生的时候是 C/C 横行的时候，要想立足，必须有能力调用 C/C++。于是就在内存中专门开辟了一块区域处理标记为 native 的代码，它的具体做法是 Native Method Stack 中登记 native 方法，在Execution Engine 执行时加载 native libraies。
 
-目前该方法使用的越来越少了，除非是与硬件有关的应用，比如通过 Java 程序驱动打印机或者 Java 系统管理生产设备，在企业级应用中已经比较少见。因为现在的异构领域间的通信很发达，比如**可以使用 Socket 通信，也可以使用 Web Service **等等，不多做介绍。
+目前该方法使用的越来越少了，除非是与硬件有关的应用，比如通过 Java 程序驱动打印机或者 Java 系统管理生产设备，在企业级应用中已经比较少见。因为现在的异构领域间的通信很发达，比如**可以使用 Socket 通信，也可以使用 Web Service**等等，不多做介绍。
 
 ## 六、程序计数器
 
@@ -268,7 +268,7 @@ JVM 中类加载器分为四种：前三种为虚拟机自带的加载器。
 
 ### 2、应用场景
 
-直接内存并不是虚拟机运行时数据区的一部分，也不是Java 虚拟机规范中定义的内存区域。在JDK1.4 中新加入了NIO(New Input/Output)类，引入了**一种基于通道（Channel）与缓冲区（Buffer）的 I/O 方式**，它可以使用native 函数库直接分配堆外内存，然后通过一个**存储在 Java 堆中的 DirectByteBuffer 对象作为这块内存的引用进行操作**。这样能在**一些场景中显著提高性能**，因为避免了在** Java 堆和 Native 堆中来回复制数据**。 本机直接内存的分配不会受到 Java 堆大小的限制，受到本机总内存大小限制。 配置虚拟机参数时，不要忽略直接内存防止出现 OutOfMemoryError 异常。
+直接内存并不是虚拟机运行时数据区的一部分，也不是Java 虚拟机规范中定义的内存区域。在JDK1.4 中新加入了NIO(New Input/Output)类，引入了**一种基于通道（Channel）与缓冲区（Buffer）的 I/O 方式**，它可以使用native 函数库直接分配堆外内存，然后通过一个**存储在 Java 堆中的 DirectByteBuffer 对象作为这块内存的引用进行操作**。这样能在**一些场景中显著提高性能**，因为避免了在**Java 堆和 Native 堆中来回复制数据**。 本机直接内存的分配不会受到 Java 堆大小的限制，受到本机总内存大小限制。 配置虚拟机参数时，不要忽略直接内存防止出现 OutOfMemoryError 异常。
 
 比如，TCP传输时，使用ByteBuffer的性能就非常好
 
@@ -694,25 +694,25 @@ CMS垃圾回收器采用了一种“标记-清除”（Mark-Sweep）的算法，
 
 可以通过以下方式查看当前JVM使用的具体是什么垃圾回收器：
 
-1.在Java程序启动时添加以下JVM参数，可以在控制台输出JVM的GC信息：
+在Java程序启动时添加以下JVM参数，可以在控制台输出JVM的GC信息：
 
-```latex
--XX:+PrintGC
+   ```latex
+   -XX:+PrintGC
 
-```
-2.该参数只会输出简单的GC日志信息，如果需要输出详细的日志信息，可以使用以下JVM参数：
+   ```
+2. 该参数只会输出简单的GC日志信息，如果需要输出详细的日志信息，可以使用以下JVM参数：
 
-```latex
--XX:+PrintGCDetails
+   ```latex
+   -XX:+PrintGCDetails
 
-```
-3.在输出的日志信息中查找以下关键字，即可确定当前JVM使用的具体垃圾回收器：
+   ```
+3. 在输出的日志信息中查找以下关键字，即可确定当前JVM使用的具体垃圾回收器：
 
-- `PSYoungGen` 和 `ParNew` 表示使用的是Parallel Scavenge收集器
+   - `PSYoungGen` 和 `ParNew` 表示使用的是Parallel Scavenge收集器
 
-- `PSOldGen` 和 `ConcurrentMarkSweep` 表示使用的是Parallel Old收集器
+   - `PSOldGen` 和 `ConcurrentMarkSweep` 表示使用的是Parallel Old收集器
 
-- `G1 Young Generation` 和 `G1 Old Generation` 表示使用的是Garbage-First收集器
+   - `G1 Young Generation` 和 `G1 Old Generation` 表示使用的是Garbage-First收集器
 
 例如，在输出的日志信息中可以看到以下内容，说明当前JVM使用的是Parallel Old收集器：
 
@@ -724,7 +724,7 @@ CMS垃圾回收器采用了一种“标记-清除”（Mark-Sweep）的算法，
 
 可以通过以下方式修改JVM当前使用的垃圾回收器：
 
-1.查看当前JVM的默认垃圾回收器：
+查看当前JVM的默认垃圾回收器：
 
 使用以下命令，查看当前JVM默认使用的垃圾回收器：
 
@@ -732,7 +732,7 @@ CMS垃圾回收器采用了一种“标记-清除”（Mark-Sweep）的算法，
 java -XX:+PrintCommandLineFlags -version
 
 ```
-2.指定JVM使用的垃圾回收器：
+2. 指定JVM使用的垃圾回收器：
 
 可以使用以下命令，指定JVM使用的垃圾回收器：
 
@@ -867,7 +867,7 @@ Survivor区不足：当Survivor区无法容纳从Eden区复制过来的存活对
 
 Major GC触发的条件通常包括以下情况：
 
-1. 老年代空间不足：
+老年代空间不足：
 
 当老年代中的对象无法再次晋升或无法容纳新的大对象时，会触发Major GC。这可能是由于年轻代对象的晋升、大对象的直接分配或其他操作导致的。
 

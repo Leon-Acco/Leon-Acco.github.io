@@ -182,7 +182,7 @@ transpond.sockets[0].isNeedAck=true
 
 **准确度：数据发送正常90444+ 1（tcp登录包） = 90445 数据发送正确率：100%；**
 
-**速度：速度在 300/s ****<font style="background-color:rgb(247,105,100);">严重问题</font>**
+**速度：速度在 300/s<font style="background-color:rgb(247,105,100);">严重问题</font>**
 
 #### 开发机器测试情况3：
 transpond.sockets[0].pullBatchSize=200
@@ -207,7 +207,7 @@ transpond.sockets[0].isNeedAck=true 多通道，20个拉取线程，每次拉取
 
 2024-12-25 09:46:32.617 [] [] INFO com.dst.iot.transpond.std32960.service.infrastructure.mq.consumer.MessageLitePullConsumer:172 - 客户名: 阿朝测试, 客户队列: acho-32960-topic:test，当前成功计数: 4100 2024-12-25 09:46:42.770 [] [] INFO com.dst.iot.transpond.std32960.service.infrastructure.mq.consumer.MessageLitePullConsumer:172 - 客户名: 阿朝测试, 客户队列: acho-32960-topic:test，当前成功计数: 8094
 
-**速度：速度在 400/s ****<font style="background-color:rgb(247,105,100);">严重问题</font>**
+**速度：速度在 400/s<font style="background-color:rgb(247,105,100);">严重问题</font>**
 
 #### 开发机器测试情况4：
 transpond.sockets[0].pullBatchSize=30
@@ -235,7 +235,7 @@ transpond.sockets[0].isNeedAck=true
 
 **准确度：数据发送有重复数据，暂没发现丢失数据**
 
-**速度：速度在 1200/s ****<font style="background-color:rgb(247,105,100);">严重问题</font>**
+**速度：速度在 1200/s<font style="background-color:rgb(247,105,100);">严重问题</font>**
 
 #### 开发机器测试情况5：
 transpond.sockets[0].pullBatchSize=100
@@ -273,7 +273,7 @@ transpond.sockets[0].isNeedAck=true
 
 **准确度：数据发送有重复数据，暂没发现丢失数据**
 
-**速度：速度在 2500/s ****<font style="background-color:rgb(247,105,100);">严重问题</font>**
+**速度：速度在 2500/s<font style="background-color:rgb(247,105,100);">严重问题</font>**
 
 #### 开发机器测试情况6：
 transpond.sockets[0].pullBatchSize=50
@@ -298,7 +298,7 @@ transpond.sockets[0].isNeedAck=true
 
 **准确度:100%**
 
-**速度：速度在 3380/s **
+**速度：速度在 3380/s**
 
 #### 开发机器测试情况7：
 transpond.sockets[0].pullBatchSize=50
@@ -321,4 +321,4 @@ transpond.sockets[0].isCancel=true
 
 **准确度:100%**
 
-**速度：速度在 8400/s **
+**速度：速度在 8400/s**

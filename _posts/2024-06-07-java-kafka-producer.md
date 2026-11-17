@@ -28,7 +28,7 @@ original: "https://www.yuque.com/u22429903/imo2wf/wy8rhavfdmwlaatn"
 
 三，异步发送
 
-1. 普通的异步发送
+**普通的异步发送**
 
 **需求：创建 Kafka 生产者，采用异步的方式发送到 Kafka Broker，没有回调**
 
@@ -91,7 +91,7 @@ public static void main(String[] args) {
 
 2. 提高并行度，生产者可以以分区为单位发送数据；消费者可以以分区为单位进行消费数据。
 
-![1717741364097-d123633c-c2c6-4ef3-8f4e-b087d9c1481d.png](/assets/img/java-kafka-producer/1717741364097-d123633c-c2c6-4ef3-8f4e-b087d9c1481d.png)
+   ![1717741364097-d123633c-c2c6-4ef3-8f4e-b087d9c1481d.png](/assets/img/java-kafka-producer/1717741364097-d123633c-c2c6-4ef3-8f4e-b087d9c1481d.png)
 
 ### 1，分区策略
 
@@ -108,7 +108,7 @@ public static void main(String[] args) {
 
 ### 2，自定义分区器
 
-1. 需求
+**需求**
 例如我们实现一个分区器实现，发送过来的数据中如果包含 kafka，就发往 0 号分区，不包含 kafka，就发往 1 号分区。
 
 2. 实现步骤
@@ -170,17 +170,17 @@ public class MyPartitioner implements Partitioner {
 
 ## 五，数据可靠性
 
-1. ack原理
+**ack原理**
 
-![1717742063275-6912930b-0b93-4883-ae1c-2771956fd56f.png](/assets/img/java-kafka-producer/1717742063275-6912930b-0b93-4883-ae1c-2771956fd56f.png)
+   ![1717742063275-6912930b-0b93-4883-ae1c-2771956fd56f.png](/assets/img/java-kafka-producer/1717742063275-6912930b-0b93-4883-ae1c-2771956fd56f.png)
 
-![1717742089766-71842498-3ff6-4f85-aee0-15a96c2feb63.png](/assets/img/java-kafka-producer/1717742089766-71842498-3ff6-4f85-aee0-15a96c2feb63.png)
+   ![1717742089766-71842498-3ff6-4f85-aee0-15a96c2feb63.png](/assets/img/java-kafka-producer/1717742089766-71842498-3ff6-4f85-aee0-15a96c2feb63.png)
 
-![1717742096731-fe773c91-105f-4fd6-a629-065665998938.png](/assets/img/java-kafka-producer/1717742096731-fe773c91-105f-4fd6-a629-065665998938.png)
+   ![1717742096731-fe773c91-105f-4fd6-a629-065665998938.png](/assets/img/java-kafka-producer/1717742096731-fe773c91-105f-4fd6-a629-065665998938.png)
 
 如果现在有个Fllower节点一一直无法同步，导致确认消息一直不返回，怎么办？
 
-1. **ISR(****in-sync replica set****)	：**
+**ISR(in-sync replica set)	：**
 
 Leader维护了一个动态的in-sync replica set（ISR），意为和Leader保持同步的Follower+Leader集合(leader：0，isr:0,1,2)。
 
@@ -274,13 +274,13 @@ At Most Once可以保证数据不重复，但是不能保证数据不丢失。
 ```
 ## 八，数据乱序
 
-1. kafka在1.x版本之前保证数据单分区有序，条件如下：
+kafka在1.x版本之前保证数据单分区有序，条件如下：
 
 max.in.flight.requests.per.connection=1（不需要考虑是否开启幂等性）。
 
 2. kafka在1.x及以后版本保证数据单分区有序，条件如下：
 
-- 未开启幂等性
+   - 未开启幂等性
 
 max.in.flight.requests.per.connection需要设置为1。
 

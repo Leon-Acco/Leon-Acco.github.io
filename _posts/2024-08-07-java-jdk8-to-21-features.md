@@ -777,7 +777,7 @@ Java 11 中提供一种低开销的 Java 堆分配采样方法，能够得到堆
 
 飞行记录器之前是商业版 JDK 的一项分析工具，但在 Java 11 中，其代码被包含到公开代码库中，这样所有人都能使用该功能了。
 
-6.String 增强
+6. String 增强
 
 Java 11 增加了一系列的字符串处理方法：
 
@@ -871,34 +871,34 @@ Redhat 主导开发的 Pauseless GC 实现，主要目标是 99.9% 的暂停小�
 
 Java 11 增加了两个的字符串处理方法
 
-1.indent() 方法可以实现字符串缩进。
+indent() 方法可以实现字符串缩进。
 
-```java
- public String indent(int n) {
-        if (isEmpty()) {
-            return "";
-        }
-        Stream<String> stream = lines();
-        if (n > 0) {
-            final String spaces = " ".repeat(n);
-            stream = stream.map(s -> spaces + s);
-        } else if (n == Integer.MIN_VALUE) {
-            stream = stream.map(s -> s.stripLeading());
-        } else if (n < 0) {
-            stream = stream.map(s -> s.substring(Math.min(-n, s.indexOfNonWhitespace())));
-        }
-        return stream.collect(Collectors.joining("\n", "", "\n"));
-    }
+   ```java
+    public String indent(int n) {
+           if (isEmpty()) {
+               return "";
+           }
+           Stream<String> stream = lines();
+           if (n > 0) {
+               final String spaces = " ".repeat(n);
+               stream = stream.map(s -> spaces + s);
+           } else if (n == Integer.MIN_VALUE) {
+               stream = stream.map(s -> s.stripLeading());
+           } else if (n < 0) {
+               stream = stream.map(s -> s.substring(Math.min(-n, s.indexOfNonWhitespace())));
+           }
+           return stream.collect(Collectors.joining("\n", "", "\n"));
+       }
 
-```
-2.transform() 方法可以用来转变指定字符串。
+   ```
+2. transform() 方法可以用来转变指定字符串。
 
-```java
-    public <R> R transform(Function<? super String, ? extends R> f) {
-        return f.apply(this);
-    }
+   ```java
+       public <R> R transform(Function<? super String, ? extends R> f) {
+           return f.apply(this);
+       }
 
-```
+   ```
 如以下所示。
 
 ```java
@@ -931,7 +931,7 @@ Java12 为默认的垃圾收集器 G1 带来了两项更新:
 ## 七. JAVA13新特性
 
 #### 增强 ZGC(释放未使用内存)
-在 Java 11 中是实验性的引入的** ZGC** 在实际的使用中存在未能主动将未使用的内存释放给操作系统的问题。
+在 Java 11 中是实验性的引入的**ZGC** 在实际的使用中存在未能主动将未使用的内存释放给操作系统的问题。
 
 ZGC 堆由一组称为 ZPages 的堆区域组成。在 GC 周期中清空 ZPages 区域时，它们将被释放并返回到页面缓存 ZPageCache 中，此缓存中的 ZPages 按最近最少使用（LRU）的顺序，并按照大小进行组织。
 
@@ -1224,7 +1224,7 @@ private static void streamToList() {
 }
 
 ```
-10.本地变量类型推断
+10. 本地变量类型推断
 
 之前我们想定义定义局部变量时。我们需要在赋值的左侧提供显式类型，并在赋值的右边提供实现类型：
 

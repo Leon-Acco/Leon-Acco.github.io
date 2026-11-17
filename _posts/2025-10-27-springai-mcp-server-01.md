@@ -457,7 +457,7 @@ public class DstV2xManagerApplication {
 ### 3. `MethodToolCallbackProvider.builder()`
 
 - `MethodToolCallbackProvider` 是 `ToolCallbackProvider` 的实现类。
-- 它会扫描你提供的对象中的 **所有带 **`**@Tool**`** 注解的方法**。
+- 它会扫描你提供的对象中的 **所有带**`**@Tool**`**注解的方法**。
 - 然后生成 MCP 的工具映射（工具名称、方法、参数信息、描述信息）。
 
 ### 4. `.toolObjects(parseTool)`

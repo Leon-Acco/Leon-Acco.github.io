@@ -137,7 +137,7 @@ public class RoutingOperator extends ProcessFunction<AlertFeature, TaggedAlert> 
 
 ### 第三层：LLM 异步推理算子
 
-**使用 Flink **`**AsyncFunction**` 是关键，避免 LLM 调用阻塞整个流处理管道。
+**使用 Flink**`**AsyncFunction**` 是关键，避免 LLM 调用阻塞整个流处理管道。
 
 ```java
 // 异步 LLM 推理算子（核心）

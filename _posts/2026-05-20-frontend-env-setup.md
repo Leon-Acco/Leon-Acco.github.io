@@ -198,11 +198,11 @@ export PATH="$PNPM_HOME:$PATH"
 1. 右键「此电脑」→「属性」→「高级系统设置」→「环境变量」
 2. 在「用户变量」或「系统变量」中找到 `Path`，确认包含以下路径：
 
-```javascript
-C:\Users\你的用户名\AppData\Roaming\nvm
-C:\Users\你的用户名\AppData\Roaming\nvm\nodejs
-C:\Users\你的用户名\AppData\Local\pnpm
-```
+   ```javascript
+   C:\Users\你的用户名\AppData\Roaming\nvm
+   C:\Users\你的用户名\AppData\Roaming\nvm\nodejs
+   C:\Users\你的用户名\AppData\Local\pnpm
+   ```
 
 3. 如果缺少，点击「新建」手动添加，然后**重新打开终端**
 
@@ -245,7 +245,7 @@ Vite 项目通过 `.env` 文件管理项目级环境变量，不同文件对应�
 | `.env.development` | `pnpm dev` 时加载 | 开发环境配置 |
 | `.env.production` | `pnpm build` 时加载 | 生产环境配置 |
 
-**示例 **`**.env.development**`**：**
+**示例**`**.env.development**`**：**
 
 ```bash
 # Vite 项目中，变量名必须以 VITE_ 开头才能在前端代码中访问
@@ -253,7 +253,7 @@ VITE_API_BASE_URL=http://localhost:8080/api
 VITE_APP_TITLE=My App (Dev)
 ```
 
-**示例 **`**.env.production**`**：**
+**示例**`**.env.production**`**：**
 
 ```bash
 VITE_API_BASE_URL=https://api.example.com
@@ -302,9 +302,9 @@ pnpm dev
 - 没有以 `VITE_` 开头的变量**不会**暴露到前端代码中（这是安全特性）
 
 **常见问题：**
-- **变量读取为 **`**undefined**` → 变量名必须以 `VITE_` 开头，否则 Vite 不会注入
-- **修改 **`**.env**`** 后不生效** → 需要重启 `pnpm dev`，`.env` 的修改不支持热更新
-- `**.env.local**`** 被提交到 Git** → 确认 `.gitignore` 中包含 `*.local`
+- **变量读取为**`**undefined**` → 变量名必须以 `VITE_` 开头，否则 Vite 不会注入
+- **修改**`**.env**`**后不生效** → 需要重启 `pnpm dev`，`.env` 的修改不支持热更新
+- `**.env.local**`**被提交到 Git** → 确认 `.gitignore` 中包含 `*.local`
 - **生产环境泄露敏感信息** → 前端 `.env` 中**不要放密钥、密码**等敏感信息，它们会被打包到前端代码中
 </div>
 

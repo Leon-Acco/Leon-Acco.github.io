@@ -88,8 +88,8 @@ Doris: vehicle_mileage_data
 2. **只处理 `cmd=0x02`（实时上报）和 `cmd=0x03`（补发上报）**，其他指令（登录/登出/心跳等）直接丢弃
 3. 解析整车数据包（02 子包）取累计里程 `translationKilometer()`
 4. 入口粗筛：
-   - 里程非法（null / ≤0 / ≥999999）→ 丢弃
-   - 时间戳不在 `[now-30天, now+1天]` → 丢弃（防止设备时钟漂移污染）
+      - 里程非法（null / ≤0 / ≥999999）→ 丢弃
+      - 时间戳不在 `[now-30天, now+1天]` → 丢弃（防止设备时钟漂移污染）
 5. VIN 从 **Kafka 消息 header 的 `vin` 键**提取（不在报文体内，是上游网关投递时塞入的）
 
 **输出模型 `VehicleRecord`**：`uid`（设备编码）、`vin`、`cmd`、`dataTime`、`mileageTotal`（累计总里程 km）

@@ -202,7 +202,7 @@ public class OneWayProducer {
 
 **(1)、正常事务消息的发送及提交**
 
-1. 生产者发送half消息到Broker服务端（半消息）；
+生产者发送half消息到Broker服务端（半消息）；
 
 半消息是一种特殊的消息类型，该状态的消息暂时不能被Consumer消费。当一条事务消息被成功投递到	Broker上，但是Broker并没有接收到Producer发出的二次确认时，该事务消息就处于"暂时不可被消费"状态，该状态的事务消息被称为半消息。
 
@@ -272,7 +272,7 @@ level有以下三种情况：
 
 RocketMQ 的所有消息都是持久化的，先写入系统[ PageCache](https://blog.csdn.net/u012489236/article/details/115574725)，然后刷盘，可以保证内存与磁盘 都有一份数据， 访问时，直接从内存读取。消息在通过Producer写入RocketMQ的时候，有两种写磁盘方式，分布式同步刷盘和异步刷盘。
 
-1. **同步刷盘**
+**同步刷盘**
 
 在消息达到Broker的内存之后，必须刷到commitLog日志文件中才算成功，然后返回Producer数据已经发送成功。
 

@@ -306,23 +306,23 @@ WATERMARK FOR ts AS ts
 
 ### 5.3 生产必知的三件事
 
-1. **空闲分区/空闲 source**（窗口不触发的头号原因）：某 Kafka 分区没数据 → 该分区 watermark 不推进 → 整体 watermark 卡住。
+**空闲分区/空闲 source**（窗口不触发的头号原因）：某 Kafka 分区没数据 → 该分区 watermark 不推进 → 整体 watermark 卡住。
 
-```sql
--- DDL WITH 参数（1.18+ 也可用 hint）
-'table.exec.source.idle-timeout' = '30s'   -- 全局配置
--- 或 SQL hint（1.18+）
-SELECT /*+ OPTIONS('source.idle-timeout'='30s') */ * FROM kafka_src
-```
+   ```sql
+   -- DDL WITH 参数（1.18+ 也可用 hint）
+   'table.exec.source.idle-timeout' = '30s'   -- 全局配置
+   -- 或 SQL hint（1.18+）
+   SELECT /*+ OPTIONS('source.idle-timeout'='30s') */ * FROM kafka_src
+   ```
 
 2. **多源 watermark 对齐**（快慢源差距过大撑爆状态）：
 
-```sql
-SELECT /*+ OPTIONS('watermark-align.group'='g1',
-                  'watermark-align.max-drift'='1m',
-                  'watermark-align.update-interval'='10s') */
-FROM source_a;
-```
+   ```sql
+   SELECT /*+ OPTIONS('watermark-align.group'='g1',
+                     'watermark-align.max-drift'='1m',
+                     'watermark-align.update-interval'='10s') */
+   FROM source_a;
+   ```
 
 3. **迟到数据**：窗口默认 watermark 过了就触发销毁，迟到数据丢弃。处理方案见案例库「案例 10」。
 

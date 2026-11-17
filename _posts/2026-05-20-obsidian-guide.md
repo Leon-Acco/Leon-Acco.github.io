@@ -448,12 +448,12 @@ SORT file.mtime DESC
 
 4. 用 **Copilot for Obsidian** 或 **Smart Connections** 对整个 Vault 建索引。
 5. 关键设置：
-    - 选择 Embedding 模型：本地 `nomic-embed-text` / `bge-m3`（通过 Ollama），或 OpenAI `text-embedding-3-large`。
-    - 排除 `00-Inbox`、`80-Attachments` 以减小索引噪声。
+       - 选择 Embedding 模型：本地 `nomic-embed-text` / `bge-m3`（通过 Ollama），或 OpenAI `text-embedding-3-large`。
+       - 排除 `00-Inbox`、`80-Attachments` 以减小索引噪声。
 6. 工作流：
-    - **「问我自己」**：在任意笔记按下唤起 Copilot → Vault QA → 自动引用相关原文笔记。
-    - **「写作助手」**：选中段落 → 改写 / 摘要 / 翻译 / 续写。
-    - **「每日复盘」**：让 AI 读今天的 Daily Note + 链接笔记，输出三段式复盘。
+       - **「问我自己」**：在任意笔记按下唤起 Copilot → Vault QA → 自动引用相关原文笔记。
+       - **「写作助手」**：选中段落 → 改写 / 摘要 / 翻译 / 续写。
+       - **「每日复盘」**：让 AI 读今天的 Daily Note + 链接笔记，输出三段式复盘。
 
 ### 8.2 Prompt as Note（提示词即笔记）
 

@@ -13,25 +13,25 @@ original: "https://www.yuque.com/u22429903/imo2wf/gxbgle2oepxh9vvz"
 ---
 ## RabbitMQ常用的几种工作机制
 
-1. 简单模式
+**简单模式**
 
-![1709737806724-2f559898-74ac-435c-b549-ede1d251f427.png](/assets/img/java-rabbitmq-reliability/1709737806724-2f559898-74ac-435c-b549-ede1d251f427.png)
+   ![1709737806724-2f559898-74ac-435c-b549-ede1d251f427.png](/assets/img/java-rabbitmq-reliability/1709737806724-2f559898-74ac-435c-b549-ede1d251f427.png)
 
 2. 工作模式
 
-![1709737807150-91a72612-ed8d-435b-8b4a-c1b23cbfea91.png](/assets/img/java-rabbitmq-reliability/1709737807150-91a72612-ed8d-435b-8b4a-c1b23cbfea91.png)
+   ![1709737807150-91a72612-ed8d-435b-8b4a-c1b23cbfea91.png](/assets/img/java-rabbitmq-reliability/1709737807150-91a72612-ed8d-435b-8b4a-c1b23cbfea91.png)
 
 3. 发布订阅模式
 
-![1709737807707-247a3db2-c2bb-4367-b665-47d2c54c061c.png](/assets/img/java-rabbitmq-reliability/1709737807707-247a3db2-c2bb-4367-b665-47d2c54c061c.png)
+   ![1709737807707-247a3db2-c2bb-4367-b665-47d2c54c061c.png](/assets/img/java-rabbitmq-reliability/1709737807707-247a3db2-c2bb-4367-b665-47d2c54c061c.png)
 
 4. 路由模式
 
-![1709737807699-439b1885-1b0e-44a2-9350-057197446c6c.png](/assets/img/java-rabbitmq-reliability/1709737807699-439b1885-1b0e-44a2-9350-057197446c6c.png)
+   ![1709737807699-439b1885-1b0e-44a2-9350-057197446c6c.png](/assets/img/java-rabbitmq-reliability/1709737807699-439b1885-1b0e-44a2-9350-057197446c6c.png)
 
 5. 主题模式
 
-![1709737807718-6715703c-7a4e-47b3-b04f-59f8bdc89f41.png](/assets/img/java-rabbitmq-reliability/1709737807718-6715703c-7a4e-47b3-b04f-59f8bdc89f41.png)
+   ![1709737807718-6715703c-7a4e-47b3-b04f-59f8bdc89f41.png](/assets/img/java-rabbitmq-reliability/1709737807718-6715703c-7a4e-47b3-b04f-59f8bdc89f41.png)
 
 ## RabbitMQ的相关概念
 
@@ -77,7 +77,7 @@ original: "https://www.yuque.com/u22429903/imo2wf/gxbgle2oepxh9vvz"
 
 ![1709738367181-229c78e4-b9c3-426c-88a2-2f823ce3b8db.png](/assets/img/java-rabbitmq-reliability/1709738367181-229c78e4-b9c3-426c-88a2-2f823ce3b8db.png)
 
-1. 生产者到交换机
+**生产者到交换机**
     1. 可靠性投递
         1. 生产者的确认机制
             1. 开启confirm  return
@@ -90,7 +90,7 @@ original: "https://www.yuque.com/u22429903/imo2wf/gxbgle2oepxh9vvz"
         2. 持久化队列
         3. 持久化消息
 
-![1709738868276-97cc48ec-2a42-4c4a-a97e-5c5b15ac34f8.png](/assets/img/java-rabbitmq-reliability/1709738868276-97cc48ec-2a42-4c4a-a97e-5c5b15ac34f8.png)
+   ![1709738868276-97cc48ec-2a42-4c4a-a97e-5c5b15ac34f8.png](/assets/img/java-rabbitmq-reliability/1709738868276-97cc48ec-2a42-4c4a-a97e-5c5b15ac34f8.png)
 
 3. 交换机到消费者
     1. ack确认机制
@@ -146,7 +146,7 @@ original: "https://www.yuque.com/u22429903/imo2wf/gxbgle2oepxh9vvz"
 ```
 ## 重复消费问题
 
-1. 前言
+**前言**
 
 当出现网络的抖动,消费者挂了，就有可能出现重复消费的问题
 
@@ -159,7 +159,7 @@ original: "https://www.yuque.com/u22429903/imo2wf/gxbgle2oepxh9vvz"
 
 ### 死信交换机
 
-1. 什么情况下会成为死信
+**什么情况下会成为死信**
     1. 消息都过期了还没有人消费
     2. 超过队列的大小
     3. 消息被拒绝channel.basicReject
@@ -167,22 +167,22 @@ original: "https://www.yuque.com/u22429903/imo2wf/gxbgle2oepxh9vvz"
 
 ### 延迟队列
 
-1. 场景
+**场景**
     1. 超时订单
     2. 限时优惠
     3. 定时发布
 
 2. 延迟队列 = 死信交换机 + TTL
 
-![1709740082100-5f274065-1c14-4842-abf6-6fbd3d44d436.png](/assets/img/java-rabbitmq-reliability/1709740082100-5f274065-1c14-4842-abf6-6fbd3d44d436.png)
+   ![1709740082100-5f274065-1c14-4842-abf6-6fbd3d44d436.png](/assets/img/java-rabbitmq-reliability/1709740082100-5f274065-1c14-4842-abf6-6fbd3d44d436.png)
 
-![1709740137394-7c73137e-347f-4bc2-9634-c074a69d77c8.png](/assets/img/java-rabbitmq-reliability/1709740137394-7c73137e-347f-4bc2-9634-c074a69d77c8.png)
+   ![1709740137394-7c73137e-347f-4bc2-9634-c074a69d77c8.png](/assets/img/java-rabbitmq-reliability/1709740137394-7c73137e-347f-4bc2-9634-c074a69d77c8.png)
 
-![1709740317394-1deab113-63b4-4715-bb40-a9dfc8026a19.png](/assets/img/java-rabbitmq-reliability/1709740317394-1deab113-63b4-4715-bb40-a9dfc8026a19.png)
+   ![1709740317394-1deab113-63b4-4715-bb40-a9dfc8026a19.png](/assets/img/java-rabbitmq-reliability/1709740317394-1deab113-63b4-4715-bb40-a9dfc8026a19.png)
 
 ## 消息堆积怎么解决
 
-1. 前言
+**前言**
 
 首先mq如果挤压了很多的消息，会导致MQ的吞吐变慢，并且有宕机的风险，我之前就在一个IOT项目遇见过，最后很无奈，丢数据了。。。
 
@@ -197,16 +197,16 @@ original: "https://www.yuque.com/u22429903/imo2wf/gxbgle2oepxh9vvz"
 
 ## 高可用机制
 
-1. 普通集群
+**普通集群**
 
-![1709740799350-025e8c43-ab1d-4f4c-864e-f0c1c959a506.png](/assets/img/java-rabbitmq-reliability/1709740799350-025e8c43-ab1d-4f4c-864e-f0c1c959a506.png)
+   ![1709740799350-025e8c43-ab1d-4f4c-864e-f0c1c959a506.png](/assets/img/java-rabbitmq-reliability/1709740799350-025e8c43-ab1d-4f4c-864e-f0c1c959a506.png)
 
 2. 镜像集群
 
-![1709740946283-03816bca-259c-4cd0-a542-18db2042a6b5.png](/assets/img/java-rabbitmq-reliability/1709740946283-03816bca-259c-4cd0-a542-18db2042a6b5.png)
+   ![1709740946283-03816bca-259c-4cd0-a542-18db2042a6b5.png](/assets/img/java-rabbitmq-reliability/1709740946283-03816bca-259c-4cd0-a542-18db2042a6b5.png)
 
 3. 仲裁队列
 
-![1709740967765-fccd3d99-0a49-41e3-b3a7-d9f572a9eee7.png](/assets/img/java-rabbitmq-reliability/1709740967765-fccd3d99-0a49-41e3-b3a7-d9f572a9eee7.png)
+   ![1709740967765-fccd3d99-0a49-41e3-b3a7-d9f572a9eee7.png](/assets/img/java-rabbitmq-reliability/1709740967765-fccd3d99-0a49-41e3-b3a7-d9f572a9eee7.png)
 
 ![1709741030014-a53a958a-5614-4436-812f-879a9ba865ae.png](/assets/img/java-rabbitmq-reliability/1709741030014-a53a958a-5614-4436-812f-879a9ba865ae.png)9

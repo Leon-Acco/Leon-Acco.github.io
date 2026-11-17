@@ -143,7 +143,7 @@ graph TB
 | `backend/services/repo_scheduler.py` | 定时任务 | 60s 轮询，到期 `git pull --ff-only` |
 | `backend/agents/` | LangGraph 旁路 | 默认关闭 |
 
-**关于 **`**backend/agents/**`：这里面是我早期用 LangGraph 跑通的一版实现，后来生产路径全部换成了自研运行时。我在 `multi_agent.py` 文件头写了废弃声明，但没删，因为它作为对照组还有参考价值。接手的人不要在它上面做新开发。
+**关于**`**backend/agents/**`：这里面是我早期用 LangGraph 跑通的一版实现，后来生产路径全部换成了自研运行时。我在 `multi_agent.py` 文件头写了废弃声明，但没删，因为它作为对照组还有参考价值。接手的人不要在它上面做新开发。
 
 ### 为什么最后没用 LangGraph
 

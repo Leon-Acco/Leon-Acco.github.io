@@ -53,9 +53,9 @@ Apache Ignite 3 是一个面向高性能计算的**分布式数据库**，核心
 2. 同时下载 **Ignite CLI**（命令行工具），它是与 Ignite 交互的主要方式；
 3. 解压：
 
-```bash
-unzip ignite3-3.1.0.zip
-```
+   ```bash
+   unzip ignite3-3.1.0.zip
+   ```
 
 解压后得到 `ignite3-db-3.1.0`（数据库）和 `ignite3-cli-3.1.0`（CLI）两个目录。
 
@@ -128,24 +128,24 @@ cluster init --name=sampleCluster
 
 **方式二：多台主机分别启动**：
 
-1. 在每个节点的配置文件（默认 `/etc/ignite-config.conf`，zip 安装在 `{IGNITE_HOME}/etc/ignite-config.conf`）中配置 `nodeFinder`，列出所有节点地址：
+在每个节点的配置文件（默认 `/etc/ignite-config.conf`，zip 安装在 `{IGNITE_HOME}/etc/ignite-config.conf`）中配置 `nodeFinder`，列出所有节点地址：
 
-```hocon
-ignite {
-  network {
-    port: 3344
-    nodeFinder.netClusterNodes = ["host1:3344", "host2:3344", "host3:3344"]
-  }
-}
-```
+   ```hocon
+   ignite {
+     network {
+       port: 3344
+       nodeFinder.netClusterNodes = ["host1:3344", "host2:3344", "host3:3344"]
+     }
+   }
+   ```
 
 2. 确保每个节点名唯一（在 `etc/vars.env` 中修改 `NODE_NAME`）。
 3. 逐台启动节点。
 4. 用 CLI 检查**物理拓扑**（physical topology，节点互相可见但尚未成集群）：
 
-```
-cluster topology physical
-```
+   ```
+   cluster topology physical
+   ```
 
 5. 全部可见后执行 `cluster init` 初始化；初始化后节点形成**逻辑拓扑**（logical topology），可用 `cluster topology logical` 验证。
 
@@ -978,16 +978,16 @@ CREATE ZONE my_zone WITH
 3. **共置列必须是主键的一部分**；
 4. 所有共置表对共置键使用同一哈希函数。
 
-```sql
-CREATE TABLE customers (
-    customer_id INT PRIMARY KEY, name VARCHAR(100)
-) WITH PRIMARY_ZONE = 'my_zone';
+   ```sql
+   CREATE TABLE customers (
+       customer_id INT PRIMARY KEY, name VARCHAR(100)
+   ) WITH PRIMARY_ZONE = 'my_zone';
 
-CREATE TABLE orders (
-    order_id INT, customer_id INT, total DECIMAL(10,2),
-    PRIMARY KEY (order_id, customer_id)
-) COLOCATE BY (customer_id) WITH PRIMARY_ZONE = 'my_zone';
-```
+   CREATE TABLE orders (
+       order_id INT, customer_id INT, total DECIMAL(10,2),
+       PRIMARY KEY (order_id, customer_id)
+   ) COLOCATE BY (customer_id) WITH PRIMARY_ZONE = 'my_zone';
+   ```
 
 SQL 引擎会识别共置表并本地化 JOIN 执行；未共置时同一查询需要节点间搬数据。
 

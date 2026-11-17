@@ -58,127 +58,127 @@ toc: true
 3. 新增或者更新该设备该指令类型的期望值
 4. 将任务投递到MQ -初始任务状态为 待下发
 
-```java
-/**
- * 锁车指令设置
- *
- * @param req 请求参数
- */
-public void execute(LockInnerApiReq req) {
-// 组装数据
-List<TerminalDesireLock> terminalDesires = new ArrayList<>();
+   ```java
+   /**
+    * 锁车指令设置
+    *
+    * @param req 请求参数
+    */
+   public void execute(LockInnerApiReq req) {
+   // 组装数据
+   List<TerminalDesireLock> terminalDesires = new ArrayList<>();
 
-req.getDetails().forEach(detail -> {
-    // 创建对象
-    TerminalDesireLock desireCommon = new TerminalDesireLock();
-    terminalDesireCommonService.fillCommonFields(desireCommon, detail);
-    terminalDesireCommonService.fillCommonFields(desireCommon, req);
-    desireCommon.setParam(req.getParam());
-    terminalDesires.add(desireCommon);
-});
+   req.getDetails().forEach(detail -> {
+       // 创建对象
+       TerminalDesireLock desireCommon = new TerminalDesireLock();
+       terminalDesireCommonService.fillCommonFields(desireCommon, detail);
+       terminalDesireCommonService.fillCommonFields(desireCommon, req);
+       desireCommon.setParam(req.getParam());
+       terminalDesires.add(desireCommon);
+   });
 
-// 更新缓存
-lockCacheService.updateBatch(terminalDesires);
+   // 更新缓存
+   lockCacheService.updateBatch(terminalDesires);
 
-// 事务提交发送指令
-// 发送指令
-for (TerminalDesireLock terminalDesireLock : terminalDesires) {
-    // 设置消息属性
-    try {
-        terminalDesireProducer.sendDelayTask(terminalDesireLock.getUid(), TerminalDesireConstant.TERMINAL_DESIRE_LOCK_TAG, terminalDesireLock.getSeq(), 0, 0);
-    } catch (Exception e) {
-        log.error("发送锁车指令到MQ异常", e);
-    }
-}
-}
-```
+   // 事务提交发送指令
+   // 发送指令
+   for (TerminalDesireLock terminalDesireLock : terminalDesires) {
+       // 设置消息属性
+       try {
+           terminalDesireProducer.sendDelayTask(terminalDesireLock.getUid(), TerminalDesireConstant.TERMINAL_DESIRE_LOCK_TAG, terminalDesireLock.getSeq(), 0, 0);
+       } catch (Exception e) {
+           log.error("发送锁车指令到MQ异常", e);
+       }
+   }
+   }
+   ```
 
-##### （三）**消费任务****MQ**
+##### （三）**消费任务MQ**
 1. 校验该任务id是否存在，状态是否为待下发
 2. 处理指令任务，根据不同的指令类型，路由不同的处理器处理
 3. 校验该指令类型期望值表的这个设备是否和设备目标值状态一致，一致修改任务状态为执行成功，结束任务
 4. 指令下发给网关，记录指令下发日志
 5. 如果任务来源为（定时重试）需修改任务的重试字段 重试次数和下一次重试时间
 
-```java
-/**
- * 消息监听
- *
- */
-@Override
-public void onMessage(MessageExt message) {
-String uid = new String(message.getBody());
-log.info("收到锁车任务消息,设备唯一标识：【{}】", uid);
+   ```java
+   /**
+    * 消息监听
+    *
+    */
+   @Override
+   public void onMessage(MessageExt message) {
+   String uid = new String(message.getBody());
+   log.info("收到锁车任务消息,设备唯一标识：【{}】", uid);
 
-// 从缓存中获取任务
-TerminalDesireLock task = lockCacheService.loadCache(uid);
+   // 从缓存中获取任务
+   TerminalDesireLock task = lockCacheService.loadCache(uid);
 
-// 获取该消息属性
-Map<String, String> properties = message.getProperties();
-String seq = properties.get(RetryConstant.SEQ);
-Integer currentRetryCount = Integer.valueOf(properties.get(RetryConstant.RETRY_COUNT_FILED));
+   // 获取该消息属性
+   Map<String, String> properties = message.getProperties();
+   String seq = properties.get(RetryConstant.SEQ);
+   Integer currentRetryCount = Integer.valueOf(properties.get(RetryConstant.RETRY_COUNT_FILED));
 
-// 校验seq
-if (!task.getSeq().equals(seq)) {
-    log.warn("任务seq不一致,消息seq:【{}】,任务seq:【{}】", seq, task.getSeq());
-    return;
-}
+   // 校验seq
+   if (!task.getSeq().equals(seq)) {
+       log.warn("任务seq不一致,消息seq:【{}】,任务seq:【{}】", seq, task.getSeq());
+       return;
+   }
 
-// 处理指令
-terminalDesireLockBusinessService.processCommand(task, currentRetryCount);
+   // 处理指令
+   terminalDesireLockBusinessService.processCommand(task, currentRetryCount);
 
-}
+   }
 
-/**
- * 处理指令
- * 注意：1.判断锁车结果是否执行成功时，利用锁车状态判断
- * 2.锁车标志结果锁车指令下发去重
- *
- * @param task              指令任务
- * @param currentRetryCount 当前重试次数
- */
-public void processCommand(TerminalDesireLock task, Integer currentRetryCount) {
-    try {
-        // 获取设备实时数据
-        TboxRealtimeDataDTO data = shadowServerApiService.findByDevCode(task.getUid());
-        P32960Data020A data020A = terminalDesireCommonService.getRealTimeData020A(data);
-        // 获取锁车状态
-        Integer lockState = getLockState(data020A);
-        // 校验是否需要下发指令
-        if (!isSet(lockState, task.getParam())) {
-            // 修改任务状态
-            task.setProcessStatus(TerminalDesireConstant.TERMINAL_DESIRE_PROCESS_STATUS_PROCESS_SUCCESS);
-            // 记录日志
-            terminalDesireLogService.saveTerminalDesireLog(task, CmdTypeEnum.CMD_84.val(), null, DstJsonUtil.toString(task), "指令参数与设备实时数据一致,不需要下发指令，执行成功");
+   /**
+    * 处理指令
+    * 注意：1.判断锁车结果是否执行成功时，利用锁车状态判断
+    * 2.锁车标志结果锁车指令下发去重
+    *
+    * @param task              指令任务
+    * @param currentRetryCount 当前重试次数
+    */
+   public void processCommand(TerminalDesireLock task, Integer currentRetryCount) {
+       try {
+           // 获取设备实时数据
+           TboxRealtimeDataDTO data = shadowServerApiService.findByDevCode(task.getUid());
+           P32960Data020A data020A = terminalDesireCommonService.getRealTimeData020A(data);
+           // 获取锁车状态
+           Integer lockState = getLockState(data020A);
+           // 校验是否需要下发指令
+           if (!isSet(lockState, task.getParam())) {
+               // 修改任务状态
+               task.setProcessStatus(TerminalDesireConstant.TERMINAL_DESIRE_PROCESS_STATUS_PROCESS_SUCCESS);
+               // 记录日志
+               terminalDesireLogService.saveTerminalDesireLog(task, CmdTypeEnum.CMD_84.val(), null, DstJsonUtil.toString(task), "指令参数与设备实时数据一致,不需要下发指令，执行成功");
 
-            // 修改缓存状态
-            lockCacheService.updateBatch(Collections.singletonList(task));
+               // 修改缓存状态
+               lockCacheService.updateBatch(Collections.singletonList(task));
 
-            // 推送成功结果
-            terminalDesireProducer.sendSuccessCommandTask(task, TerminalDesireConstant.TERMINAL_DESIRE_LOCK_TAG);
+               // 推送成功结果
+               terminalDesireProducer.sendSuccessCommandTask(task, TerminalDesireConstant.TERMINAL_DESIRE_LOCK_TAG);
 
-            return;
-        }
+               return;
+           }
 
-        // 锁车标志和指令参数一致，不需要下发指令，减少冗余下发
-        Integer lockFlag = getLockFlag(data020A);
-        if (!isSet(lockFlag, task.getParam())) {
-            log.warn("锁车标志和指令参数一致,不需要下发指令,设备唯一标识：【{}】,锁车标志：【{}】,期望值指令参数：【{}】", task.getUid(), lockFlag, task.getParam());
-            // 记录日志
-            terminalDesireLogService.saveTerminalDesireLog(task, CmdTypeEnum.CMD_84.val(), null, DstJsonUtil.toString(task), "锁车标志和指令参数一致,不下发指令");
-            return;
-        }
+           // 锁车标志和指令参数一致，不需要下发指令，减少冗余下发
+           Integer lockFlag = getLockFlag(data020A);
+           if (!isSet(lockFlag, task.getParam())) {
+               log.warn("锁车标志和指令参数一致,不需要下发指令,设备唯一标识：【{}】,锁车标志：【{}】,期望值指令参数：【{}】", task.getUid(), lockFlag, task.getParam());
+               // 记录日志
+               terminalDesireLogService.saveTerminalDesireLog(task, CmdTypeEnum.CMD_84.val(), null, DstJsonUtil.toString(task), "锁车标志和指令参数一致,不下发指令");
+               return;
+           }
 
-    } catch (Exception e) {
-        log.error("{}校验是否需要下发指令异常,设备唯一标识：【{}】,异常信息：{}", LOG_MARK, task.getUid(), e.getMessage());
-        log.error(e.getMessage(), e);
-        return;
-    }
+       } catch (Exception e) {
+           log.error("{}校验是否需要下发指令异常,设备唯一标识：【{}】,异常信息：{}", LOG_MARK, task.getUid(), e.getMessage());
+           log.error(e.getMessage(), e);
+           return;
+       }
 
-    // 下发指令
-    processDesireForSucceed(task, LOG_MARK, currentRetryCount, TerminalDesireConstant.TERMINAL_DESIRE_LOCK_TAG, this::handCommand);
-}
-```
+       // 下发指令
+       processDesireForSucceed(task, LOG_MARK, currentRetryCount, TerminalDesireConstant.TERMINAL_DESIRE_LOCK_TAG, this::handCommand);
+   }
+   ```
 
 ##### （四）**登录重试**
 1. 命令处理器遍历
@@ -186,82 +186,82 @@ public void processCommand(TerminalDesireLock task, Integer currentRetryCount) {
 3. 更新缓存-登录重试周期（当前时间+重试次数 * 间隔时间）
 4. 指令重新下发到消费任务MQ
 
-```java
-package com.dst.iot.control.service.module.business.command.handler;
+   ```java
+   package com.dst.iot.control.service.module.business.command.handler;
 
-import com.dst.iot.control.service.infrastructure.biz.common.BaseContext;
-import com.dst.iot.control.service.infrastructure.mq.dto.DeviceAnswerListenerDTO;
+   import com.dst.iot.control.service.infrastructure.biz.common.BaseContext;
+   import com.dst.iot.control.service.infrastructure.mq.dto.DeviceAnswerListenerDTO;
 
-/**
- * 指令处理器基类
- */
-public interface GBT32960BaseHandler<T extends BaseContext> extends BaseHandler{
+   /**
+    * 指令处理器基类
+    */
+   public interface GBT32960BaseHandler<T extends BaseContext> extends BaseHandler{
 
-    /**
-     * 指令类型
-     */
-    boolean support(Integer cmdType);
+       /**
+        * 指令类型
+        */
+       boolean support(Integer cmdType);
 
-    /**
-     * 处理指令应答
-     *
-     * @param response 指令应答
-     * @throws Exception 异常
-     */
-    void processAnswer(DeviceAnswerListenerDTO response) throws Exception;
+       /**
+        * 处理指令应答
+        *
+        * @param response 指令应答
+        * @throws Exception 异常
+        */
+       void processAnswer(DeviceAnswerListenerDTO response) throws Exception;
 
-    /**
-     * 解析指令上下文
-     *
-     * @param context 指令上下文str
-     */
-    T parseContext(String context);
+       /**
+        * 解析指令上下文
+        *
+        * @param context 指令上下文str
+        */
+       T parseContext(String context);
 
-    /**
-     * 确认指令应答
-     *
-     * @param listenerDTO 指令应答DTO
-     * @param context     指令上下文
-     */
-    void onAck(DeviceAnswerListenerDTO listenerDTO, T context);
+       /**
+        * 确认指令应答
+        *
+        * @param listenerDTO 指令应答DTO
+        * @param context     指令上下文
+        */
+       void onAck(DeviceAnswerListenerDTO listenerDTO, T context);
 
-    /**
-     * 登录重试
-     *
-     * @param uid 设备唯一标识
-     */
-    void loginRetry(String uid);
+       /**
+        * 登录重试
+        *
+        * @param uid 设备唯一标识
+        */
+       void loginRetry(String uid);
 
-}
-```
+   }
+   ```
 
-```java
-/**
- * 登录重试
- *
- * @param uid 设备唯一标识
- */
-@Override
-public void loginRetry(String uid) {
-// 获取缓存
-TerminalDesireLock cache = lockCacheService.loadCache(uid);
+   ```java
+   /**
+    * 登录重试
+    *
+    * @param uid 设备唯一标识
+    */
+   @Override
+   public void loginRetry(String uid) {
+   // 获取缓存
+   TerminalDesireLock cache = lockCacheService.loadCache(uid);
 
-// 登录校验
-if (!loginCheck(cache)) {
-    return;
-}
+   // 登录校验
+   if (!loginCheck(cache)) {
+       return;
+   }
 
-// 设置登录重试周期
-cache.setLoginRetryCycle(calculateLoginRetryCycle(cache));
+   // 设置登录重试周期
+   cache.setLoginRetryCycle(calculateLoginRetryCycle(cache));
 
-// 更新缓存
-lockCacheService.updateBatch(Collections.singletonList(cache));
+   // 更新缓存
+   lockCacheService.updateBatch(Collections.singletonList(cache));
 
-// 处理指令
-terminalDesireLockBusinessService.processCommand(cache, 0);
+   // 处理指令
+   terminalDesireLockBusinessService.processCommand(cache, 0);
 
-}
-```
+   }
+   ```
 
 ##### （五）**设备应答**
  设备收到命令会有回调
@@ -271,280 +271,280 @@ terminalDesireLockBusinessService.processCommand(cache, 0);
 3. 修改日志状态
 4. 将结果发送给设备响应结果MQ中给上游消费
 
-```java
-/**
- * 处理指令
- *
- * @param response 指令应答
- */
-@Override
-public void processAnswer(DeviceAnswerListenerDTO response) {
-Cmd84Context context = this.parseContext(response.getContext());
-if (context == null) {
-    log.warn("解析指令上下文信息失败：{}", response.getContext());
-    return;
-}
+   ```java
+   /**
+    * 处理指令
+    *
+    * @param response 指令应答
+    */
+   @Override
+   public void processAnswer(DeviceAnswerListenerDTO response) {
+   Cmd84Context context = this.parseContext(response.getContext());
+   if (context == null) {
+       log.warn("解析指令上下文信息失败：{}", response.getContext());
+       return;
+   }
 
-// 保存指令日志
-boolean success = response.isSuccess();
-String msg = success ? "锁车收到指令成功应答" : "锁车收到指令失败应答";
-terminalDesireLogService.saveTerminalDesireLog(response.getUid(), context.getSeq(), CmdTypeEnum.CMD_84.val(), null, msg);
+   // 保存指令日志
+   boolean success = response.isSuccess();
+   String msg = success ? "锁车收到指令成功应答" : "锁车收到指令失败应答";
+   terminalDesireLogService.saveTerminalDesireLog(response.getUid(), context.getSeq(), CmdTypeEnum.CMD_84.val(), null, msg);
 
-// 处理指令回调
-this.onAck(response, context);
+   // 处理指令回调
+   this.onAck(response, context);
 
-}
-```
+   }
+   ```
 
-##### （六）**指令****下发格式-对象**
+##### （六）**指令下发格式-对象**
   定义指令的格式和协议。
 
-1. 接口/mq参数
+**接口/mq参数**
 
-```java
-/**
- * 指令下发参数
- *
- */
-@Data
-public class CommandInnerApiRes {
+   ```java
+   /**
+    * 指令下发参数
+    *
+    */
+   @Data
+   public class CommandInnerApiRes {
 
-    /**
-     * 指令类型  参数设置：0x81  OTA应答:0x82  锁车:0x84   切换锁车版本:0x85
-     */
-    private String cmdKey;
+       /**
+        * 指令类型  参数设置：0x81  OTA应答:0x82  锁车:0x84   切换锁车版本:0x85
+        */
+       private String cmdKey;
 
-    /**
-     * 子命令  todo 统一双方约定
-     */
-    private String subCmdKey;
+       /**
+        * 子命令  todo 统一双方约定
+        */
+       private String subCmdKey;
 
-    /**
-     * 指令内容 Json格式
-     */
-    private String cmdParam;
+       /**
+        * 指令内容 Json格式
+        */
+       private String cmdParam;
 
-    /**
-     * 最大重试次数  -1：不限次数 0：不重试  其他：重试次数
-     */
-    private String maxRetry;
+       /**
+        * 最大重试次数  -1：不限次数 0：不重试  其他：重试次数
+        */
+       private String maxRetry;
 
-    /**
-     * 指令重试间隔 单位：分钟
-     */
-    private Integer retryInterval;
+       /**
+        * 指令重试间隔 单位：分钟
+        */
+       private Integer retryInterval;
 
-    /**
-     * 指令超时时间 单位：分钟
-     */
-    private String timeout;
+       /**
+        * 指令超时时间 单位：分钟
+        */
+       private String timeout;
 
-    /**
-     * 是否登入重试
-     */
-    protected Boolean isLoginRetry;
+       /**
+        * 是否登入重试
+        */
+       protected Boolean isLoginRetry;
 
-    /**
-     * 指令详情列表
-     */
-    private List<CommandInnerApiDetailRes> details;
+       /**
+        * 指令详情列表
+        */
+       private List<CommandInnerApiDetailRes> details;
 
-}
+   }
 
-/**
- * 指令详情
- */
-@Data
-public class CommandInnerApiDetailRes {
+   /**
+    * 指令详情
+    */
+   @Data
+   public class CommandInnerApiDetailRes {
 
-    /**
-     * 可能是子任务id
-     */
-    private String  taskID;
+       /**
+        * 可能是子任务id
+        */
+       private String  taskID;
 
-    /**
-     * 车架号 or  设备号
-     */
-    private String devCode;
+       /**
+        * 车架号 or  设备号
+        */
+       private String devCode;
 
-}
-```
+   }
+   ```
 
-1. **指令****下发格式-json**
+**指令下发格式-json**
 
-```json
-{
-  "cmdType": 0x81,
-  "cmdId": 1,
-  "cmdArgs": {
-    "dual_channel_endpoint":'127.0.0.1:12345',
-    "dual_channel_state":'1',
-    "dual_channel_flag":'1',
-  },
-  "payload":"根据协议组成16进制报文"
-  "maxRetry": 3,
-  "retryInterval": 60,
-  "timeout": 600,
-  "isLoginRetry": 1,
-  "isCancel": 0,
-  "details": [
-    {
-      "seq":1,
-      "uid":'唯一识别码（设备号 or 车架号）'
-    },
-    { 
-      "seq":1,
-      "uid":'唯一识别码（设备号 or 车架号）'}
-  ]
-}
-```
+   ```json
+   {
+     "cmdType": 0x81,
+     "cmdId": 1,
+     "cmdArgs": {
+       "dual_channel_endpoint":'127.0.0.1:12345',
+       "dual_channel_state":'1',
+       "dual_channel_flag":'1',
+     },
+     "payload":"根据协议组成16进制报文"
+     "maxRetry": 3,
+     "retryInterval": 60,
+     "timeout": 600,
+     "isLoginRetry": 1,
+     "isCancel": 0,
+     "details": [
+       {
+         "seq":1,
+         "uid":'唯一识别码（设备号 or 车架号）'
+       },
+       { 
+         "seq":1,
+         "uid":'唯一识别码（设备号 or 车架号）'}
+     ]
+   }
+   ```
 
-1. 指令类型映射关系
+**指令类型映射关系**
 
-```java
-/**
- * 命令枚举类
- */
-public enum CmdTypeEnum {
-    /**
-     * 参数查询
-     */
-    CMD_80(0x80),
+   ```java
+   /**
+    * 命令枚举类
+    */
+   public enum CmdTypeEnum {
+       /**
+        * 参数查询
+        */
+       CMD_80(0x80),
 
-    /**
-     * 控制命令（国标 + 自定义）
-     */
-    CMD_82(0x82),
+       /**
+        * 控制命令（国标 + 自定义）
+        */
+       CMD_82(0x82),
 
-    /**
-     * 锁车
-     */
-    CMD_84(0x84),
-    /**
-     * 切换锁车版本
-     */
-    CMD_85(0x85),
-    /**
-     * 参数设置
-     */
-    CMD_81(0x81),
+       /**
+        * 锁车
+        */
+       CMD_84(0x84),
+       /**
+        * 切换锁车版本
+        */
+       CMD_85(0x85),
+       /**
+        * 参数设置
+        */
+       CMD_81(0x81),
 
-    /**
-     * 保养提示
-     */
-    CMD_88(0x88),
+       /**
+        * 保养提示
+        */
+       CMD_88(0x88),
 
-    /**
-     * 缴费提示
-     */
-    CMD_89(0x89),
+       /**
+        * 缴费提示
+        */
+       CMD_89(0x89),
 
-    /**
-     * 年审提示
-     */
-    CMD_8A(0x8A),
+       /**
+        * 年审提示
+        */
+       CMD_8A(0x8A),
 
-    /**
-     * 清除车型配置
-     */
-    CMD_8C(0x8C),
+       /**
+        * 清除车型配置
+        */
+       CMD_8C(0x8C),
 
-    /**
-     * 冷藏车
-     */
-    CMD_8D(0x8D),
+       /**
+        * 冷藏车
+        */
+       CMD_8D(0x8D),
 
-    /**
-     * Aebs
-     */
-    CMD_8E(0x8E),
-    ;
-    private final int val;
+       /**
+        * Aebs
+        */
+       CMD_8E(0x8E),
+       ;
+       private final int val;
 
-    CmdTypeEnum(int val) {
-        this.val = val;
-    }
+       CmdTypeEnum(int val) {
+           this.val = val;
+       }
 
-    public int val() {
-        return this.val;
-    }
+       public int val() {
+           return this.val;
+       }
 
-    public static CmdTypeEnum valueOf(int val) {
-        for (CmdTypeEnum cmd : values()) {
-            if (cmd.val == val) {
-                return cmd;
-            }
-        }
-        return null;
-    }
-}
-```
+       public static CmdTypeEnum valueOf(int val) {
+           for (CmdTypeEnum cmd : values()) {
+               if (cmd.val == val) {
+                   return cmd;
+               }
+           }
+           return null;
+       }
+   }
+   ```
 
-```java
-/**
- * 命令枚举类
- */
-public enum Cmd82TypeEnum {
-    /**
-     * 国标控制命令
-     */
-    CMD_GB_82(0x8202),
+   ```java
+   /**
+    * 命令枚举类
+    */
+   public enum Cmd82TypeEnum {
+       /**
+        * 国标控制命令
+        */
+       CMD_GB_82(0x8202),
 
-    /**
-     * 远程升级
-     */
-    CMD_82_01(0x8201),
-    /**
-     * Can采集
-     */
-    CMD_82_90(0x8290),
-    /**
-     * GPS定位模式设置
-     */
-    CMD_82_91(0x8291),
-    /**
-     * 远程DBC升级
-     */
-    CMD_82_92(0x8292),
-    /**
-     * 远程FCM升级
-     */
-    CMD_82_93_01(0x829301),
-    /**
-     * 远程FRM升级
-     */
-    CMD_82_93_02(0x829302),
+       /**
+        * 远程升级
+        */
+       CMD_82_01(0x8201),
+       /**
+        * Can采集
+        */
+       CMD_82_90(0x8290),
+       /**
+        * GPS定位模式设置
+        */
+       CMD_82_91(0x8291),
+       /**
+        * 远程DBC升级
+        */
+       CMD_82_92(0x8292),
+       /**
+        * 远程FCM升级
+        */
+       CMD_82_93_01(0x829301),
+       /**
+        * 远程FRM升级
+        */
+       CMD_82_93_02(0x829302),
 
-    /**
-     * 远程FCM强制升级
-     */
-    CMD_82_94_01(0x829401),
+       /**
+        * 远程FCM强制升级
+        */
+       CMD_82_94_01(0x829401),
 
-    /**
-     * 远程FRM强制升级
-     */
-    CMD_82_94_02(0x829402),
-    ;
-    private final int val;
+       /**
+        * 远程FRM强制升级
+        */
+       CMD_82_94_02(0x829402),
+       ;
+       private final int val;
 
-    Cmd82TypeEnum(int val) {
-        this.val = val;
-    }
+       Cmd82TypeEnum(int val) {
+           this.val = val;
+       }
 
-    public int val() {
-        return this.val;
-    }
+       public int val() {
+           return this.val;
+       }
 
-    public static Cmd82TypeEnum valueOf(int val) {
-        for (Cmd82TypeEnum cmd : values()) {
-            if (cmd.val == val) {
-                return cmd;
-            }
-        }
-        return null;
-    }
-}
-```
+       public static Cmd82TypeEnum valueOf(int val) {
+           for (Cmd82TypeEnum cmd : values()) {
+               if (cmd.val == val) {
+                   return cmd;
+               }
+           }
+           return null;
+       }
+   }
+   ```
 
 #### **2.2. 消息队列**
 使用消息队列（RocketMQ）来解耦指令发送和接收部分：
@@ -640,127 +640,127 @@ public enum Cmd82TypeEnum {
 ##### (一) **设备期望值存储**
 选择Redis做为，记录设备最新期望值数据的存储中间件
 
-1. 批次操作，采用Redis的pipelined，减少访问Redis服务端次数
+批次操作，采用Redis的pipelined，减少访问Redis服务端次数
 
-```java
-/**
- * 批量更新接口
- *
- * @param formatKey redis key
- * @param entryList 数据
- */
-public void updateBatch(List<? extends TerminalDesireCommon> entryList, String formatKey) {
-    // 使用管道进行批量更新
-    stringRedisTemplate.executePipelined(new SessionCallback<>() {
-        @Override
-        public <K, V> Object execute(@NotNull RedisOperations<K, V> redisOperations) throws DataAccessException {
-            StringRedisTemplate stringRedisTemplate = (StringRedisTemplate) redisOperations;
-            for (TerminalDesireCommon terminalDesire : entryList) {
-                stringRedisTemplate.opsForValue().set(RedisConstants.getFormatCacheKey(terminalDesire.getUid(), formatKey), DstJsonUtil.toString(terminalDesire));
-            }
-            return null;
-        }
-    });
-}
-```
+   ```java
+   /**
+    * 批量更新接口
+    *
+    * @param formatKey redis key
+    * @param entryList 数据
+    */
+   public void updateBatch(List<? extends TerminalDesireCommon> entryList, String formatKey) {
+       // 使用管道进行批量更新
+       stringRedisTemplate.executePipelined(new SessionCallback<>() {
+           @Override
+           public <K, V> Object execute(@NotNull RedisOperations<K, V> redisOperations) throws DataAccessException {
+               StringRedisTemplate stringRedisTemplate = (StringRedisTemplate) redisOperations;
+               for (TerminalDesireCommon terminalDesire : entryList) {
+                   stringRedisTemplate.opsForValue().set(RedisConstants.getFormatCacheKey(terminalDesire.getUid(), formatKey), DstJsonUtil.toString(terminalDesire));
+               }
+               return null;
+           }
+       });
+   }
+   ```
 
-1. Redis的存储结构为String(key,json)
+**Redis的存储结构为String(key,json)**
 
-```java
-/**
- * 终端期望状态通用实体类
- */
-@Data
-public class TerminalDesireCommon implements Serializable {
+   ```java
+   /**
+    * 终端期望状态通用实体类
+    */
+   @Data
+   public class TerminalDesireCommon implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 1L;
+       @Serial
+       private static final long serialVersionUID = 1L;
 
-    /**
-     * 主键ID
-     */
-    @TableId("id")
-    private String id;
+       /**
+        * 主键ID
+        */
+       @TableId("id")
+       private String id;
 
-    /**
-     * 唯一识别码(设备号 or 车架号)
-     */
-    private String uid;
+       /**
+        * 唯一识别码(设备号 or 车架号)
+        */
+       private String uid;
 
-    /**
-     * 是否临时
-     */
-    private Boolean isTem;
+       /**
+        * 是否临时
+        */
+       private Boolean isTem;
 
-    /**
-     * 指令序列号
-     */
-    private String seq;
+       /**
+        * 指令序列号
+        */
+       private String seq;
 
-    /**
-     * 最大重试次数  -1：不限次数 0：不重试  其他：重试次数
-     */
-    private Integer maxRetry;
+       /**
+        * 最大重试次数  -1：不限次数 0：不重试  其他：重试次数
+        */
+       private Integer maxRetry;
 
-    /**
-     * 指令重试间隔 单位：分钟
-     */
-    private Integer retryInterval;
+       /**
+        * 指令重试间隔 单位：分钟
+        */
+       private Integer retryInterval;
 
-    /**
-     * 指令截至时间
-     */
-    private Date deadline;
+       /**
+        * 指令截至时间
+        */
+       private Date deadline;
 
-    /**
-     * 是否登入重试 0：不重试 1：重试
-     */
-    private Integer isLoginRetry;
+       /**
+        * 是否登入重试 0：不重试 1：重试
+        */
+       private Integer isLoginRetry;
 
-    /**
-     * 执行状态（10：待发送  30：已应答  40：发送成功  50：发送失败  60：执行成功）
-     */
-    private Integer processStatus;
+       /**
+        * 执行状态（10：待发送  30：已应答  40：发送成功  50：发送失败  60：执行成功）
+        */
+       private Integer processStatus;
 
-    /**
-     * 是否取消指令 0：不取消 1：取消
-     */
-    private Integer isCancel;
+       /**
+        * 是否取消指令 0：不取消 1：取消
+        */
+       private Integer isCancel;
 
-    /**
-     * 指令发送时间
-     */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date commandTime;
+       /**
+        * 指令发送时间
+        */
+       @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+       @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+       private Date commandTime;
 
-    /**
-     * 创建时间
-     **/
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date createTime;
+       /**
+        * 创建时间
+        **/
+       @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+       @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+       private Date createTime;
 
-    /**
-     * 更新时间
-     **/
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date modifyTime;
+       /**
+        * 更新时间
+        **/
+       @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+       @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+       private Date modifyTime;
 
-    /**
-     * 操作用户
-     */
-    private String userName;
+       /**
+        * 操作用户
+        */
+       private String userName;
 
-    /**
-     * 登录重试周期
-     */
-    @TableField(exist = false)
-    private Date loginRetryCycle;
+       /**
+        * 登录重试周期
+        */
+       @TableField(exist = false)
+       private Date loginRetryCycle;
 
-}
-```
+   }
+   ```
 
 ##### (二) **设备状态**
 <!-- 这是一张图片，ocr 内容为： -->

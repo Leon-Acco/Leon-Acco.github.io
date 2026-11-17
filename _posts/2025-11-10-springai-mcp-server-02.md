@@ -31,19 +31,19 @@ toc: true
 
 潜在弊端：
 
-1. **无鉴权机制**
-- 如果部署在公网或者生产，应防止攻击。
+**无鉴权机制**
+   - 如果部署在公网或者生产，应防止攻击。
 2. **工具调用入参出错率高**
-- 原因是模型对JSON Schema理解不一致，尤其在复杂工具场景。
-- 解决方案是：提供 **Tool Schema 样例调用示例** + **严格的参数验证与容错机制**。
+   - 原因是模型对JSON Schema理解不一致，尤其在复杂工具场景。
+   - 解决方案是：提供 **Tool Schema 样例调用示例** + **严格的参数验证与容错机制**。
 3. **缺乏知识语义层**
-- Agent 不知道表的含义、字段逻辑，只能盲猜SQL。
-- 必须引入“知识库”或“Schema Registry”。
+   - Agent 不知道表的含义、字段逻辑，只能盲猜SQL。
+   - 必须引入“知识库”或“Schema Registry”。
 4. **可扩展性问题**
-- 如果工具越来越多，统一路由和安全控制会复杂，建议抽象出：
-- Tool Router（统一工具调用分发）
-- Auth Manager（支持多种鉴权模式）
-- Logging & Trace 模块（追踪每次调用）
+   - 如果工具越来越多，统一路由和安全控制会复杂，建议抽象出：
+   - Tool Router（统一工具调用分发）
+   - Auth Manager（支持多种鉴权模式）
+   - Logging & Trace 模块（追踪每次调用）
 
 # 三、推荐的 MCP-Server 架构设计（业界常见方案）
 
@@ -318,20 +318,20 @@ public class AiToolConfig {
 
 5. 在开发层面,针对工具添加功能说明利用@tool以及@toolparm对工具进行描述
 
-```java
- @Tool(description = "为一组车辆下发“清除车型配置”批次指令。"
-            + "参数说明：vinCodes-车架号列表（17位VIN码，最多200个）。"
-            + "成功返回true，失败返回错误信息。"
-            + "示例：[\"10000TEST00000001\",\"LSGBF53M8DS123456\"]")
-    public Response<Boolean> addClearCarModeCmdBatch(
-            @ToolParam(description = "车架号列表，17位VIN码数组；最多200个。"
-                    + "示例：[\"10000TEST00000001\",\"LSGBF53M8DS123456\"]") List<String> vinCodes) {
-```
+   ```java
+    @Tool(description = "为一组车辆下发“清除车型配置”批次指令。"
+               + "参数说明：vinCodes-车架号列表（17位VIN码，最多200个）。"
+               + "成功返回true，失败返回错误信息。"
+               + "示例：[\"10000TEST00000001\",\"LSGBF53M8DS123456\"]")
+       public Response<Boolean> addClearCarModeCmdBatch(
+               @ToolParam(description = "车架号列表，17位VIN码数组；最多200个。"
+                       + "示例：[\"10000TEST00000001\",\"LSGBF53M8DS123456\"]") List<String> vinCodes) {
+   ```
 
 2. 再AI集成开发平台针对每个工具配置合理的解释
 
-![1763447294692-abf2e611-e2d0-49ab-aac1-9456c86f0407.png](/assets/img/springai-mcp-server-02/1763447294692-abf2e611-e2d0-49ab-aac1-9456c86f0407.png)
+   ![1763447294692-abf2e611-e2d0-49ab-aac1-9456c86f0407.png](/assets/img/springai-mcp-server-02/1763447294692-abf2e611-e2d0-49ab-aac1-9456c86f0407.png)
 
-![1763447397945-92814324-9036-4c97-818a-dd184abbb56d.png](/assets/img/springai-mcp-server-02/1763447397945-92814324-9036-4c97-818a-dd184abbb56d.png)
+   ![1763447397945-92814324-9036-4c97-818a-dd184abbb56d.png](/assets/img/springai-mcp-server-02/1763447397945-92814324-9036-4c97-818a-dd184abbb56d.png)
 
-![1763447460981-e80473e8-ff28-4707-aaa9-79b99548eb84.png](/assets/img/springai-mcp-server-02/1763447460981-e80473e8-ff28-4707-aaa9-79b99548eb84.png)
+   ![1763447460981-e80473e8-ff28-4707-aaa9-79b99548eb84.png](/assets/img/springai-mcp-server-02/1763447460981-e80473e8-ff28-4707-aaa9-79b99548eb84.png)

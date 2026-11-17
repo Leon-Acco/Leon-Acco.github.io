@@ -62,7 +62,7 @@ MySQL采用B+树索引模式是因为B+树具有许多优点，适合在数据�
 
 ### B+TREE
 
-1. **B+树的原理：**
+**B+树的原理：**
 
 B+树是一种自平衡的树形数据结构，用于组织和存储有序的数据。它是一个多路搜索树，每个节点可以存储多个关键字和对应的数据指针。B+树具有以下特点：
 
@@ -144,19 +144,19 @@ B+树的高度相对较低，减少了磁盘I/O次数，提升查询性能。
 
 2. 违反了最左前缀法则
 
-![1709564246574-97f26700-a915-4bae-95c7-989a4bf46988.png](/assets/img/java-mysql-slow-query-index/1709564246574-97f26700-a915-4bae-95c7-989a4bf46988.png)
+   ![1709564246574-97f26700-a915-4bae-95c7-989a4bf46988.png](/assets/img/java-mysql-slow-query-index/1709564246574-97f26700-a915-4bae-95c7-989a4bf46988.png)
 
-![1709564314935-2098ac4d-6fb4-44b9-b10d-8fd67ed2fbe9.png](/assets/img/java-mysql-slow-query-index/1709564314935-2098ac4d-6fb4-44b9-b10d-8fd67ed2fbe9.png)
+   ![1709564314935-2098ac4d-6fb4-44b9-b10d-8fd67ed2fbe9.png](/assets/img/java-mysql-slow-query-index/1709564314935-2098ac4d-6fb4-44b9-b10d-8fd67ed2fbe9.png)
 
 3. 范围查询右边的列，不能使用索引
 
-![1709564453808-00f714b8-72e9-4cc0-8174-37560ad56567.png](/assets/img/java-mysql-slow-query-index/1709564453808-00f714b8-72e9-4cc0-8174-37560ad56567.png)
+   ![1709564453808-00f714b8-72e9-4cc0-8174-37560ad56567.png](/assets/img/java-mysql-slow-query-index/1709564453808-00f714b8-72e9-4cc0-8174-37560ad56567.png)
 
 4. 索引列使用了函数运算
 
 5. 字符串没有加单引号
 
-![1709564550940-92deb383-17b5-4a9a-9d49-037988261ee3.png](/assets/img/java-mysql-slow-query-index/1709564550940-92deb383-17b5-4a9a-9d49-037988261ee3.png)
+   ![1709564550940-92deb383-17b5-4a9a-9d49-037988261ee3.png](/assets/img/java-mysql-slow-query-index/1709564550940-92deb383-17b5-4a9a-9d49-037988261ee3.png)
 
 6. 以%Like开头的模糊查询，索引失效，头部模糊匹配索引会失效
 
@@ -179,9 +179,9 @@ B+树的高度相对较低，减少了磁盘I/O次数，提升查询性能。
 
 ### 隔离级别
 
-1. 隔离级别：读未提交，读已提交，可重复读，串行化
+**隔离级别：读未提交，读已提交，可重复读，串行化**
 
-![1709565942879-f53a7173-fda0-4938-83ed-0e9577abc34e.png](/assets/img/java-mysql-slow-query-index/1709565942879-f53a7173-fda0-4938-83ed-0e9577abc34e.png)
+   ![1709565942879-f53a7173-fda0-4938-83ed-0e9577abc34e.png](/assets/img/java-mysql-slow-query-index/1709565942879-f53a7173-fda0-4938-83ed-0e9577abc34e.png)
 
 安全性越高，性能越差
 
@@ -203,9 +203,9 @@ B+树的高度相对较低，减少了磁盘I/O次数，提升查询性能。
 
 2. 多版本并发控制
 
-![1709566910598-85c36903-7555-45ea-8456-1e7e4254ffab.png](/assets/img/java-mysql-slow-query-index/1709566910598-85c36903-7555-45ea-8456-1e7e4254ffab.png)
+   ![1709566910598-85c36903-7555-45ea-8456-1e7e4254ffab.png](/assets/img/java-mysql-slow-query-index/1709566910598-85c36903-7555-45ea-8456-1e7e4254ffab.png)
 
-![1709567977725-325130c3-5d19-4fef-a532-b98fbd4cdcbb.png](/assets/img/java-mysql-slow-query-index/1709567977725-325130c3-5d19-4fef-a532-b98fbd4cdcbb.png)
+   ![1709567977725-325130c3-5d19-4fef-a532-b98fbd4cdcbb.png](/assets/img/java-mysql-slow-query-index/1709567977725-325130c3-5d19-4fef-a532-b98fbd4cdcbb.png)
 
 ## MySQL的主从同步原理
 
@@ -229,7 +229,7 @@ B+树的高度相对较低，减少了磁盘I/O次数，提升查询性能。
 
 ### 垂直拆分
 
-1. 垂直分库：以表为依据，根据业务拆分，这种在微服务经常采用
+**垂直分库：以表为依据，根据业务拆分，这种在微服务经常采用**
     1. 优点：方便监控，维护，分级管理
     2. 高并发下提高了IO的效率和连接数
 
@@ -238,7 +238,7 @@ B+树的高度相对较低，减少了磁盘I/O次数，提升查询性能。
 
 ### 水平拆分
 
-1. 水平分表：
+水平分表：
     1. 解决了单表数据量大，产生的性能问题，减少锁表的几率
 
 2. 水平分库：将一个库的数据分散在多个库中，比如不同大区不同库。

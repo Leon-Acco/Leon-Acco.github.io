@@ -24,16 +24,16 @@ toc: true
 4. **拿凭证**：详情页 → 外部渠道配置 → 直接访问，获取 **Endpoint** 与 **API Key**
 5. **发起对话**（服务端执行）：
 
-```bash
-export AGENTCORE_ENDPOINT="<Endpoint>"
-export AGENTCORE_ENDPOINT_API_KEY="<API Key>"
+   ```bash
+   export AGENTCORE_ENDPOINT="<Endpoint>"
+   export AGENTCORE_ENDPOINT_API_KEY="<API Key>"
 
-curl --no-buffer --request POST "${AGENTCORE_ENDPOINT%/}/ag-ui/agent" \
-  --header "x-api-key: ${AGENTCORE_ENDPOINT_API_KEY}" \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: text/event-stream' \
-  --data '{"threadId":"session-001","runId":"run-001","messages":[{"id":"message-001","role":"user","content":"请用三个要点介绍你的功能。"}],"state":{},"tools":[],"context":[],"forwardedProps":{}}'
-```
+   curl --no-buffer --request POST "${AGENTCORE_ENDPOINT%/}/ag-ui/agent" \
+     --header "x-api-key: ${AGENTCORE_ENDPOINT_API_KEY}" \
+     --header 'Content-Type: application/json' \
+     --header 'Accept: text/event-stream' \
+     --data '{"threadId":"session-001","runId":"run-001","messages":[{"id":"message-001","role":"user","content":"请用三个要点介绍你的功能。"}],"state":{},"tools":[],"context":[],"forwardedProps":{}}'
+   ```
 
 <div class="callout callout-warning" markdown="1">
 **⚠️ 安全红线**

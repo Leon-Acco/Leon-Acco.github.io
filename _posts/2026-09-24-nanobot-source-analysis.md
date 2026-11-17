@@ -179,7 +179,7 @@ class Dream:
 Dream 是 nanobot 记忆系统最有特色的设计：
 
 - **阶段一（分析）**：对 `history.jsonl` 做一次普通 LLM 调用，产出分析摘要。
-- **阶段二（落盘）**：把摘要**交给一个带 **`**read_file**`** / **`**edit_file**`** 工具的 AgentRunner**，让 agent 自己去编辑 `MEMORY.md` 等记忆文件。也就是说——**记忆整理本身就是一次 Agent 运行**，而非硬编码的字符串拼接。
+- **阶段二（落盘）**：把摘要**交给一个带**`**read_file**`**/**`**edit_file**`**工具的 AgentRunner**，让 agent 自己去编辑 `MEMORY.md` 等记忆文件。也就是说——**记忆整理本身就是一次 Agent 运行**，而非硬编码的字符串拼接。
 - **调度**：由运行时在 `agents.defaults.dream.enabled` 为真时按 cron 周期触发（gateway 后台任务）。
 
 > 借鉴点：Consolidator（实时、预算触发、保底原样归档）+ Dream（周期、LLM 驱动、可读文件）是一套"短期不丢 + 长期沉淀"的分层记忆范式。
@@ -214,7 +214,7 @@ class Tool(ABC):
 
 - **四要素契约**：`name` / `description` / `parameters(JSON Schema)` / `execute`。`to_schema()` 直接产出 OpenAI function-calling 格式，`name/description/参数` 就是给模型看的 "接口文档"。
 - **并发标记**：`read_only` + `exclusive` 推导出 `concurrency_safe`，供 runner 的 `_partition_tool_batches` 决定能否并行执行——只读工具批量并发，写工具串行。
-- **结果类型 **`**ToolResult**`：继承自 `str`，但带 `is_error` 结构化状态；`ToolResult.error(...)` 用于失败。既兼容"字符串直接喂回模型"，又能携带错误语义。
+- **结果类型**`**ToolResult**`：继承自 `str`，但带 `is_error` 结构化状态；`ToolResult.error(...)` 用于失败。既兼容"字符串直接喂回模型"，又能携带错误语义。
 - **声明式 Schema**：`@tool_parameters({...})` 类装饰器把 JSON Schema 绑到类上并自动注入 `parameters` 属性，免去手写 property，且每次访问返回深拷贝防止污染。
 
 ### 5.2 参数校验与类型转换

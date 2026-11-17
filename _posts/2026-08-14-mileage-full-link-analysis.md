@@ -260,10 +260,10 @@ vehicle_mileage_summary_hourly  ← 单小时 mileage≈25000km（污染）
 
 ## 7. 几个易踩坑细节
 
-1. **两个"阈值"别混淆**：
-   - Flink 主 job 的 `maxMileage`（Nacos 配置）→ 过滤**单条上报**累计里程合理性（如 999999）
-   - `MileageFilterFunction` 的 `MAX_HOURLY_MILEAGE=100` / `MEDIAN_THRESHOLD=500` → 过滤**相邻上报增量**异常
-   - 汇总 SQL 的 `mileage = max - min` → 小时窗口行驶增量
+**两个"阈值"别混淆**：
+      - Flink 主 job 的 `maxMileage`（Nacos 配置）→ 过滤**单条上报**累计里程合理性（如 999999）
+      - `MileageFilterFunction` 的 `MAX_HOURLY_MILEAGE=100` / `MEDIAN_THRESHOLD=500` → 过滤**相邻上报增量**异常
+      - 汇总 SQL 的 `mileage = max - min` → 小时窗口行驶增量
 
 2. **`totalMileage` ≠ 终身总里程**：是查询窗口内的行驶里程累加 + min/max 范围。
 

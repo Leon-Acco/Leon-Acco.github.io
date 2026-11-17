@@ -124,7 +124,7 @@ toc: true
 3. `shouldTeardown` 判断：`isCancel=true` 或 `isSingle 且非主` → 拆除（consumerRegistry.remove + removeChannels）
 4. 否则 `ensureChannels`（配置变更整体重建 / 扩缩容 / 补齐）+ `consumerRegistry.init`（配置 equals 跳过，否则重建）
 
-> ⚠ **已知缺口**：编排只遍历"当前配置列表"，topic 从列表**整条删除**时无差集拆除（详见 §11 高危 1）。
+   > ⚠ **已知缺口**：编排只遍历"当前配置列表"，topic 从列表**整条删除**时无差集拆除（详见 §11 高危 1）。
 
 ---
 
@@ -212,9 +212,9 @@ finally: MDC.clear()
 1. `TranspondConnectionManager.connect()` 发起 TCP 连接
 2. 连接成功 → CAS 到 `LOGGING_IN` → 发送 cmd05 登录帧（**不打报文内容**，含密码）→ 注册 10s 登录超时任务
 3. 收到登录应答：
-   - **成功** → 取消超时任务 → 置 READY → `loginFailures=0` → readiness 翻转触发 `consumer.resume()`
-   - **拒绝** → WARN（含返回码）→ close → 走指数退避重连
-   - **10s 超时兜底** → close → 走退避重连（防对端收到登录不回包的死等）
+      - **成功** → 取消超时任务 → 置 READY → `loginFailures=0` → readiness 翻转触发 `consumer.resume()`
+      - **拒绝** → WARN（含返回码）→ close → 走指数退避重连
+      - **10s 超时兜底** → close → 走退避重连（防对端收到登录不回包的死等）
 
 ### 5.3 单通道选主（isSingle=true）
 

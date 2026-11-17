@@ -17,19 +17,19 @@ original: "https://www.yuque.com/u22429903/imo2wf/chtmgrrfkxbeh91o"
 
 ### 数据复杂度分析
 
-1. 时间复杂度
+**时间复杂度**
 
-![1709991871095-f8126f97-b7c7-45f0-bfa6-b76f3b53a9a9.png](/assets/img/java-collections-source/1709991871095-f8126f97-b7c7-45f0-bfa6-b76f3b53a9a9.png)
+   ![1709991871095-f8126f97-b7c7-45f0-bfa6-b76f3b53a9a9.png](/assets/img/java-collections-source/1709991871095-f8126f97-b7c7-45f0-bfa6-b76f3b53a9a9.png)
 
-![1709992159533-77029797-fc3e-4635-b8ab-89af7d27365a.png](/assets/img/java-collections-source/1709992159533-77029797-fc3e-4635-b8ab-89af7d27365a.png)
+   ![1709992159533-77029797-fc3e-4635-b8ab-89af7d27365a.png](/assets/img/java-collections-source/1709992159533-77029797-fc3e-4635-b8ab-89af7d27365a.png)
 
-![1709992201854-f3b4ef6a-c3fe-4543-974c-25129dba60a5.png](/assets/img/java-collections-source/1709992201854-f3b4ef6a-c3fe-4543-974c-25129dba60a5.png)
+   ![1709992201854-f3b4ef6a-c3fe-4543-974c-25129dba60a5.png](/assets/img/java-collections-source/1709992201854-f3b4ef6a-c3fe-4543-974c-25129dba60a5.png)
 
 2. 空间复杂度
 
- ![1709992471595-2e2b2ca0-2ddb-404d-b5b6-041418ede3f0.png](/assets/img/java-collections-source/1709992471595-2e2b2ca0-2ddb-404d-b5b6-041418ede3f0.png)
+   ![1709992471595-2e2b2ca0-2ddb-404d-b5b6-041418ede3f0.png](/assets/img/java-collections-source/1709992471595-2e2b2ca0-2ddb-404d-b5b6-041418ede3f0.png)
 
-![1709992487053-75022597-e048-488d-b23e-a1395278a287.png](/assets/img/java-collections-source/1709992487053-75022597-e048-488d-b23e-a1395278a287.png)
+   ![1709992487053-75022597-e048-488d-b23e-a1395278a287.png](/assets/img/java-collections-source/1709992487053-75022597-e048-488d-b23e-a1395278a287.png)
 
 ### 数组
 
@@ -45,20 +45,20 @@ original: "https://www.yuque.com/u22429903/imo2wf/chtmgrrfkxbeh91o"
 
 #### 数组的特性
 
-**数组的特性： **
+**数组的特性：**
 
-1.数组必须先定义**固定长度**，**不能适应数据动态增减 **
+1. 数组必须先定义**固定长度**，**不能适应数据动态增减**
 
-2.当数据增加时，可**能超出原先定义的元素个数，当数据减少时，造成内存浪费 **
+2. 当数据增加时，可**能超出原先定义的元素个数，当数据减少时，造成内存浪费**
 
-3**.数组查询比较方便，根据下标就可以直接找到元素，时间复杂度 O(1)；增加和删除比较复杂，需要移动操作数所 **
+3**.数组查询比较方便，根据下标就可以直接找到元素，时间复杂度 O(1)；增加和删除比较复杂，需要移动操作数所**
 
 在位置后的所有数据，时间复杂度为 O(N)
 
 ### 链表
 
 #### 链表的特性
-**链表的特性： **
+**链表的特性：**
 
 1. 链表动态进行存储分配，可适应数据动态增减
 
@@ -74,7 +74,7 @@ original: "https://www.yuque.com/u22429903/imo2wf/chtmgrrfkxbeh91o"
 
 链表和数组都是在堆里分配内存
 
-**应用： **
+**应用：**
 
 如果需要快速访问数据，很少或不插入和删除元素，就应该用数组；相反， 如果需要经常插入和删除元素就需要
 
@@ -217,25 +217,25 @@ HashMap的特点，线程不安全，效率高，可以存储Null值（单独处
 
 ### HashMap 和 HashTable 区别
 
-**（****1****）线程安全性不同 **
+**（1）线程安全性不同**
 
 HashMap 是线程不安全的，HashTable 是线程安全的，其中的方法是 Synchronize 的，在多线程并发的情况下，可以
 
 直接使用 HashTabl，但是使用 HashMap 时必须自己增加同步处理。
 
-**（****2****）是否提供 ****contains ****方法 **
+**（2）是否提供contains方法**
 
 HashMap 只有 containsValue 和 containsKey 方法；HashTable 有 contains、containsKey 和 containsValue 三个方法，其
 
 中 contains 和 containsValue 方法功能相同。
 
-**（****3****）****key ****和 ****value ****是否允许 ****null ****值 **
+**（3）key和value是否允许null值**
 
 Hashtable 中，key 和 value 都不允许出现 null 值。HashMap 中，null 可以作为键，这样的键只有一个；可以有一个
 
 或多个键所对应的值为 null。
 
-**（****4****）数组初始化和扩容机制 **
+**（4）数组初始化和扩容机制**
 
 HashTable 在不指定容量的情况下的默认容量为 11，而 HashMap 为 16，Hashtable 不要求底层数组的容量一定要为
 

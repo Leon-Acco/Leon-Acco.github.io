@@ -56,7 +56,7 @@ coordinator节点选择 = groupid的hashcode值 % 50（ __consumer_offsets的分
 
 ![1717753505214-1ccc4ded-3a82-458a-a4f2-b328cf553752.png](/assets/img/java-kafka-consumer/1717753505214-1ccc4ded-3a82-458a-a4f2-b328cf553752.png)
 
-****
+
 
 1. 创建一个消费者网络连接客户端(ConsumerNetworkClient),主要用于与kafka集群进行交互
 

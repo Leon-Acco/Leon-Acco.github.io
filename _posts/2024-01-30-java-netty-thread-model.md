@@ -47,85 +47,85 @@ Note:
 
 3. 重连机制：在网络通信中，如果连接断开，往往需要进行重连操作以保持连接的可用性。使用线程池可以在连接断开时异步进行重连操作，而不会阻塞主线程或事件循环线程。可以通过线程池中的线程执行重连逻辑，并在重连成功后重新建立连接。
 
-```java
- /**
-     * 启动通道
-     *
-     * @param socketConf 配置
-     * @param chNum      第几个通道
-     * @param retryCount 重试次数
-     */
-    public void handleSocketConf(SocketConf socketConf, int chNum, long retryCount) throws InterruptedException {
-//        log.info("{} TCP通道,通道key:{} 通道初始化....", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum));
-        // 初始化client
-        initClient(socketConf, chNum);
+   ```java
+    /**
+        * 启动通道
+        *
+        * @param socketConf 配置
+        * @param chNum      第几个通道
+        * @param retryCount 重试次数
+        */
+       public void handleSocketConf(SocketConf socketConf, int chNum, long retryCount) throws InterruptedException {
+   //        log.info("{} TCP通道,通道key:{} 通道初始化....", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum));
+           // 初始化client
+           initClient(socketConf, chNum);
 
-        // 连接
-        ChannelFuture channelFuture = this.bootstrap.connect(socketConf.getHost(), socketConf.getPort());
+           // 连接
+           ChannelFuture channelFuture = this.bootstrap.connect(socketConf.getHost(), socketConf.getPort());
 
-        // 增加监听
-        channelFuture.addListener((ChannelFutureListener) future -> {
+           // 增加监听
+           channelFuture.addListener((ChannelFutureListener) future -> {
 
-            if (!future.isSuccess()) {  // 没有连接成功，进行 “重连”
-                //一直重试  -1
-                if (socketConf.getMaxRetriesNum() == -1) {
-                    Thread.sleep(socketConf.getReconnectDelay() * 1000);
-                    handleSocketConf(socketConf, chNum, retryCount + 1);
-                    log.error("{} TCP通道,通道key:{} 连接失败正在尝试重新连接,重试次数：{}....", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum), retryCount+2);
-                }
+               if (!future.isSuccess()) {  // 没有连接成功，进行 “重连”
+                   //一直重试  -1
+                   if (socketConf.getMaxRetriesNum() == -1) {
+                       Thread.sleep(socketConf.getReconnectDelay() * 1000);
+                       handleSocketConf(socketConf, chNum, retryCount + 1);
+                       log.error("{} TCP通道,通道key:{} 连接失败正在尝试重新连接,重试次数：{}....", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum), retryCount+2);
+                   }
 
-                //不重试  0
-                if (socketConf.getMaxRetriesNum() == 0) {
-                    log.error("{} TCP通道,通道key:{} 连接失败", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum));
+                   //不重试  0
+                   if (socketConf.getMaxRetriesNum() == 0) {
+                       log.error("{} TCP通道,通道key:{} 连接失败", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum));
 
-                }
+                   }
 
-                //不重试  重试n次
-                if (socketConf.getMaxRetriesNum() > 0) {
-                    if (retryCount < socketConf.getMaxRetriesNum()) {
-                        try {
-                            Thread.sleep(socketConf.getReconnectDelay() * 1000);
-                            handleSocketConf(socketConf, chNum, retryCount + 1);
-                            log.error("{} TCP通道,通道key:{} 连接失败正在尝试重新连接,重试次数：{}....", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum), retryCount + 1);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                            log.error("{} TCP通道,通道key:{} 连接失败正在尝试重新失败", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum));
-                        }
-                    } else {
-                        log.error("{} TCP通道,通道key:{} 连接失败，达到最大重试次数", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum));
-                    }
-                }
+                   //不重试  重试n次
+                   if (socketConf.getMaxRetriesNum() > 0) {
+                       if (retryCount < socketConf.getMaxRetriesNum()) {
+                           try {
+                               Thread.sleep(socketConf.getReconnectDelay() * 1000);
+                               handleSocketConf(socketConf, chNum, retryCount + 1);
+                               log.error("{} TCP通道,通道key:{} 连接失败正在尝试重新连接,重试次数：{}....", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum), retryCount + 1);
+                           } catch (InterruptedException e) {
+                               e.printStackTrace();
+                               log.error("{} TCP通道,通道key:{} 连接失败正在尝试重新失败", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum));
+                           }
+                       } else {
+                           log.error("{} TCP通道,通道key:{} 连接失败，达到最大重试次数", socketConf.getCustomer(), String.format(CACHE_KEY_FORMAT, socketConf.getId(), chNum));
+                       }
+                   }
 
-            }
-        });
-    }
+               }
+           });
+       }
 
-```
+   ```
 
 4. 心跳检测：为了保持连接的健康状态，常常需要进行心跳检测。使用线程池可以定期发送心跳包并等待心跳响应，而不会阻塞主线程或事件循环线程。线程池中的线程可以负责心跳检测任务，并根据心跳响应判断连接的状态。
 
-```java
+   ```java
     
-      socketChannel.pipeline().addLast(new IdleStateHandler(timeout, 0, 0, TimeUnit.SECONDS));
+         socketChannel.pipeline().addLast(new IdleStateHandler(timeout, 0, 0, TimeUnit.SECONDS));
 
-    //这个需要服务器和客户端都触发这个
-    @Override
-    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        if (evt instanceof IdleStateEvent) {
-            IdleStateEvent event = (IdleStateEvent) evt;
-            if (event.state() == IdleState.READER_IDLE) {
-                SocketConf config = ctx.channel().attr(Attributes.SOCKET_CONFIG).get();
-                config = config == null ? new SocketConf() : config;
-                Integer ch = ctx.channel().attr(Attributes.CH).get();
-                log.info("通道 {}-{}-{} 的连接超时关闭", config.getId(), config.getCustomer(), ch);
-                ctx.channel().close();
-            }
-        } else {
-            super.userEventTriggered(ctx, evt);
-        }
-    }
+       //这个需要服务器和客户端都触发这个
+       @Override
+       public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+           if (evt instanceof IdleStateEvent) {
+               IdleStateEvent event = (IdleStateEvent) evt;
+               if (event.state() == IdleState.READER_IDLE) {
+                   SocketConf config = ctx.channel().attr(Attributes.SOCKET_CONFIG).get();
+                   config = config == null ? new SocketConf() : config;
+                   Integer ch = ctx.channel().attr(Attributes.CH).get();
+                   log.info("通道 {}-{}-{} 的连接超时关闭", config.getId(), config.getCustomer(), ch);
+                   ctx.channel().close();
+               }
+           } else {
+               super.userEventTriggered(ctx, evt);
+           }
+       }
 
-```
+   ```
 
 5. 处理耗时任务：有时连接的处理可能涉及到耗时的操作，如数据的解析、计算或存储等。通过将这些耗时任务交给线程池处理，可以避免阻塞主线程或事件循环线程，确保连接的响应性和可靠性。
 
@@ -133,64 +133,64 @@ Note:
 
 ![1713424435741-e99dbd8e-0d21-4360-b61a-6ce28e8d57fb.jpeg](/assets/img/java-netty-thread-model/1713424435741-e99dbd8e-0d21-4360-b61a-6ce28e8d57fb.jpeg)
 
-1. Netty通过**Reactor模型**基于多路复用器接收并处理用户请求，内部实现了两个线程池，boss线程池和work线程池，其中boss线程池的线程负责处理请求的accept事件，当接收到accept事件的请求时，把对应的socket封装到一个NioSocketChannel中，并交给work线程池，其中work线程池负责请求的read和write事件，由对应的Handler处理。
+Netty通过**Reactor模型**基于多路复用器接收并处理用户请求，内部实现了两个线程池，boss线程池和work线程池，其中boss线程池的线程负责处理请求的accept事件，当接收到accept事件的请求时，把对应的socket封装到一个NioSocketChannel中，并交给work线程池，其中work线程池负责请求的read和write事件，由对应的Handler处理。
 
-```java
-CompletableFuture.runAsync(() -> {
-            // 创建两个线程组 bossGroup、workerGroup
-            EventLoopGroup bossGroup = new NioEventLoopGroup();
-            EventLoopGroup workerGroup = new NioEventLoopGroup();
-            try {
-                // 创建服务端的启动对象，设置参数
-                ServerBootstrap bootstrap = new ServerBootstrap();
-                // 设置两个线程组 bossGroup 和 workerGroup
-                bootstrap.group(bossGroup, workerGroup)
-                        // 设置服务端通道实现类型
-                        .channel(NioServerSocketChannel.class)
-                        // 设置线程队列得到连接个数
-                        .option(ChannelOption.SO_BACKLOG, 128)
-                        // 设置保持活动连接状态
-                        .childOption(ChannelOption.SO_KEEPALIVE, true)
-                        // 使用匿名内部类的形式初始化通道对象
-                        .childHandler(new ChannelInitializer<SocketChannel>() {
-                            @Override
-                            protected void initChannel(SocketChannel socketChannel) throws Exception {
-                                // 给 pipeline 管道设置处理器
-                                socketChannel.pipeline().addLast(new MaserHeadDataDecoder());
-                                socketChannel.pipeline().addLast(new FlybeesByteArrayEncoder());
-                                socketChannel.pipeline().addLast(new LoginCheckHandler(username, password, identifyCode));
-                                socketChannel.pipeline().addLast(new MessageDataHandler(profile));
-                            }
-                        });// 给 workerGroup 的 EventLoop 对应的管道设置处理器
+   ```java
+   CompletableFuture.runAsync(() -> {
+               // 创建两个线程组 bossGroup、workerGroup
+               EventLoopGroup bossGroup = new NioEventLoopGroup();
+               EventLoopGroup workerGroup = new NioEventLoopGroup();
+               try {
+                   // 创建服务端的启动对象，设置参数
+                   ServerBootstrap bootstrap = new ServerBootstrap();
+                   // 设置两个线程组 bossGroup 和 workerGroup
+                   bootstrap.group(bossGroup, workerGroup)
+                           // 设置服务端通道实现类型
+                           .channel(NioServerSocketChannel.class)
+                           // 设置线程队列得到连接个数
+                           .option(ChannelOption.SO_BACKLOG, 128)
+                           // 设置保持活动连接状态
+                           .childOption(ChannelOption.SO_KEEPALIVE, true)
+                           // 使用匿名内部类的形式初始化通道对象
+                           .childHandler(new ChannelInitializer<SocketChannel>() {
+                               @Override
+                               protected void initChannel(SocketChannel socketChannel) throws Exception {
+                                   // 给 pipeline 管道设置处理器
+                                   socketChannel.pipeline().addLast(new MaserHeadDataDecoder());
+                                   socketChannel.pipeline().addLast(new FlybeesByteArrayEncoder());
+                                   socketChannel.pipeline().addLast(new LoginCheckHandler(username, password, identifyCode));
+                                   socketChannel.pipeline().addLast(new MessageDataHandler(profile));
+                               }
+                           });// 给 workerGroup 的 EventLoop 对应的管道设置处理器
 
-                // 绑定端口号，启动服务端
-                // 异步绑定端口，返回一个ChannelFuture对象
-                ChannelFuture channelFuture = bootstrap.bind(monitorPort);
+                   // 绑定端口号，启动服务端
+                   // 异步绑定端口，返回一个ChannelFuture对象
+                   ChannelFuture channelFuture = bootstrap.bind(monitorPort);
 
-                // 添加监听器，在绑定完成后执行相应的操作
-                channelFuture.addListener((ChannelFutureListener) future -> {
-                    if (future.isSuccess()) {
-                        log.info("服务端准备就绪，随时可以起飞~");
-                        setChannel(channelFuture.channel());
-                    } else {
-                        log.error("服务端绑定端口失败", future.cause());
+                   // 添加监听器，在绑定完成后执行相应的操作
+                   channelFuture.addListener((ChannelFutureListener) future -> {
+                       if (future.isSuccess()) {
+                           log.info("服务端准备就绪，随时可以起飞~");
+                           setChannel(channelFuture.channel());
+                       } else {
+                           log.error("服务端绑定端口失败", future.cause());
 
-                    }
-                });
-                // 阻塞直到服务端关闭
-                channelFuture.channel().closeFuture().sync();
+                       }
+                   });
+                   // 阻塞直到服务端关闭
+                   channelFuture.channel().closeFuture().sync();
 
-            } catch (InterruptedException e) {
-                log.error("消息接收器启动失败！");
-                throw new RuntimeException(e);
-            } finally {
-                bossGroup.shutdownGracefully();
-                workerGroup.shutdownGracefully();
-                log.error("消息接收器关闭");
-            }
-        });
+               } catch (InterruptedException e) {
+                   log.error("消息接收器启动失败！");
+                   throw new RuntimeException(e);
+               } finally {
+                   bossGroup.shutdownGracefully();
+                   workerGroup.shutdownGracefully();
+                   log.error("消息接收器关闭");
+               }
+           });
 
-```
+   ```
 
 2. 单线程模型：所有I/O操作都由一个线程完成，即多路复用、事件分发和处理都是在一个Reactor线程上完成的。既要接收客户端的连接请求,向服务端发起连接，又要发送/读取请求或应答/响应消息。一个NIO 线程同时处理成百上千的链路，性能上无法支撑，速度慢，若线程进入死循环，整个程序不可用，对于高负载、大并发的应用场景不合适。
 
@@ -311,24 +311,24 @@ public class MaserHeadDataDecoder extends ByteToMessageDecoder {
 ```
 ## 四，Netty的零拷贝实现？
 
-1. Netty的接收和发送ByteBuffer采用DIRECT BUFFERS，使用堆外直接内存进行Socket读写，不需要进行字节缓冲区的二次拷贝。堆内存多了一次内存拷贝，JVM会将堆内存Buffer拷贝一份到直接内存中，然后才写入Socket中。ByteBuffer由ChannelConfig分配，而ChannelConfig创建ByteBufAllocator默认使用Direct Buffer
+Netty的接收和发送ByteBuffer采用DIRECT BUFFERS，使用堆外直接内存进行Socket读写，不需要进行字节缓冲区的二次拷贝。堆内存多了一次内存拷贝，JVM会将堆内存Buffer拷贝一份到直接内存中，然后才写入Socket中。ByteBuffer由ChannelConfig分配，而ChannelConfig创建ByteBufAllocator默认使用Direct Buffer
 
-```java
-ByteBuf byteBuf = Unpooled.buffer(1024); // 创建一个ByteBuf
-// 将数据写入ByteBuf
-byteBuf.writeBytes(data);
-channel.writeAndFlush(byteBuf);
+   ```java
+   ByteBuf byteBuf = Unpooled.buffer(1024); // 创建一个ByteBuf
+   // 将数据写入ByteBuf
+   byteBuf.writeBytes(data);
+   channel.writeAndFlush(byteBuf);
 
-```
+   ```
 
 2. 零拷贝文件传输：Netty提供了FileRegion接口，用于在网络通信中进行文件传输。FileRegion实现了零拷贝技术，直接在操作系统内核缓冲区和网络套接字之间进行数据传输，避免了数据在用户空间和内核空间之间的复制。
 
-```java
-File file = new File("path/to/file");
-DefaultFileRegion fileRegion = new DefaultFileRegion(file, 0, file.length());
-channel.writeAndFlush(fileRegion);
+   ```java
+   File file = new File("path/to/file");
+   DefaultFileRegion fileRegion = new DefaultFileRegion(file, 0, file.length());
+   channel.writeAndFlush(fileRegion);
 
-```
+   ```
 ## 五，Netty的高性能表现在哪些方面
 
 1. **心跳**，对服务端：会定时清除闲置会话inactive(netty5)，对客户端:用来检测会话是否断开，是否重来，检测网络延迟，其中idleStateHandler类 用来检测会话状态
@@ -351,7 +351,7 @@ channel.writeAndFlush(fileRegion);
 
 ## 六，Netty可以运用在那些领域
 
-1. 游戏服务器开发
+**游戏服务器开发**
 最新的游戏服务器有部分公司可能已经开始采用netty4.x 或 netty5.x
 
 2. 分布式进程通讯
@@ -360,22 +360,22 @@ channel.writeAndFlush(fileRegion);
 
 ## 七，自己对JavaNetty的实际工作经验
 
-1. 背景
+**背景**
 
 需要将本公司的车辆上报数据（新能源国标32960协议），利用TCP转发到不同第三方，数据由设备网关转发到了不同RabbitMq队列中,然后根据配置，转发这些数据
 
 2. 功能点
 
-- 根据不同第三方配置，服务自动监听不同的队列，给相关第三方转发数据
+   - 根据不同第三方配置，服务自动监听不同的队列，给相关第三方转发数据
 
-- 服务支持补偿，当第三方服务  无法建立TCP，会将相应的数据存储到磁盘，并且支持手动补偿
+   - 服务支持补偿，当第三方服务  无法建立TCP，会将相应的数据存储到磁盘，并且支持手动补偿
 
-- TCP通道预加载，根据不同配置服务在启动的时候，会根据这些配置提前存储到通道池中
+   - TCP通道预加载，根据不同配置服务在启动的时候，会根据这些配置提前存储到通道池中
 
-- TCP通道重连机制，支持配置重连时间，重连次数，是否重连
+   - TCP通道重连机制，支持配置重连时间，重连次数，是否重连
 
-- 服务整体采用JavaNetty框架
+   - 服务整体采用JavaNetty框架
 
-- 编写解码器和编码器，确定一条完整数据，解决粘包现象
+   - 编写解码器和编码器，确定一条完整数据，解决粘包现象
 
-- 通道登录校验
+   - 通道登录校验

@@ -138,7 +138,7 @@ Spring Cloud是基于Spring框架的一个开源项目，旨在简化构建分�
 
 ## 什么是 Netflix Feign？它的优点是什么？
 
-**Feign 是受到 Retrofit，JAXRS-2.0 和 WebSocket 启发的 java 客户端联编程序。** **Feign 的第一个目标是将约束分母的复杂性统一到 http apis，而不考虑其稳定性。** 特点：
+**Feign 是受到 Retrofit，JAXRS-2.0 和 WebSocket 启发的 java 客户端联编程序。Feign 的第一个目标是将约束分母的复杂性统一到 http apis，而不考虑其稳定性。** 特点：
 
 - Feign 采用的是基于接口的注解
 

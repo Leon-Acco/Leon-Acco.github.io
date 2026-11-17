@@ -24,7 +24,7 @@ original: "https://www.yuque.com/u22429903/imo2wf/okoyqhmc8ovwrpzm"
 
 3. **Load（加载）：**加载是将转换后的数据导入到目标数据库中的过程。根据业务需求，可以选择批量加载或实时加载。加载过程中同样需要确保数据的准确性、一致性和完整性，同时也要考虑性能的优化。
 
-![1724308868924-57e95331-e6ea-4c7f-874c-3045a72939d4.webp](/assets/img/java-etl-tools/1724308868924-57e95331-e6ea-4c7f-874c-3045a72939d4.webp)
+   ![1724308868924-57e95331-e6ea-4c7f-874c-3045a72939d4.webp](/assets/img/java-etl-tools/1724308868924-57e95331-e6ea-4c7f-874c-3045a72939d4.webp)
 
 ## 二、ETL工具推荐
 

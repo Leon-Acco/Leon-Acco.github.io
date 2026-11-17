@@ -597,7 +597,7 @@ SQL：基于SQL语句查询数据
 
 ![1757040613128-2a857700-f0c0-42a1-8ae8-657e0cfe412d.png](/assets/img/agent-building/1757040613128-2a857700-f0c0-42a1-8ae8-657e0cfe412d.png)
 
-1. **工作流设计**
+**工作流设计**
 
 进来之后首先配置开始节点。
 
@@ -637,13 +637,13 @@ SQL：基于SQL语句查询数据
 
 2. 配置工作流
 
-![1757040614486-7485308c-1d5e-4e17-813e-5a0564ddc9b2.png](/assets/img/agent-building/1757040614486-7485308c-1d5e-4e17-813e-5a0564ddc9b2.png)
+   ![1757040614486-7485308c-1d5e-4e17-813e-5a0564ddc9b2.png](/assets/img/agent-building/1757040614486-7485308c-1d5e-4e17-813e-5a0564ddc9b2.png)
 
 3. 效果展示
 
-![1757040614474-62d78bf0-97c0-4494-880e-0e70c4e6a1fd.png](/assets/img/agent-building/1757040614474-62d78bf0-97c0-4494-880e-0e70c4e6a1fd.png)
+   ![1757040614474-62d78bf0-97c0-4494-880e-0e70c4e6a1fd.png](/assets/img/agent-building/1757040614474-62d78bf0-97c0-4494-880e-0e70c4e6a1fd.png)
 
-![1757040614700-5bd00447-b2cf-473a-a295-09d20bc4ce11.png](/assets/img/agent-building/1757040614700-5bd00447-b2cf-473a-a295-09d20bc4ce11.png)
+   ![1757040614700-5bd00447-b2cf-473a-a295-09d20bc4ce11.png](/assets/img/agent-building/1757040614700-5bd00447-b2cf-473a-a295-09d20bc4ce11.png)
 
 注意：上述是示例输出，且需要根据具体情况补充提示词的细节要求。
 

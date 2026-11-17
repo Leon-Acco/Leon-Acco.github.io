@@ -110,23 +110,23 @@ TaskManager 是真正执行计算的 JVM 进程，负责接收 JobManager 派发
 | 4. flink-conf.yaml 默认 | parallelism.default: 64 | 整个集群默认值，最后手段 | ★★ |
 
 #### 推荐做法
-1. 代码里只给热点算子单独 setParallelism（比如 window、join、sink）Java
+代码里只给热点算子单独 setParallelism（比如 window、join、sink）Java
 
-```java
-stream
-.keyBy(...)
-.window(TumblingEventTimeWindows.of(Time.minutes(1)))
-.sum(0)
-.setParallelism(32)    // 窗口聚合是热点，开 32
-.addSink(new ClickHouseSink())
-.setParallelism(8);    // ClickHouse 写压力大，开 8 就够
-```
+   ```java
+   stream
+   .keyBy(...)
+   .window(TumblingEventTimeWindows.of(Time.minutes(1)))
+   .sum(0)
+   .setParallelism(32)    // 窗口聚合是热点，开 32
+   .addSink(new ClickHouseSink())
+   .setParallelism(8);    // ClickHouse 写压力大，开 8 就够
+   ```
 
 2. 提交作业时用 -p 统一控制整体并行度Bash
 
-```java
-flink run -p 200 -c com.xxx.MyJob myjob.jar
-```
+   ```java
+   flink run -p 200 -c com.xxx.MyJob myjob.jar
+   ```
 
 #### 生产常见值
 + Kafka Source：一般和分区数对齐（比如 24 分区 → 并行度 24）
@@ -267,7 +267,7 @@ Java
 ```
 
 # 三、第三部分：DataStreamAPI
-**DataStream API 是Flink的核心层API**。一个Flink程序，其实就是对 **DataStream **(数据流) 的各种转换。具体来说，代码基本上都由以下几部分构成：
+**DataStream API 是Flink的核心层API**。一个Flink程序，其实就是对 **DataStream**(数据流) 的各种转换。具体来说，代码基本上都由以下几部分构成：
 
 <!-- 这是一张图片，ocr 内容为： -->
 ![1765251228932-e0f412c3-67a1-4002-a7f6-0afed13a39f4.png](/assets/img/apache-flink-quick-start/1765251228932-e0f412c3-67a1-4002-a7f6-0afed13a39f4.png)
@@ -587,8 +587,8 @@ public class SplitStreamByFilter {
 
 最常见的两个场景：
 
-1. **窗口迟到数据****（超出了 allowedLateness）**
-2. **脏数据/异常数据****（解析失败、字段为空等）**
+1. **窗口迟到数据（超出了 allowedLateness）**
+2. **脏数据/异常数据（解析失败、字段为空等）**
 
 **不分流的话，这些数据要么丢掉，要么污染主流结果；分流后可以单独打印、写死库、告警，完全不影响主流。**
 
@@ -615,7 +615,7 @@ DataStream<WaterSensor> dirtyStream = mainStream.getSideOutput(dirtyTag);
 dirtyStream.addSink(new KafkaDirtySink());         // 写死库或发钉钉告警
 ```
 
-****
+
 
 ##### 两种常见分流方式
 方式一：窗口自动分流迟到数据
@@ -783,7 +783,7 @@ eventStream.connect(broadcastRules)
 + 想简单合并同类型多流 → 用 **union**
 + 想分别处理两条流、共享状态、做 join/匹配 → 用 **connect + CoProcess**
 
-****
+
 
 ## **4、Sink（把结果写出去）**
 Flink作为数据处理框架，最终还是要把计算处理的<font style="color:#DF2A3F;">结果写入外部存储</font>，为外部应用提供支持。
@@ -928,7 +928,7 @@ stream.addSink(new ClickHouseSinkFunction(...))
 
 **注意：**Flink中窗口并不是静态准备好的，而<font style="color:rgb(255,0,0);">是动态创建</font>——当有落在这个窗口区间范围的数据达到时，才创建对应的窗口。
 
-**为什么要有窗口？ **  
+**为什么要有窗口？**  
 	无界流永远不会结束，无法直接做 sum、count、group by 等聚合操作。 窗口人为地<font style="color:#DF2A3F;">给数据流划定边界</font>，<font style="color:#DF2A3F;">让聚合有意义</font>。
 
 ### 1.1 窗口的分类
@@ -2119,9 +2119,9 @@ Flink 的容错机制是其 Exactly-Once 语义的核心支撑，主要通过**�
 2. 向所有 Source 插入特殊的 **Checkpoint Barrier**（屏障）
 3. Barrier 随着数据流向下游传播
 4. 每个算子收到 Barrier 后：
-    - 暂停处理新数据
-    - 将当前状态快照写入外部存储（RocksDB / HDFS 等）
-    - 确认完成后向下游发送 Barrier
+       - 暂停处理新数据
+       - 将当前状态快照写入外部存储（RocksDB / HDFS 等）
+       - 确认完成后向下游发送 Barrier
 5. 当所有 Sink 确认 Barrier 到达，Checkpoint 完成
 
 **关键配置**（生产必调）：
