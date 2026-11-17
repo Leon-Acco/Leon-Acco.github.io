@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 6.0 1068.0 878.0" width="100%" style="max-width:1068px;background:#ffffff;border-radius:8px">
+<style>
+text{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif}
+</style>
+<rect x="60.0" y="100.0" width="300.0" height="120.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="520.0" y="100.0" width="560.0" height="120.0" rx="10" fill="#ffa8a8" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="360.0,160.0 520.0,160.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="520.0" y1="160.0" x2="507.9" y2="167.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="520.0" y1="160.0" x2="507.9" y2="153.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<rect x="60.0" y="260.0" width="300.0" height="120.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="520.0" y="260.0" width="560.0" height="120.0" rx="10" fill="#ffa8a8" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="360.0,320.0 520.0,320.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="520.0" y1="320.0" x2="507.9" y2="327.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="520.0" y1="320.0" x2="507.9" y2="313.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<rect x="60.0" y="420.0" width="300.0" height="120.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="520.0" y="420.0" width="560.0" height="120.0" rx="10" fill="#ffa8a8" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="360.0,480.0 520.0,480.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="520.0" y1="480.0" x2="507.9" y2="487.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="520.0" y1="480.0" x2="507.9" y2="473.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<rect x="60.0" y="580.0" width="300.0" height="120.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="520.0" y="580.0" width="560.0" height="120.0" rx="10" fill="#ffa8a8" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="360.0,640.0 520.0,640.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="520.0" y1="640.0" x2="507.9" y2="647.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="520.0" y1="640.0" x2="507.9" y2="633.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<rect x="60.0" y="740.0" width="300.0" height="120.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="520.0" y="740.0" width="560.0" height="120.0" rx="10" fill="#ffa8a8" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="360.0,800.0 520.0,800.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="520.0" y1="800.0" x2="507.9" y2="807.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="520.0" y1="800.0" x2="507.9" y2="793.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<text x="60.0" y="43.2" font-size="22.0" fill="#c92a2a" text-anchor="start" dominant-baseline="central" xml:space="preserve">上量后收不到登录回包 —— 问题地图（2026-07 排查结论）</text>
+<text x="209.9" y="159.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ChannelManager</text>
+<text x="800.0" y="131.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">缺陷1 重复建连</text>
+<text x="800.0" y="149.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">登录成功才 addChannel</text>
+<text x="800.0" y="167.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">登录窗口期定时刷新重复 createChannel</text>
+<text x="800.0" y="185.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ 同 channelKey 多连接并存(日志实锤)</text>
+<text x="210.0" y="319.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">loginChannel / commonPool</text>
+<text x="800.1" y="291.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">缺陷2 登录洪泛+线程占用</text>
+<text x="800.1" y="309.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">每 200ms 重发登录包(不等应答)</text>
+<text x="800.1" y="327.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">sleep 循环独占 commonPool worker</text>
+<text x="800.1" y="345.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ 池耗尽后登录任务排队饿死</text>
+<text x="210.0" y="479.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ChannelPrepareHandler.channelRead</text>
+<text x="800.0" y="451.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">缺陷3 EventLoop 同步日志阻塞</text>
+<text x="800.0" y="469.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">每个入站包先 writeLog(JSON+落盘+控制台)</text>
+<text x="800.0" y="487.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">高负载时登录应答排队无人处理</text>
+<text x="800.0" y="505.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ 60s 洪泛超时/120s 空闲先关连接</text>
+<text x="209.9" y="639.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Wrapper32960.escape / seq</text>
+<text x="800.1" y="611.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">缺陷4 协议隐患</text>
+<text x="800.1" y="629.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">escape() 未做 0x23→5E01/0x5E→5E02 转义</text>
+<text x="800.1" y="647.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">seq 为 static 全通道共享</text>
+<text x="800.1" y="665.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ 特定时刻/凭据下对端拆包失败不回应</text>
+<text x="210.0" y="799.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">logback-spring.xml</text>
+<text x="800.0" y="771.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">放大器 日志配置</text>
+<text x="800.0" y="789.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">root=debug + CONSOLE appender</text>
+<text x="800.0" y="807.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">scanPeriod=1s 每秒扫配置</text>
+<text x="800.0" y="825.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ 加剧全局日志锁竞争</text>
+</svg>

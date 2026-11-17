@@ -3,18 +3,44 @@ layout: default
 ---
 <h1 class="page-title">{{ page.title }}</h1>
 <p class="page-sub">{{ page.desc }}</p>
+
+{% for s in site.data.series %}
+{% assign sposts = site.categories[page.cat] | where: "series", s.id %}
+{% if sposts.size > 0 %}
+<section class="series-section">
+  <h2 class="series-h2">{{ s.icon }} {{ s.name }} <small>{{ sposts.size }} 篇</small></h2>
+  <div class="series-grid">
+    <div class="series-card wide">
+      <ul>
+        {% for post in sposts %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endfor %}
+
 <section class="posts">
-  {% assign posts = site.categories[page.cat] %}
-  {% for post in posts %}
+  {% assign others = "" | split: "|" %}
+  {% for post in site.categories[page.cat] %}
+  {% unless post.series %}{% assign others = others | push: post %}{% endunless %}
+  {% endfor %}
+  {% if others.size > 0 %}
+  <h2 class="series-h2">📄 其他文章 <small>{{ others.size }} 篇</small></h2>
+  {% for post in others %}
   <article class="post-card">
     <div class="post-meta">
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
       {% for tag in post.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
     </div>
     <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-    <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+    <p class="excerpt">{{ post.excerpt | strip_html | truncate: 130 }}</p>
   </article>
-  {% else %}
-  <p>暂无文章。</p>
   {% endfor %}
+  {% endif %}
 </section>

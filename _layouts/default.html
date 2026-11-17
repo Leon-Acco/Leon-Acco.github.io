@@ -7,6 +7,18 @@
   <meta name="description" content="{{ site.description }}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% if page.mermaid %}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'dark', fontFamily: '-apple-system, PingFang SC, sans-serif' });
+  </script>
+  {% endif %}
+  {% if page.math %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+  {% endif %}
 </head>
 <body>
   <header class="site-header">
@@ -17,10 +29,14 @@
         <a href="{{ '/ai/' | relative_url }}">AI</a>
         <a href="{{ '/iot/' | relative_url }}">车联网</a>
         <a href="{{ '/bigdata/' | relative_url }}">大数据</a>
+        <a href="{{ '/tools/' | relative_url }}">工程效率</a>
+        <a href="{{ '/archive/' | relative_url }}">归档</a>
         <a href="{{ '/about/' | relative_url }}">关于</a>
-        <a href="https://www.yuque.com/u22429903" target="_blank" rel="noopener">语雀 ↗</a>
-        <a href="https://github.com/Leon-Acco" target="_blank" rel="noopener">GitHub ↗</a>
       </nav>
+      <div class="search-box">
+        <input id="search-input" type="search" placeholder="搜索文章…" autocomplete="off">
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
     </div>
   </header>
   <main class="wrap">
@@ -28,9 +44,32 @@
   </main>
   <footer class="site-footer">
     <div class="wrap">
-      <p>© {{ site.time | date: '%Y' }} Acho · 修过飞机的程序猿 · <a href="https://www.yuque.com/u22429903" target="_blank" rel="noopener">语雀</a> · <a href="https://github.com/Leon-Acco" target="_blank" rel="noopener">GitHub</a></p>
+      <p>© {{ site.time | date: '%Y' }} Acho · 修过飞机的程序猿 ·
+        <a href="https://www.yuque.com/u22429903" target="_blank" rel="noopener">语雀</a> ·
+        <a href="https://github.com/Leon-Acco" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      </p>
       <p class="foot-quote">好久不见~ 我相信我们在哪里见过。 Have a nice day ☀️</p>
     </div>
   </footer>
+  <script>
+    // 全站搜索 (基于 search.json)
+    const box = document.getElementById('search-input');
+    const panel = document.getElementById('search-results');
+    let DB = null;
+    box && box.addEventListener('input', async (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      if (!q) { panel.hidden = true; return; }
+      if (!DB) DB = await (await fetch('{{ "/search.json" | relative_url }}')).json();
+      const hits = DB.filter(p => (p.title + ' ' + (p.tags||'') + ' ' + p.excerpt).toLowerCase().includes(q)).slice(0, 8);
+      panel.innerHTML = hits.length
+        ? hits.map(p => `<a href="${p.url}"><b>${p.title}</b><span>${p.date}</span></a>`).join('')
+        : '<span class="empty">没有找到相关文章</span>';
+      panel.hidden = false;
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.search-box')) panel && (panel.hidden = true);
+    });
+  </script>
 </body>
 </html>

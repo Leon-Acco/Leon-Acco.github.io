@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6.0 -4.0 1378.0 828.0" width="100%" style="max-width:1378px;background:#ffffff;border-radius:8px">
+<style>
+text{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif}
+</style>
+<rect x="520.0" y="20.0" width="220.0" height="80.0" rx="10" fill="#ffec99" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="800.0" y="20.0" width="220.0" height="80.0" rx="10" fill="#ffec99" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="1097.1" y="21.9" width="220.0" height="80.0" rx="10" fill="#ffec99" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="30.0" y="380.0" width="230.0" height="110.0" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="1120.0" y="380.0" width="240.0" height="120.0" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="320.0" y="140.0" width="720.0" height="660.0" rx="10" fill="transparent" stroke="#868e96" stroke-width="2.0" stroke-dasharray="8,6"/>
+<rect x="360.0" y="210.0" width="220.0" height="70.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="790.0" y="210.0" width="220.0" height="70.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="360.0" y="330.0" width="220.0" height="90.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="790.0" y="330.0" width="220.0" height="90.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="360.0" y="470.0" width="220.0" height="80.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="790.0" y="470.0" width="220.0" height="80.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="360.0" y="600.0" width="220.0" height="90.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="790.0" y="600.0" width="220.0" height="90.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="360.0" y="720.0" width="220.0" height="60.0" rx="10" fill="#d0bfff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="790.0" y="720.0" width="220.0" height="60.0" rx="10" fill="#ffa8a8" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="260.0,425.0 360.0,385.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="360.0" y1="385.0" x2="351.3" y2="396.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="360.0" y1="385.0" x2="346.1" y2="383.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="580.0,375.0 790.0,375.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="790.0" y1="375.0" x2="777.9" y2="382.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="790.0" y1="375.0" x2="777.9" y2="368.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="900.0,420.0 500.0,470.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="500.0" y1="470.0" x2="511.2" y2="461.6" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="500.0" y1="470.0" x2="512.9" y2="475.4" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="580.0,510.0 790.0,510.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="790.0" y1="510.0" x2="777.9" y2="517.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="790.0" y1="510.0" x2="777.9" y2="503.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="580.0,545.0 800.0,640.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="800.0" y1="640.0" x2="786.1" y2="641.6" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="800.0" y1="640.0" x2="791.6" y2="628.8" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="1010.0,630.0 1120.0,450.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="1120.0" y1="450.0" x2="1119.7" y2="464.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="1120.0" y1="450.0" x2="1107.7" y2="456.7" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="1120.0,490.0 1010.0,660.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="1010.0" y1="660.0" x2="1010.7" y2="646.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="1010.0" y1="660.0" x2="1022.5" y2="653.6" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="630.0,100.0 480.0,210.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="480.0" y1="210.0" x2="485.6" y2="197.2" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="480.0" y1="210.0" x2="493.9" y2="208.5" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="900.0,100.0 900.0,210.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="900.0" y1="210.0" x2="893.0" y2="197.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="900.0" y1="210.0" x2="907.0" y2="197.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="1180.0,100.0 500.0,720.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="500.0" y1="720.0" x2="504.2" y2="706.7" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="500.0" y1="720.0" x2="513.7" y2="717.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="470.0,280.0 470.0,600.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="470.0" y1="600.0" x2="463.0" y2="587.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="470.0" y1="600.0" x2="477.0" y2="587.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="870.0,280.0 480.0,330.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="480.0" y1="330.0" x2="491.1" y2="321.5" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="480.0" y1="330.0" x2="492.9" y2="335.4" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="900.0,690.0 900.0,720.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="900.0" y1="720.0" x2="893.0" y2="707.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="900.0" y1="720.0" x2="907.0" y2="707.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<text x="629.9" y="49.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Nacos 配置中心</text>
+<text x="629.9" y="68.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">transpond.sockets</text>
+<text x="910.0" y="49.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">MySQL</text>
+<text x="910.0" y="68.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">basic_transfer_info</text>
+<text x="1207.1" y="51.5" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Redis</text>
+<text x="1207.1" y="70.7" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">单通道分布式锁</text>
+<text x="145.1" y="414.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">RocketMQ 集群</text>
+<text x="145.1" y="433.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">每客户 1 个 topic</text>
+<text x="145.1" y="453.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">（车辆原始报文）</text>
+<text x="1240.0" y="419.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">上级监管平台</text>
+<text x="1240.0" y="438.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">GB/T 32960 over TCP</text>
+<text x="1240.0" y="458.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">每客户 N 条通道</text>
+<text x="340.0" y="162.0" font-size="20.0" fill="#495057" text-anchor="start" dominant-baseline="central" xml:space="preserve">dst-iot-transpond-32960-std-service</text>
+<text x="470.0" y="224.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">SocketConfChannelRefresh</text>
+<text x="470.0" y="243.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Timer</text>
+<text x="470.0" y="263.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">配置定时刷新(cron)</text>
+<text x="900.0" y="234.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">TranspondManagerTimer</text>
+<text x="900.0" y="253.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">转发规则缓存(3min)</text>
+<text x="470.0" y="354.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">SuperPullConsumer</text>
+<text x="470.0" y="373.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">MessageLitePullConsumer</text>
+<text x="470.0" y="393.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">每 topic 固定拉取线程池</text>
+<text x="900.0" y="354.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">TranspondFilter +</text>
+<text x="900.0" y="373.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Wrapper32960</text>
+<text x="900.0" y="393.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">校验/字段裁剪/协议封装</text>
+<text x="470.0" y="499.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ChannelService.send</text>
+<text x="470.0" y="518.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">过滤→发送→日志→挂回调</text>
+<text x="900.0" y="489.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ChannelFactory /</text>
+<text x="900.0" y="508.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ChannelManager</text>
+<text x="900.0" y="528.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">随机取已登录通道</text>
+<text x="470.0" y="624.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ChannelPrepareRunner</text>
+<text x="470.0" y="643.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">建连+登录循环</text>
+<text x="470.0" y="663.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">(commonPool 线程)</text>
+<text x="900.0" y="614.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Netty Pipeline</text>
+<text x="900.0" y="633.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Idle→Decoder→Encoder→</text>
+<text x="900.0" y="653.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Handler</text>
+<text x="900.0" y="672.2" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">(NioEventLoopGroup)</text>
+<text x="470.1" y="739.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">SingleChannelLockManager</text>
+<text x="470.1" y="758.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Redisson 选主(单通道)</text>
+<text x="900.1" y="739.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">logback 同步日志</text>
+<text x="900.1" y="758.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">FILE_*+CONSOLE</text>
+<text x="310.0" y="404.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">LitePull 批量拉取</text>
+<text x="685.0" y="374.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">原始报文</text>
+<text x="700.0" y="444.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">重构报文</text>
+<text x="685.0" y="509.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">getChannel</text>
+<text x="690.0" y="592.2" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">writeAndFlush</text>
+<text x="1065.0" y="539.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">TCP 转发</text>
+<text x="1065.0" y="574.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">应答(0x05/数据ACK)</text>
+<text x="555.0" y="154.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">sockets 配置</text>
+<text x="900.0" y="154.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">转发规则</text>
+<text x="840.0" y="409.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">抢锁选主</text>
+<text x="470.0" y="439.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">init/reconnect</text>
+<text x="675.0" y="304.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">缓存转发规则</text>
+<text x="900.0" y="704.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">每包同步写日志</text>
+</svg>

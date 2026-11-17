@@ -3,23 +3,70 @@ layout: default
 ---
 <article class="post">
   <header class="post-header">
+    {% if page.series %}
+    {% assign stitle = "" %}{% assign sicon = "" %}
+    {% for s in site.data.series %}{% if s.id == page.series %}{% assign stitle = s.name %}{% assign sicon = s.icon %}{% endif %}{% endfor %}
+    <div class="series-banner">
+      <span>{{ sicon }} 系列：{{ stitle }} · 第 {{ page.series_order }} 篇</span>
+    </div>
+    {% endif %}
     <h1>{{ page.title }}</h1>
     <div class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
-      {% for cat in page.categories %}<span class="badge badge-{{ cat }}">{{ cat }}</span>{% endfor %}
+      {% for cat in page.categories %}<a class="badge badge-{{ cat }}" href="{{ '/' | append: cat | append: '/' | relative_url }}">{{ cat }}</a>{% endfor %}
       {% for tag in page.tags %}<span class="tag">#{{ tag }}</span>{% endfor %}
     </div>
   </header>
-  <div class="post-content">
-    {{ content }}
+
+  <div class="post-body{% if page.toc and page.content contains '<h2' %} layout-toc{% endif %}">
+    {% if page.toc and page.content contains '<h2' %}
+    <aside class="toc">
+      <div class="toc-title">📑 目录</div>
+      <ul>
+      {% assign tokens = page.content | split: '<h2' %}
+      {% for t in tokens offset:1 %}
+        {% assign line = t | split: '</h2>' | first %}
+        {% assign id_match = line | split: 'id="' %}
+        {% if id_match.size > 1 %}
+          {% assign idpart = id_match[1] | split: '"' | first %}
+          {% assign text = id_match[1] | split: '">' | last | strip_html | truncate: 44 %}
+          <li><a href="#{{ idpart }}">{{ text }}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </aside>
+    {% endif %}
+
+    <div class="post-content{% if page.toc %} with-toc{% endif %}">
+      {{ content }}
+    </div>
   </div>
+
+  {% if page.series %}
+  {% assign family = site.posts | where: "series", page.series | sort: "series_order" %}
+  {% if family.size > 1 %}
+  <aside class="series-nav">
+    <div class="series-nav-title">{{ sicon }} {{ stitle }}（{{ family.size }} 篇）</div>
+    <ul>
+      {% for p in family %}
+      <li class="{% if p.url == page.url %}current{% endif %}">
+        <span class="no">{{ p.series_order }}</span>
+        {% if p.url == page.url %}{{ p.title }}{% else %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </aside>
+  {% endif %}
+  {% endif %}
+
   {% if page.original %}
   <footer class="post-footer">
-    <p>本文整理自个人知识库，<a href="{{ page.original }}" target="_blank" rel="noopener">查看语雀原文 ↗</a></p>
+    <p>本文整理自个人知识库{% if page.original %}，<a href="{{ page.original }}" target="_blank" rel="noopener">查看语雀原文 ↗</a>{% endif %}</p>
   </footer>
   {% endif %}
 </article>
+
 <nav class="post-nav">
-  {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>{% endif %}
-  {% if page.next %}<a class="right" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>{% endif %}
+  {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title | truncate: 26 }}</a>{% endif %}
+  {% if page.next %}<a class="right" href="{{ page.next.url | relative_url }}">{{ page.next.title | truncate: 26 }} →</a>{% endif %}
 </nav>

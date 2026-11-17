@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="22.9 6.0 1051.1 487.7" width="100%" style="max-width:1051px;background:#ffffff;border-radius:8px">
+<style>
+text{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif}
+</style>
+<rect x="46.9" y="110.5" width="250.0" height="200.0" rx="10" fill="#f3f4f6" stroke="#6b7280" stroke-width="2.0" />
+<rect x="69.0" y="137.4" width="200.0" height="50.0" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2.0" />
+<rect x="70.0" y="203.2" width="200.0" height="50.0" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2.0" />
+<rect x="72.1" y="257.5" width="200.0" height="50.0" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2.0" />
+<rect x="397.9" y="69.7" width="300.0" height="400.0" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="3.0" />
+<rect x="420.0" y="150.0" width="120.0" height="50.0" rx="10" fill="#e5e7eb" stroke="#6b7280" stroke-width="2.0" />
+<rect x="560.0" y="150.0" width="120.0" height="50.0" rx="10" fill="#fce7f3" stroke="#db2777" stroke-width="2.0" />
+<rect x="420.0" y="220.0" width="260.0" height="50.0" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2.0" />
+<rect x="420.0" y="290.0" width="260.0" height="100.0" rx="10" fill="#f9fafb" stroke="#6b7280" stroke-width="2.0" />
+<rect x="430.0" y="320.0" width="75.0" height="52.0" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.0" />
+<rect x="515.0" y="320.0" width="75.0" height="52.0" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.0" />
+<rect x="600.0" y="320.0" width="75.0" height="65.0" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.0" />
+<rect x="800.0" y="100.0" width="250.0" height="200.0" rx="10" fill="#f3f4f6" stroke="#6b7280" stroke-width="2.0" />
+<ellipse cx="920.0" cy="180.0" rx="100.0" ry="30.0" fill="#dcfce7" stroke="#16a34a" stroke-width="2.0" />
+<ellipse cx="920.0" cy="260.0" rx="100.0" ry="30.0" fill="#dcfce7" stroke="#16a34a" stroke-width="2.0" />
+<text x="550.0" y="46.8" font-size="28.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ADAS 风险聚合 - 整体架构</text>
+<text x="175.0" y="122.0" font-size="20.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">数据源层</text>
+<text x="168.9" y="162.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Kafka - 原始告警</text>
+<text x="170.0" y="217.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">MySQL CDC - 规则 + 绑</text>
+<text x="170.0" y="237.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">定</text>
+<text x="172.1" y="282.1" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Nacos - 运行时配置</text>
+<text x="550.0" y="120.8" font-size="18.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Flink Job: AdasRiskAggregationJob</text>
+<text x="480.0" y="165.9" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">告警去重</text>
+<text x="480.0" y="182.7" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">2h TTL</text>
+<text x="620.0" y="165.9" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">规则广播状态</text>
+<text x="620.0" y="182.7" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">(并行度=1)</text>
+<text x="550.1" y="235.9" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">规则关联</text>
+<text x="550.1" y="252.7" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">EnrichWithRuleProcessFunction</text>
+<text x="550.0" y="304.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">三路并行聚合</text>
+<text x="467.5" y="332.0" font-size="11.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">会话型</text>
+<text x="467.5" y="345.2" font-size="11.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">SINGLE_S</text>
+<text x="467.5" y="358.4" font-size="11.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ESSION</text>
+<text x="552.5" y="332.0" font-size="11.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">计数型</text>
+<text x="552.5" y="345.2" font-size="11.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">SINGLE_C</text>
+<text x="552.5" y="358.4" font-size="11.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">OUNT</text>
+<text x="637.6" y="331.6" font-size="11.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">多告警</text>
+<text x="637.6" y="344.8" font-size="11.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">MULTI_CO</text>
+<text x="637.6" y="358.0" font-size="11.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">MBINATIO</text>
+<text x="637.6" y="371.2" font-size="11.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">N</text>
+<text x="925.0" y="122.0" font-size="20.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">输出层</text>
+<text x="920.0" y="179.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Doris Sink</text>
+<text x="920.0" y="259.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Kafka Sink</text>
+</svg>

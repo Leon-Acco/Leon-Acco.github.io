@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="116.0 -14.0 1188.0 818.0" width="100%" style="max-width:1188px;background:#ffffff;border-radius:8px">
+<style>
+text{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif}
+</style>
+<ellipse cx="205.0" cy="295.0" rx="65.0" ry="35.0" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2.0" />
+<ellipse cx="440.0" cy="175.0" rx="85.0" ry="35.0" fill="#fff9db" stroke="#1e1e1e" stroke-width="2.0" />
+<ellipse cx="445.0" cy="435.0" rx="90.0" ry="35.0" fill="#fff9db" stroke="#1e1e1e" stroke-width="2.0" />
+<ellipse cx="685.0" cy="295.0" rx="65.0" ry="35.0" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="255.0,260.0 370.0,195.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="370.0" y1="195.0" x2="362.9" y2="207.1" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="370.0" y1="195.0" x2="356.0" y2="194.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="445.0,210.0 445.0,400.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="445.0" y1="400.0" x2="438.0" y2="387.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="445.0" y1="400.0" x2="452.0" y2="387.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="525.0,415.0 640.0,320.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="640.0" y1="320.0" x2="635.1" y2="333.1" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="640.0" y1="320.0" x2="626.2" y2="322.3" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="380.0,205.0 235.0,268.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="235.0" y1="268.0" x2="243.3" y2="256.7" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="235.0" y1="268.0" x2="248.9" y2="269.6" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="390.0,468.0 185.0,325.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="185.0" y1="325.0" x2="198.9" y2="326.2" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="185.0" y1="325.0" x2="190.9" y2="337.7" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="620.0,310.0 270.0,300.0" fill="none" stroke="#c92a2a" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="270.0" y1="300.0" x2="282.3" y2="293.3" stroke="#c92a2a" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="270.0" y1="300.0" x2="281.9" y2="307.3" stroke="#c92a2a" stroke-width="2.0" stroke-linecap="round"/>
+<rect x="840.0" y="90.0" width="440.0" height="130.0" rx="10" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="840.0" y="260.0" width="440.0" height="110.0" rx="10" fill="#fff9db" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="840.0" y="410.0" width="440.0" height="100.0" rx="10" fill="#e7f5ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="840.0" y="550.0" width="440.0" height="90.0" rx="10" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="840.0" y="680.0" width="440.0" height="100.0" rx="10" fill="#f3d9fa" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="740.0,295.0 840.0,155.0" fill="none" stroke="#c92a2a" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="840.0" y1="155.0" x2="838.6" y2="168.9" stroke="#c92a2a" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="840.0" y1="155.0" x2="827.3" y2="160.8" stroke="#c92a2a" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="840.0,210.0 790.0,250.0" fill="none" stroke="#2b8a3e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="790.0" y1="250.0" x2="795.1" y2="237.0" stroke="#2b8a3e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="790.0" y1="250.0" x2="803.8" y2="247.9" stroke="#2b8a3e" stroke-width="2.0" stroke-linecap="round"/>
+<text x="400.0" y="23.2" font-size="22.0" fill="#1e1e1e" text-anchor="start" dominant-baseline="central" xml:space="preserve">登录机制（状态机）与断连自愈</text>
+<text x="205.0" y="294.6" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">IDLE</text>
+<text x="440.0" y="174.6" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">CONNECTING</text>
+<text x="445.0" y="434.6" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">LOGGING_IN</text>
+<text x="685.0" y="294.6" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">READY</text>
+<text x="312.6" y="213.0" font-size="13.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">connect()</text>
+<text x="445.0" y="274.3" font-size="13.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">连接成功→发 cmd05</text>
+<text x="445.0" y="289.9" font-size="13.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">注册 10s 登录超时</text>
+<text x="582.5" y="336.8" font-size="13.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">登录应答成功</text>
+<text x="582.5" y="352.4" font-size="13.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">loginFailures=0</text>
+<text x="307.4" y="222.0" font-size="13.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">连接失败→退避</text>
+<text x="287.5" y="382.0" font-size="13.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">拒绝/超时→close→退避</text>
+<text x="445.1" y="290.6" font-size="13.0" fill="#c92a2a" text-anchor="middle" dominant-baseline="central" xml:space="preserve">channelInactive</text>
+<text x="1060.0" y="107.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">断连清理（channelInactive）</text>
+<text x="1060.0" y="125.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">1. 取消登录相关任务（登录超时/心跳）</text>
+<text x="1060.0" y="143.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">2. drainPending：pendingQueue 全部 complete(false)</text>
+<text x="1060.0" y="161.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">   → 在途消息回源重发，不丢</text>
+<text x="1060.0" y="179.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">3. setState(IDLE)</text>
+<text x="1060.0" y="197.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">4. 分组全不 READY → consumer.suspend()</text>
+<text x="1060.0" y="286.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">指数退避重连（scheduleReconnect）</text>
+<text x="1060.0" y="304.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">1s→2s→4s→…→60s 封顶，±20% 抖动防羊群</text>
+<text x="1060.0" y="322.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">失败次数 loginFailures 驱动，登录成功清零</text>
+<text x="1060.0" y="340.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">重连日志 LogSampler 30s 采样防刷屏</text>
+<text x="1060.0" y="431.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">心跳与空闲检测</text>
+<text x="1060.0" y="449.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">WRITER_IDLE(heartbeatIntervalSec=30s) 且 READY</text>
+<text x="1060.0" y="467.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">  → 发 0x07 心跳帧</text>
+<text x="1060.0" y="485.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">READER_IDLE(socketTimeOut=120s) → close → 退避重连</text>
+<text x="1060.0" y="575.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">恢复链路</text>
+<text x="1060.0" y="593.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">重连成功 → cmd05 登录 → READY</text>
+<text x="1060.0" y="611.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ readiness 翻转 → consumer.resume()</text>
+<text x="1060.0" y="701.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">登录安全约束</text>
+<text x="1060.0" y="719.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">登录报文含用户名/密码，禁止明文落盘</text>
+<text x="1060.0" y="737.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">password/secretKey/accessKey 脱敏</text>
+<text x="1060.0" y="755.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">（@ToString.Exclude + MaskingPatternLayout）</text>
+</svg>

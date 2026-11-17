@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 1308.0 948.0" width="100%" style="max-width:1308px;background:#ffffff;border-radius:8px">
+<style>
+text{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif}
+</style>
+<rect x="40.0" y="60.0" width="280.0" height="900.0" rx="10" fill="transparent" stroke="#868e96" stroke-width="2.0" stroke-dasharray="8,6"/>
+<rect x="360.0" y="60.0" width="280.0" height="900.0" rx="10" fill="transparent" stroke="#868e96" stroke-width="2.0" stroke-dasharray="8,6"/>
+<rect x="700.0" y="60.0" width="280.0" height="900.0" rx="10" fill="transparent" stroke="#868e96" stroke-width="2.0" stroke-dasharray="8,6"/>
+<rect x="1020.0" y="60.0" width="280.0" height="900.0" rx="10" fill="transparent" stroke="#868e96" stroke-width="2.0" stroke-dasharray="8,6"/>
+<rect x="60.0" y="150.0" width="240.0" height="70.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="60.0" y="270.0" width="240.0" height="90.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="60.0" y="420.0" width="240.0" height="90.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="380.0" y="420.0" width="240.0" height="90.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="380.0" y="570.0" width="240.0" height="70.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="380.0" y="690.0" width="240.0" height="90.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="1040.0" y="570.0" width="240.0" height="70.0" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="720.0" y="690.0" width="240.0" height="90.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="1040.0" y="810.0" width="240.0" height="70.0" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="60.0" y="830.0" width="560.0" height="100.0" rx="10" fill="#ffa8a8" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="180.0,220.0 180.0,270.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="180.0" y1="270.0" x2="173.0" y2="257.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="180.0" y1="270.0" x2="187.0" y2="257.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="300.0,330.0 1040.0,330.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="1040.0" y1="330.0" x2="1027.9" y2="337.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="1040.0" y1="330.0" x2="1027.9" y2="323.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="180.0,360.0 180.0,420.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="180.0" y1="420.0" x2="173.0" y2="407.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="180.0" y1="420.0" x2="187.0" y2="407.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="300.0,465.0 380.0,465.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="380.0" y1="465.0" x2="367.9" y2="472.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="380.0" y1="465.0" x2="367.9" y2="458.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="500.0,510.0 500.0,570.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="500.0" y1="570.0" x2="493.0" y2="557.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="500.0" y1="570.0" x2="507.0" y2="557.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="620.0,605.0 1040.0,605.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="1040.0" y1="605.0" x2="1027.9" y2="612.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="1040.0" y1="605.0" x2="1027.9" y2="598.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="500.0,640.0 500.0,690.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="500.0" y1="690.0" x2="493.0" y2="677.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="500.0" y1="690.0" x2="507.0" y2="677.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="1160.0,640.0 840.0,690.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="840.0" y1="690.0" x2="850.9" y2="681.2" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="840.0" y1="690.0" x2="853.1" y2="695.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="960.0,750.0 1060.0,810.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="1060.0" y1="810.0" x2="1046.0" y2="809.8" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="1060.0" y1="810.0" x2="1053.2" y2="797.8" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<text x="60.0" y="85.8" font-size="18.0" fill="#495057" text-anchor="start" dominant-baseline="central" xml:space="preserve">RocketMQ 拉取线程</text>
+<text x="380.0" y="85.8" font-size="18.0" fill="#495057" text-anchor="start" dominant-baseline="central" xml:space="preserve">ChannelService / 过滤器</text>
+<text x="720.0" y="85.8" font-size="18.0" fill="#495057" text-anchor="start" dominant-baseline="central" xml:space="preserve">Netty EventLoop</text>
+<text x="1040.0" y="85.8" font-size="18.0" fill="#495057" text-anchor="start" dominant-baseline="central" xml:space="preserve">上级平台 / MQ</text>
+<text x="180.0" y="174.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">poll(timeout) 批量拉取</text>
+<text x="180.0" y="193.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">pullBatchSize 条</text>
+<text x="180.0" y="294.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">过滤校验</text>
+<text x="180.0" y="313.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">isEnable / vin / uid /</text>
+<text x="180.0" y="333.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">平台转发数据过滤</text>
+<text x="179.9" y="444.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ChannelFactory.getChannel</text>
+<text x="179.9" y="463.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">随机取通道</text>
+<text x="179.9" y="483.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">+ isLoginSuccess 校验</text>
+<text x="500.0" y="444.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">TranspondFilter.process</text>
+<text x="500.0" y="463.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">校验码→字段裁剪</text>
+<text x="500.0" y="483.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Wrapper32960 封装</text>
+<text x="500.0" y="604.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">channel.writeAndFlush</text>
+<text x="500.0" y="714.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">writeLog(PUSH) 同步日志</text>
+<text x="500.0" y="733.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">+ addCallback</text>
+<text x="500.0" y="753.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">(5s 过期回调队列)</text>
+<text x="1160.0" y="604.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">接收数据并返回应答</text>
+<text x="840.0" y="714.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">channelRead</text>
+<text x="840.0" y="733.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">writeLog(ACK) 同步</text>
+<text x="840.0" y="753.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">runCallback(true)</text>
+<text x="1160.0" y="834.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">回调成功</text>
+<text x="1160.0" y="853.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">commitSingleOffset</text>
+<text x="340.0" y="860.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ClearExpireCallbackTimer 每 1s 清理：</text>
+<text x="340.0" y="878.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">回调过期(&gt;5s)或通道断连 → call(false)</text>
+<text x="340.0" y="896.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ 不提交 offset，消息重投</text>
+<text x="670.0" y="329.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">不通过/空消息 → 直接提交 offset</text>
+<text x="340.0" y="464.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">原始报文</text>
+<text x="830.0" y="604.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">TCP 发送</text>
+<text x="1000.0" y="664.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">数据应答</text>
+<text x="1010.0" y="779.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">触发回调</text>
+</svg>

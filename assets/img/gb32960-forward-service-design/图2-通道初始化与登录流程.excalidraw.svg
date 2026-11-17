@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 1188.0 928.0" width="100%" style="max-width:1188px;background:#ffffff;border-radius:8px">
+<style>
+text{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif}
+</style>
+<rect x="40.0" y="60.0" width="240.0" height="880.0" rx="10" fill="transparent" stroke="#868e96" stroke-width="2.0" stroke-dasharray="8,6"/>
+<rect x="320.0" y="60.0" width="240.0" height="880.0" rx="10" fill="transparent" stroke="#868e96" stroke-width="2.0" stroke-dasharray="8,6"/>
+<rect x="640.0" y="60.0" width="240.0" height="880.0" rx="10" fill="transparent" stroke="#868e96" stroke-width="2.0" stroke-dasharray="8,6"/>
+<rect x="940.0" y="60.0" width="240.0" height="880.0" rx="10" fill="transparent" stroke="#868e96" stroke-width="2.0" stroke-dasharray="8,6"/>
+<rect x="60.0" y="140.0" width="200.0" height="70.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="60.0" y="260.0" width="200.0" height="80.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="60.0" y="390.0" width="200.0" height="70.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="660.0" y="390.0" width="200.0" height="100.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="340.0" y="560.0" width="200.0" height="80.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="960.0" y="560.0" width="200.0" height="60.0" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="960.0" y="680.0" width="200.0" height="60.0" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="660.0" y="660.0" width="200.0" height="100.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="660.0" y="810.0" width="200.0" height="80.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="340.0" y="810.0" width="200.0" height="80.0" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="160.0,210.0 160.0,260.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="160.0" y1="260.0" x2="153.0" y2="247.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="160.0" y1="260.0" x2="167.0" y2="247.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="160.0,340.0 160.0,390.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="160.0" y1="390.0" x2="153.0" y2="377.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="160.0" y1="390.0" x2="167.0" y2="377.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="260.0,425.0 660.0,430.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="660.0" y1="430.0" x2="647.8" y2="436.8" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="660.0" y1="430.0" x2="648.0" y2="422.8" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="760.0,490.0 470.0,560.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="470.0" y1="560.0" x2="480.1" y2="550.4" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="470.0" y1="560.0" x2="483.4" y2="564.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="540.0,600.0 960.0,595.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="960.0" y1="595.0" x2="948.0" y2="602.1" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="960.0" y1="595.0" x2="947.8" y2="588.1" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="1060.0,620.0 1060.0,680.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="1060.0" y1="680.0" x2="1053.0" y2="667.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="1060.0" y1="680.0" x2="1067.0" y2="667.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="960.0,710.0 860.0,705.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="860.0" y1="705.0" x2="872.5" y2="698.6" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="860.0" y1="705.0" x2="871.8" y2="712.6" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="760.0,760.0 760.0,810.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="760.0" y1="810.0" x2="753.0" y2="797.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="760.0" y1="810.0" x2="767.0" y2="797.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="660.0,850.0 540.0,850.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="540.0" y1="850.0" x2="552.1" y2="843.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="540.0" y1="850.0" x2="552.1" y2="857.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<rect x="340.0" y="180.0" width="500.0" height="130.0" rx="10" fill="#ffa8a8" stroke="#1e1e1e" stroke-width="2.0" />
+<text x="60.0" y="85.8" font-size="18.0" fill="#495057" text-anchor="start" dominant-baseline="central" xml:space="preserve">定时器线程</text>
+<text x="340.0" y="85.8" font-size="18.0" fill="#495057" text-anchor="start" dominant-baseline="central" xml:space="preserve">commonPool 登录线程</text>
+<text x="660.0" y="85.8" font-size="18.0" fill="#495057" text-anchor="start" dominant-baseline="central" xml:space="preserve">Netty EventLoop</text>
+<text x="960.0" y="85.8" font-size="18.0" fill="#495057" text-anchor="start" dominant-baseline="central" xml:space="preserve">上级平台</text>
+<text x="160.1" y="164.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">run() 定时触发</text>
+<text x="160.1" y="183.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">init(socketConf)</text>
+<text x="160.0" y="279.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">reconnect()</text>
+<text x="160.0" y="298.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ChannelManager 中</text>
+<text x="160.0" y="318.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">有活跃通道？</text>
+<text x="159.9" y="414.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">createChannel()</text>
+<text x="159.9" y="433.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">bootstrap.connect()</text>
+<text x="760.0" y="409.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">连接成功回调</text>
+<text x="760.0" y="428.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">设置 CH/SOCKET_CONFIG</text>
+<text x="760.0" y="448.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">init: LOGIN=-1</text>
+<text x="760.0" y="467.2" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">runAsync(loginChannel)</text>
+<text x="439.9" y="589.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">loginChannel 循环</text>
+<text x="439.9" y="608.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">每 200ms 发 cmd05 登录包</text>
+<text x="1060.0" y="589.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">校验登入</text>
+<text x="1060.0" y="709.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">返回 0x05 登录应答</text>
+<text x="760.0" y="689.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">channelRead</text>
+<text x="760.0" y="708.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">① 先同步 writeLog</text>
+<text x="760.0" y="728.0" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">② 再处理 cmd==0x05</text>
+<text x="760.0" y="839.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">成功: LOGIN=1</text>
+<text x="760.0" y="858.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ChannelManager.addChannel</text>
+<text x="439.9" y="839.6" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">检测到 LOGIN==1</text>
+<text x="439.9" y="858.8" font-size="16.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">退出循环</text>
+<text x="160.0" y="364.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">否(未登记)</text>
+<text x="460.0" y="427.2" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">连接建立</text>
+<text x="615.0" y="524.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">runAsync</text>
+<text x="750.0" y="597.2" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">cmd05 登录包</text>
+<text x="910.0" y="707.2" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">0x05 应答</text>
+<text x="599.9" y="849.6" font-size="14.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">LOGIN 置位</text>
+<text x="590.0" y="216.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">⚠ 风险点</text>
+<text x="590.0" y="234.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">addChannel 仅在登录成功后执行</text>
+<text x="590.0" y="252.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">登录窗口期内 reconnect 判定无通道</text>
+<text x="590.0" y="270.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ 同一 channelKey 重复建连+登录洪泛</text>
+</svg>

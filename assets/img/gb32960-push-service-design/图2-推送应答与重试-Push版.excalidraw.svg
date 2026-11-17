@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6.0 -14.0 1418.0 1068.0" width="100%" style="max-width:1418px;background:#ffffff;border-radius:8px">
+<style>
+text{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif}
+</style>
+<rect x="430.0" y="70.0" width="460.0" height="64.0" rx="10" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="430.0" y="174.0" width="460.0" height="64.0" rx="10" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="430.0" y="278.0" width="460.0" height="50.0" rx="10" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="430.0" y="368.0" width="460.0" height="50.0" rx="10" fill="#fff9db" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="430.0" y="458.0" width="460.0" height="80.0" rx="10" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="430.0" y="578.0" width="460.0" height="54.0" rx="10" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="430.0" y="672.0" width="460.0" height="80.0" rx="10" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="430.0" y="792.0" width="460.0" height="50.0" rx="10" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="120.0" y="930.0" width="300.0" height="100.0" rx="10" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="500.0" y="930.0" width="300.0" height="100.0" rx="10" fill="#fff9db" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="880.0" y="930.0" width="330.0" height="100.0" rx="10" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="1000.0" y="174.0" width="400.0" height="90.0" rx="10" fill="#f3d9fa" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="1000.0" y="330.0" width="400.0" height="128.0" rx="10" fill="#fff9db" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="1000.0" y="520.0" width="400.0" height="70.0" rx="10" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="1000.0" y="640.0" width="400.0" height="110.0" rx="10" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="2.0" />
+<rect x="30.0" y="640.0" width="350.0" height="190.0" rx="10" fill="#e7f5ff" stroke="#1e1e1e" stroke-width="2.0" />
+<polyline points="660.0,134.0 660.0,174.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="660.0" y1="174.0" x2="653.0" y2="161.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="660.0" y1="174.0" x2="667.0" y2="161.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="660.0,238.0 660.0,278.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="660.0" y1="278.0" x2="653.0" y2="265.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="660.0" y1="278.0" x2="667.0" y2="265.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="660.0,328.0 660.0,368.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="660.0" y1="368.0" x2="653.0" y2="355.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="660.0" y1="368.0" x2="667.0" y2="355.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="660.0,418.0 660.0,458.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="660.0" y1="458.0" x2="653.0" y2="445.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="660.0" y1="458.0" x2="667.0" y2="445.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="660.0,538.0 660.0,578.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="660.0" y1="578.0" x2="653.0" y2="565.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="660.0" y1="578.0" x2="667.0" y2="565.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="660.0,632.0 660.0,672.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="660.0" y1="672.0" x2="653.0" y2="659.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="660.0" y1="672.0" x2="667.0" y2="659.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="660.0,752.0 660.0,792.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="660.0" y1="792.0" x2="653.0" y2="779.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="660.0" y1="792.0" x2="667.0" y2="779.9" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="890.0,393.0 1000.0,393.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="1000.0" y1="393.0" x2="987.9" y2="400.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="1000.0" y1="393.0" x2="987.9" y2="386.0" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="890.0,605.0 1000.0,555.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8,6"/>
+<line x1="1000.0" y1="555.0" x2="991.9" y2="566.4" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="1000.0" y1="555.0" x2="986.1" y2="553.6" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="660.0,842.0 270.0,930.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="270.0" y1="930.0" x2="280.3" y2="920.5" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="270.0" y1="930.0" x2="283.4" y2="934.2" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="660.0,842.0 650.0,930.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="650.0" y1="930.0" x2="644.4" y2="917.2" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="650.0" y1="930.0" x2="658.3" y2="918.7" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<polyline points="660.0,842.0 1010.0,930.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="1010.0" y1="930.0" x2="996.5" y2="933.8" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<line x1="1010.0" y1="930.0" x2="999.9" y2="920.3" stroke="#1e1e1e" stroke-width="2.0" stroke-linecap="round"/>
+<text x="480.0" y="23.2" font-size="22.0" fill="#1e1e1e" text-anchor="start" dominant-baseline="central" xml:space="preserve">Push 推送方式 · 应答配对 · 重试语义</text>
+<text x="660.0" y="92.2" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">① Broker → PushConsumer 主动推送</text>
+<text x="660.0" y="110.2" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">pullThresholdForQueue=1000（本地缓存/queue）</text>
+<text x="660.0" y="196.2" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">② 消费线程池回调（batch=1 逐条）</text>
+<text x="660.0" y="214.2" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">Min=chNums，Max=2×chNums（Nacos 可覆盖）</text>
+<text x="660.0" y="302.6" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">③ TranspondMdc.open（traceId/topic/customer/vin）</text>
+<text x="660.0" y="392.6" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">④ 前置过滤判断（transferInfo/isEnable/body/vin/自转发）</text>
+<text x="660.0" y="488.2" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">⑤ TranspondFilter</text>
+<text x="660.0" y="506.2" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">BCC校验 → 命令字过滤(cmds) → 字段裁剪(fields策略) → Wrapper32960 重新组包</text>
+<text x="660.0" y="604.6" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">⑥ ChannelGroup.acquireReady（轮询 READY 通道）</text>
+<text x="660.0" y="702.2" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">⑦ sendAndAwait：在通道自身 EventLoop 串行执行</text>
+<text x="660.0" y="720.2" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">pendingQueue.offer(future) → writeAndFlush（队序≡发送序）</text>
+<text x="660.0" y="816.6" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">⑧ future.get(ackTimeoutMs=5s) 同步等待应用层应答</text>
+<text x="270.0" y="960.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ACK（成功）</text>
+<text x="270.0" y="978.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">EventLoop onAck → 完成队首</text>
+<text x="270.0" y="996.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ CONSUME_SUCCESS 提交位点</text>
+<text x="650.0" y="951.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">NACK（平台拒收）</text>
+<text x="650.0" y="969.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">complete(true) 不重发防死循环</text>
+<text x="650.0" y="987.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">rejected+1 + 采样告警</text>
+<text x="650.0" y="1005.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ CONSUME_SUCCESS</text>
+<text x="1045.0" y="951.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">超时/写失败/断连</text>
+<text x="1045.0" y="969.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">complete(false)</text>
+<text x="1045.0" y="987.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">sleep 200ms 控节奏</text>
+<text x="1045.0" y="1005.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ RECONSUME_LATER</text>
+<text x="1200.0" y="199.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">背压联动</text>
+<text x="1200.0" y="217.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">分组全不 READY → consumer.suspend()</text>
+<text x="1200.0" y="235.9" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">任一 READY → consumer.resume()</text>
+<text x="1200.0" y="346.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">④ 丢弃类分支（不重试）</text>
+<text x="1200.0" y="364.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">· 无转发规则缓存（ERROR 采样告警）</text>
+<text x="1200.0" y="382.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">· isEnable=0 / 空报文 / 空 VIN</text>
+<text x="1200.0" y="400.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">· 平台自转发过滤</text>
+<text x="1200.0" y="418.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">· 解析失败/非法/非预期异常</text>
+<text x="1200.0" y="436.8" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">→ CONSUME_SUCCESS 丢弃</text>
+<text x="1200.0" y="545.2" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">⑥ 无 READY 通道</text>
+<text x="1200.0" y="563.2" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">sleep 1000ms 控节奏 → RECONSUME_LATER</text>
+<text x="1200.0" y="666.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">RECONSUME_LATER 语义</text>
+<text x="1200.0" y="684.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">delayLevel=-1：回源队列即时重投</text>
+<text x="1200.0" y="702.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">maxReconsumeTimes=∞：永不进 DLQ</text>
+<text x="1200.0" y="720.5" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">优先保不丢，允许少量重复（at-least-once）</text>
+<text x="205.0" y="669.0" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">ACK 配对原理</text>
+<text x="205.0" y="687.0" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">（32960 应答无流水号）</text>
+<text x="205.0" y="705.0" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">· 每通道一条 FIFO pendingQueue</text>
+<text x="205.0" y="723.0" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">· 入队+写出在同一 EventLoop 串行</text>
+<text x="205.0" y="741.0" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">  ⇒ 队序≡发送序，队首即最早在途</text>
+<text x="205.0" y="759.0" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">· 收到应答 → 完成队首 future</text>
+<text x="205.0" y="777.0" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">· 已知取舍：对端丢应答时，迟到 ACK</text>
+<text x="205.0" y="795.0" font-size="15.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">  会错位完成下一条（代价有界）</text>
+<text x="945.0" y="378.6" font-size="13.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">命中丢弃</text>
+<text x="945.0" y="565.6" font-size="13.0" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central" xml:space="preserve">无 READY</text>
+</svg>

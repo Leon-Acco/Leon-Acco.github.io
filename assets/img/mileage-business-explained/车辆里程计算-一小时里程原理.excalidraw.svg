@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="96.0 32.0 1398.0 598.0" width="100%" style="max-width:1398px;background:#ffffff;border-radius:8px">
+<style>
+text{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif}
+</style>
+<polyline points="193.0,185.0 1407.0,185.0" fill="none" stroke="#b45309" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<polyline points="193.0,185.0 193.0,235.0" fill="none" stroke="#b45309" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<polyline points="1407.0,185.0 1407.0,235.0" fill="none" stroke="#b45309" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<ellipse cx="193.0" cy="300.0" rx="8.0" ry="8.0" fill="#a7f3d0" stroke="#047857" stroke-width="2.0" />
+<ellipse cx="323.0" cy="300.0" rx="8.0" ry="8.0" fill="#3b82f6" stroke="#1e3a5f" stroke-width="2.0" />
+<ellipse cx="475.0" cy="300.0" rx="8.0" ry="8.0" fill="#3b82f6" stroke="#1e3a5f" stroke-width="2.0" />
+<ellipse cx="627.0" cy="300.0" rx="8.0" ry="8.0" fill="#3b82f6" stroke="#1e3a5f" stroke-width="2.0" />
+<ellipse cx="822.0" cy="300.0" rx="8.0" ry="8.0" fill="#3b82f6" stroke="#1e3a5f" stroke-width="2.0" />
+<ellipse cx="1169.0" cy="300.0" rx="8.0" ry="8.0" fill="#3b82f6" stroke="#1e3a5f" stroke-width="2.0" />
+<ellipse cx="1407.0" cy="300.0" rx="8.0" ry="8.0" fill="#fed7aa" stroke="#c2410c" stroke-width="2.0" />
+<polyline points="150.0,300.0 1470.0,300.0" fill="none" stroke="#1e3a5f" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" />
+<text x="120.0" y="76.4" font-size="34.0" fill="#1e40af" text-anchor="start" dominant-baseline="central" xml:space="preserve">一小时里程是怎么算出来的</text>
+<text x="120.0" y="127.4" font-size="19.0" fill="#64748b" text-anchor="start" dominant-baseline="central" xml:space="preserve">车只上报「累计里程」，这一小时开了多少 = 这小时里表盘最大值 − 最小值</text>
+<text x="800.0" y="156.8" font-size="18.0" fill="#b45309" text-anchor="middle" dominant-baseline="central" xml:space="preserve">这一小时行驶里程 = 最大值 − 最小值</text>
+<text x="193.0" y="249.0" font-size="15.0" fill="#047857" text-anchor="middle" dominant-baseline="central" xml:space="preserve">50857.8</text>
+<text x="323.0" y="249.0" font-size="15.0" fill="#374151" text-anchor="middle" dominant-baseline="central" xml:space="preserve">50861.2</text>
+<text x="475.0" y="249.0" font-size="15.0" fill="#374151" text-anchor="middle" dominant-baseline="central" xml:space="preserve">50865.0</text>
+<text x="627.0" y="249.0" font-size="15.0" fill="#374151" text-anchor="middle" dominant-baseline="central" xml:space="preserve">50868.4</text>
+<text x="822.0" y="249.0" font-size="15.0" fill="#374151" text-anchor="middle" dominant-baseline="central" xml:space="preserve">50870.8</text>
+<text x="1169.0" y="249.0" font-size="15.0" fill="#374151" text-anchor="middle" dominant-baseline="central" xml:space="preserve">50874.3</text>
+<text x="1407.0" y="249.0" font-size="15.0" fill="#c2410c" text-anchor="middle" dominant-baseline="central" xml:space="preserve">50877.1</text>
+<text x="193.0" y="337.8" font-size="13.0" fill="#64748b" text-anchor="middle" dominant-baseline="central" xml:space="preserve">13:02</text>
+<text x="323.0" y="337.8" font-size="13.0" fill="#64748b" text-anchor="middle" dominant-baseline="central" xml:space="preserve">13:08</text>
+<text x="475.0" y="337.8" font-size="13.0" fill="#64748b" text-anchor="middle" dominant-baseline="central" xml:space="preserve">13:15</text>
+<text x="627.0" y="337.8" font-size="13.0" fill="#64748b" text-anchor="middle" dominant-baseline="central" xml:space="preserve">13:22</text>
+<text x="822.0" y="337.8" font-size="13.0" fill="#64748b" text-anchor="middle" dominant-baseline="central" xml:space="preserve">13:31</text>
+<text x="1169.0" y="337.8" font-size="13.0" fill="#64748b" text-anchor="middle" dominant-baseline="central" xml:space="preserve">13:47</text>
+<text x="1407.0" y="337.8" font-size="13.0" fill="#64748b" text-anchor="middle" dominant-baseline="central" xml:space="preserve">13:58</text>
+<text x="156.0" y="365.6" font-size="16.0" fill="#64748b" text-anchor="middle" dominant-baseline="central" xml:space="preserve">13:00</text>
+<text x="1430.0" y="365.6" font-size="16.0" fill="#64748b" text-anchor="middle" dominant-baseline="central" xml:space="preserve">14:00</text>
+<text x="370.0" y="441.8" font-size="28.0" fill="#c2410c" text-anchor="start" dominant-baseline="central" xml:space="preserve">50877.1</text>
+<text x="508.0" y="441.8" font-size="28.0" fill="#64748b" text-anchor="start" dominant-baseline="central" xml:space="preserve">−</text>
+<text x="545.0" y="441.8" font-size="28.0" fill="#047857" text-anchor="start" dominant-baseline="central" xml:space="preserve">50857.8</text>
+<text x="683.0" y="441.8" font-size="28.0" fill="#64748b" text-anchor="start" dominant-baseline="central" xml:space="preserve">=</text>
+<text x="725.0" y="439.4" font-size="34.0" fill="#1e40af" text-anchor="start" dominant-baseline="central" xml:space="preserve">19.3</text>
+<text x="835.0" y="441.2" font-size="22.0" fill="#1e40af" text-anchor="start" dominant-baseline="central" xml:space="preserve">公里</text>
+<text x="370.0" y="476.4" font-size="14.0" fill="#64748b" text-anchor="start" dominant-baseline="central" xml:space="preserve">最大值（13:58）</text>
+<text x="545.0" y="476.4" font-size="14.0" fill="#64748b" text-anchor="start" dominant-baseline="central" xml:space="preserve">最小值（13:02）</text>
+<text x="725.0" y="480.4" font-size="14.0" fill="#64748b" text-anchor="start" dominant-baseline="central" xml:space="preserve">这一小时行驶</text>
+<text x="120.0" y="550.2" font-size="17.0" fill="#374151" text-anchor="start" dominant-baseline="central" xml:space="preserve">为什么不用「最后一条 − 第一条」？上报会迟到、会补发、顺序会乱，「第一条」未必是起点；</text>
+<text x="120.0" y="570.6" font-size="17.0" fill="#374151" text-anchor="start" dominant-baseline="central" xml:space="preserve">而且只要漏掉最高或最低的那个点，首尾相减就会明显偏小。取窗口内最大值 − 最小值，</text>
+<text x="120.0" y="591.0" font-size="17.0" fill="#374151" text-anchor="start" dominant-baseline="central" xml:space="preserve">等于把这一小时所有上报点都用上，抗丢失、抗乱序。</text>
+</svg>
