@@ -3,7 +3,7 @@
 Acho 的个人博客，基于 Jekyll 构建，托管于 GitHub Pages。内容来自个人 Obsidian 知识库（acho_barin）与语雀知识库的系统整理。
 
 - 在线访问：https://leon-acco.github.io
-- 四大分类：AI（ai）/ 车联网（iot）/ 大数据（bigdata）/ 工程效率（tools）
+- 五大分类：AI（ai）/ Java 进阶（java）/ 车联网（iot）/ 大数据（bigdata）/ 工程效率（tools）
 - 功能：知识系列卡片、文章 TOC、系列导航、Mermaid 图表、KaTeX 公式、全站搜索（search.json）、归档、RSS
 
 ## 目录结构
