@@ -403,7 +403,7 @@ CREATE TABLE `tbl_gps_info_dynamic_data` (
 ```java
 /**
  * @Description: 车辆档案数据变更处理器接口
- * @Author: 张朝
+ * @Author: Acho
  * @create: 2024-09-05-15:09
  */
 public interface CarDataChangeProcessor {

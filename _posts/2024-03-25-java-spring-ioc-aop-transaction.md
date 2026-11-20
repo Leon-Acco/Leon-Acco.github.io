@@ -176,7 +176,7 @@ public class RedisDistributedLockAspect {
 /**
  * 数据权限控制切面
  *
- * @author 张朝
+ * @author Acho
  */
 @Slf4j
 @Aspect
@@ -265,7 +265,7 @@ public class DataPermissionAspect {
 ```java
 /**
  * 数据权限注解
- * @author 张朝
+ * @author Acho
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

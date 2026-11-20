@@ -225,7 +225,7 @@ TCP是以流的方式来处理数据，一个完整的包可能会被TCP拆分�
  * 解码器（包含特殊数据头）
  * 数据格式：2525（数据的开始，%%两个字节标识）+ vin（17个字节） + 平台车架号（17个字节） + 服务器接收时间（6个字节） + 报文数据
  *
- * @author 张朝
+ * @author Acho
  */
 @Slf4j
 public class MaserHeadDataDecoder extends ByteToMessageDecoder {

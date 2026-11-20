@@ -265,7 +265,7 @@ tags: [daily]
 ---
 project: 车联网新旧平台切换
 status: in_progress
-owner: 张朝
+owner: Acho
 start: 2026-02-01
 tags: [project, iov]
 ---
