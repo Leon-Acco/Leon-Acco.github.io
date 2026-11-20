@@ -11,7 +11,9 @@ description: Acho — Java 后端工程师，专注车联网数据平台、实�
 </section>
 
 <div class="wrap">
-  <section style="padding:2.6rem 0 0">
+  <section class="about-intro">
+    <img class="about-face" src="{{ '/assets/img/me/portrait.jpg' | relative_url }}"
+         alt="Acho" width="760" height="1013" loading="lazy">
     <p class="about-lead">
       我是 Acho，一名在深圳工作的 Java 后端工程师。六年多时间都在车联网（IoV）
       这条链路上：设备接入、指令下发、国标协议解析、位置与车况数据管道、实时计算与数据仓库。
@@ -91,27 +93,6 @@ description: Acho — Java 后端工程师，专注车联网数据平台、实�
     </div>
   </section>
 
-  <section class="about-block" id="now">
-    <h2>近况</h2>
-    <div class="body">
-      <div class="now-grid">
-        <div class="now-photos">
-          <img src="{{ '/assets/img/me/portrait.jpg' | relative_url }}" alt="Acho" width="760" height="1013" loading="lazy">
-          <img src="{{ '/assets/img/me/trail.jpg' | relative_url }}" alt="户外徒步" width="1200" height="1600" loading="lazy">
-        </div>
-        <div>
-          <p>
-            工作之外喜欢往山里走。爬坡没什么技巧，就是一步一步往上挪——跟调一个跑了三年没人敢动的老系统挺像。
-          </p>
-          <p>
-            目前在深圳，看后端 / 物联网平台 / 实时计算方向的机会；
-            想聊技术或者有合适的岗位，直接<a href="mailto:acho_0778@163.com">邮件</a>找我就行。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="about-block">
     <h2>联系</h2>
     <div class="body">
@@ -124,6 +105,9 @@ description: Acho — Java 后端工程师，专注车联网数据平台、实�
       <p style="margin-top:1rem">
         如果你在这些平台上看到 Acho 这个 ID，大概率就是我。
         对文中的内容有疑问、发现错误，或者想聊车联网与 AI 工程化，都欢迎直接联系。
+      </p>
+      <p class="about-hiring">
+        目前正在看新的机会，如果有老板感兴趣，麻烦联系我。
       </p>
     </div>
   </section>

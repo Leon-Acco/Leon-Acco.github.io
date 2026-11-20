@@ -414,17 +414,20 @@ img { max-width: 100%; height: auto; }
 .stack-list { display: flex; flex-wrap: wrap; gap: .45rem; }
 .stack-list span { font-size: .82rem; color: var(--ink-2); border: 1px solid var(--rule); border-radius: 3px; padding: .1rem .5rem; background: var(--surface); }
 
-/* 近况：两张小图 + 一段话 */
-.now-grid { display: grid; grid-template-columns: 11.5rem minmax(0, 1fr); gap: 2.4rem; align-items: start; }
-.now-photos { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
-.now-photos img {
-  display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 18%;
+/* 关于页：引言右侧小证件照 + 结尾一句求职意向 */
+.about-intro { padding: 2.6rem 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 7.6rem; gap: 2.6rem; align-items: start; }
+.about-intro .about-lead { margin-bottom: 0; grid-column: 1; grid-row: 1; }
+.about-face { grid-column: 2; grid-row: 1; }
+.about-face {
+  display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 16%;
   border: 1px solid var(--rule); border-radius: .22rem; background: var(--paper-2);
 }
-.now-photos img + img { object-position: 50% 50%; }
-.now-grid p { margin: 0 0 .8rem; }
-.now-grid p:last-child { margin-bottom: 0; }
-html[data-theme="dark"] .now-photos img { filter: brightness(.9) saturate(.95) contrast(1.02); }
+html[data-theme="dark"] .about-face { filter: brightness(.9) saturate(.95) contrast(1.02); }
+.about-hiring {
+  margin-top: 1.4rem !important; padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink); font-family: var(--serif); font-size: 1.02rem;
+}
 
 /* ---------- footer ---------- */
 .site-footer { border-top: 1px solid var(--rule); margin-top: 4rem; padding: 2.4rem 0 3.4rem; color: var(--ink-3); font-size: .82rem; }
@@ -479,8 +482,10 @@ html[data-theme="dark"] .highlight .c, html[data-theme="dark"] .highlight .c1, h
   .post-row { grid-template-columns: 4.6rem minmax(0, 1fr); gap: .5rem .9rem; }
   .post-row .cat { display: none; }
   .about-block { grid-template-columns: minmax(0, 1fr); gap: .7rem; }
-  .now-grid { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
-  .now-photos { grid-template-columns: repeat(2, 5.6rem); }
+  /* 移动端：照片右浮动，正文绕排，避免整列被挤窄 */
+  .about-intro { display: block; }
+  .about-face { float: right; width: 5.4rem; margin: 0 0 .7rem 1rem; grid-column: auto; grid-row: auto; }
+  .about-intro::after { content: ""; display: table; clear: both; }
   .about-block h2 { margin: 0; }
   .archive-list li { grid-template-columns: 3rem minmax(0, 1fr); }
   .archive-list .badge { display: none; }
